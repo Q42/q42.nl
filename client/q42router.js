@@ -1,6 +1,11 @@
 var Q42Router = Backbone.Router.extend({
   routes: {
     "": "main",
+    "blog": "blog",
+    "blog/page/:page": "blog",
+    "blog/tagged/:tag": "blogtagged",
+    "blog/tagged/:tag/page/:page": "blogtagged",
+    "blog/post/:id/:slug": "blogpost",
     ":page": "main"
   },
   main: function (page) {
@@ -20,6 +25,22 @@ var Q42Router = Backbone.Router.extend({
       if (document.title != "Q42")
         document.title += " - Q42";
     }
+  },
+  blog: function (page, tag)
+  {
+    Session.set("blogpage", 1*page || 0);
+    Session.set("blogtag", tag || "");
+    Session.set("blogpostid", -1);
+    this.main("blog");
+  },
+  blogpost: function (id)
+  {
+    Session.set("blogpostid", 1*id);
+    this.main("blogpost");
+  },
+  blogtagged: function (tag, page)
+  {
+    this.blog(page, tag.replace(/[\-\+]/g, ' '));
   },
   loadPage: function (page) {
     this.navigate(page, {trigger: true});

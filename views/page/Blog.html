@@ -1,0 +1,150 @@
+<template name="blog">
+  <section class="blog">
+    <header class="block-text"><h1>We<b>blog</b></h1></header>
+    {{#each postGroup}}
+      <section class="block-large index-page">
+        {{#each this}}
+          <article class="block-small">
+            {{#if player}}
+              <figure>
+                <figcaption class="body">
+                  <h2><a href="/blog/post/{{id}}/{{slug}}">Filmpje</a></h2>
+                  <h3><abbr>{{prettyDate}}</abbr></h3>
+                  {{#each player}}
+                    {{#ifWidthEquals 250}}
+                      {{{embed_code}}}
+                    {{/ifWidthEquals}}
+                  {{/each}}
+                  {{{caption}}}
+                </figcaption>
+              </figure>
+            {{/if}}
+            {{#if photos}}
+              <figure>
+                <figcaption class="body">
+                  <h2><a href="/blog/post/{{id}}/{{slug}}">Foto's</a></h2>
+                  {{{caption}}}
+                </figcaption>
+              </figure>
+            {{/if}}
+            {{#if text}}
+              <figure>
+                <figcaption class="body">
+                  <h2>"{{{text}}}"</h2>
+                  {{#if source}}
+                  <p>—{{{source}}}</p>
+                  {{/if}}
+                </figcaption>
+              </figure>
+            {{/if}}
+            {{#if description}}
+              <figure>
+                <figcaption class="body">
+                  <h2><a href="{{url}}">{{title}}</a></h2>
+                  <h3><abbr>{{prettyDate}}</abbr></h3>
+                  {{{description}}}
+                </figcaption>
+              </figure>
+            {{/if}}
+            {{#if intro}}
+              <figure>
+                <figcaption class="body">
+                  <h2><a href="/blog/post/{{id}}/{{slug}}">{{title}}</a></h2>
+                  <h3><abbr>{{prettyDate}}</abbr></h3>
+                  {{{intro}}}
+                </figcaption>
+                <a href="/blog/post/{{id}}/{{slug}}" class="big_ass_button">Lees verder</a>
+              </figure>
+            {{/if}}
+          </article>
+          {{{debug this}}}
+        {{/each}}
+      </section>
+    {{/each}}
+    <nav id="pageNav">
+      <ul class="clearfix">
+        {{#each pagination}}
+          <li>
+            <a href="/blog{{#if tag}}/tagged/{{tag}}{{/if}}/page/{{page}}"
+              {{#if active}} class="active"{{/if}}>{{label}}</a>
+          </li>
+        {{/each}}
+      </ul>
+    </nav>
+  </section>
+</template>
+
+<template name="blogpost">
+  {{#with post}}
+    <section class="blog">
+      <article>
+        <article class="block-large">
+          <div class="bigText">
+            {{#if player}}
+              <h1><b>Filmpje</b></h1>
+              {{#each player}}
+                {{#ifWidthEquals 500}}
+                  {{{embed_code}}}
+                {{/ifWidthEquals}}
+              {{/each}}
+              {{{caption}}}
+            {{/if}}
+            {{#if photos}}
+              <h1><b>Foto's</b></h1>
+              {{{caption}}}
+              {{#each photos}}
+                <p><figure>
+                {{#each alt_sizes}}
+                  {{#ifWidthEquals 500}}
+                    <img src="{{url}}">
+                  {{/ifWidthEquals}}
+                {{/each}}
+                  <figcaption>
+                    {{{caption}}}
+                  </figcaption>
+                </figure></p>
+              {{/each}}
+            {{/if}}
+            {{#if description}}
+              <h1><b><a href="{{url}}">{{title}}</a></b></h1>
+              {{{description}}}
+            {{/if}}
+            {{#if body}}
+              <h1><b>{{title}}</b></h1>
+              {{{body}}}
+            {{/if}}
+          </div>
+          <div class="block-small subcontent">
+            <p>Geschreven op <abbr>{{prettyDate}}</abbr></p>
+            {{#if tags}}
+              <h2>Tags</h2>
+              <ul class="tags">
+                {{#each tags}}
+                  <li>
+                    <a href="/blog/tagged/{{this}}">{{this}}</a>
+                  </li>
+                {{/each}}
+              </ul>
+            {{/if}}
+          </div>
+        </article>
+
+        <div class="socialShare" style="margin: 10px 0 40px; height: 50px;">
+          <div class="twitterShare" style="float: left;">
+            <a href="https://twitter.com/share" class="twitter-share-button" data-via="q42">Tweet</a>
+          </div>
+    
+          <div class="facebookShare" style="float: left;">
+            <div class="fb-like" data-send="false" data-width="80" data-show-faces="false"></div>
+          </div>
+        </div>
+
+      </article>
+      
+      <div id="disqus_thread" style="margin-top: 1em"></div>
+      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      
+    </section>
+  {{/with}}
+  {{{debug post}}}
+</template>

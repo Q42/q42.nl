@@ -78,6 +78,16 @@ function reattachBehavior() {
 
   resizeFBwidget();
 
+  // Disqus widget
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://q42.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+  // Twitter
+  twttr.widgets.load();
+  
   // fade in new page
   Meteor.defer(function() {
     $($("section")[0]).addClass("show");

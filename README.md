@@ -15,7 +15,7 @@ The hard bit since the repo is around ~100MB
 
 ### Install meteor
 
-	https://install.meteor.com | /bin/sh
+	curl https://install.meteor.com | /bin/sh
 	
 ### But I have Windows
 

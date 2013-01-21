@@ -8,7 +8,8 @@ Meteor.methods({
     Meteor.http.get("http://api.tumblr.com/v2/blog/blog.q42.nl/posts", {
       params: { api_key: TUMBLR_KEY, limit: 5 }
     }, function(error, result) {
-      if (result.statusCode == 200 && result.data)
+      var count = result.data && result.data.response.posts.length;
+      if (result.statusCode == 200 && count)
         for (var i = 0; i < count; i++)
           upsertPost(result.data.response.posts[i]);
     });

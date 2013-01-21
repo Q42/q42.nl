@@ -2,9 +2,9 @@ function initQers() {
   var moveQers = ["sjoerd", "frank", "remco", "jeroen", "katja", "rahul", "martijn", "benjamin",
                   "lukas", "janwillem", "herman", "paul", "jaap", "wilbert", "timd", "bob",
                   "johan", "suzanne", "bas", "cynthia", "michiel", "timl", "kamil", "jasper",
-                  "ivo", "cihan", "thijs", "tims", "sander", "kars", "stef", "arian", "mark",
+                  "ivo", "thijs", "tims", "sander", "kars", "stef", "arian", "mark",
                   "richard", "christiaan", "elaine", "roelfjan", "martijnl", "tom", "korjan",
-                  "chris", "sanjay", "leonard"];
+                  "chris", "leonard"];
 
   $.each(moveQers, function (index, value) { makeQerMove(value) });
   setDifferentRotationsForQers();

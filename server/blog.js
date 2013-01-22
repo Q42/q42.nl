@@ -1,17 +1,26 @@
 const TUMBLR_KEY = "9MFWwaN0dXvqXEfp8fXNFCW8b0DWczrTb7GadGwiFO4Du2WUIg";
-const BLOGPOSTS_PER_PAGE = 12
+const BLOGPOSTS_PER_PAGE = 12;
+var lastTumblrCheck;
 
 Meteor.methods({
   checkTumblr: function()
   {
+    // Only check once every minute
+    if (new Date() - lastTumblrCheck < 60*1000)
+      return;
+    
+    lastTumblrCheck = new Date();
     this.unblock();
     Meteor.http.get("http://api.tumblr.com/v2/blog/blog.q42.nl/posts", {
       params: { api_key: TUMBLR_KEY, limit: 5 }
     }, function(error, result) {
       var count = result.data && result.data.response.posts.length;
       if (result.statusCode == 200 && count)
+      {
+        console.log("Updating " + count + " from Tumblr.")
         for (var i = 0; i < count; i++)
           upsertPost(result.data.response.posts[i]);
+      }
     });
   },
   reimportTumblr: function(offset)
@@ -48,6 +57,8 @@ function upsertPost(post)
     var pos = post.body.indexOf("<!-- more -->");
     post.intro = pos > -1 ? post.body.substring(0, pos) : post.body;
   }
+  if (post.tags)
+    post.tags = post.tags.map(function(s) { return s.toLowerCase() });
   if (!Posts.findOne({ id: post.id }))
     Posts.insert(post);
   else

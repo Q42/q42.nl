@@ -7,7 +7,10 @@ Meteor.autosubscribe(function() {
 Template.blog.post = function() {
   var posts = Posts.find();
   if (posts.count() > 0)
+  {
     Session.set("blogloading", false);
+    Meteor.call("checkTumblr");
+  }
   return posts;
 }
 Template.blog.rendered = function() {
@@ -22,6 +25,9 @@ Template.blog.rendered = function() {
 Template.blog.pagination = function() {
   var item = PageCounts.findOne({ tag: Session.get("blogtag") || "" });
   var pages = item ? item.count : 1;
+  if (pages == 1)
+    return [];
+    
   var items = [];
   var page = Session.get("blogpage") || 1;
   if (page > 1)
@@ -47,7 +53,7 @@ Template.postDate.prettyDate = function() {
 }
 
 Template.otherPosts.post = function() {
-  return Posts.find({id: {$ne: Session.get('blogpostid')}}, {limit: 10}).fetch();
+  return Posts.find({id: {$ne: Session.get('blogpostid')}, title: {$exists: true}}, {limit: 12}).fetch();
 }
 
 Handlebars.registerHelper("ifWidthEquals", function(width, options) {

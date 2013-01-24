@@ -122,22 +122,27 @@
           {{> blogSidebar}}
         </article>
 
-        <div class="socialShare" style="margin: 10px 0 40px; height: 50px;">
-          <div class="twitterShare" style="float: left;">
-            <a href="https://twitter.com/share" class="twitter-share-button" data-via="q42">Tweet</a>
+        {{#unless isPhantom}}
+          <div class="socialShare" style="margin: 10px 0 40px; height: 50px;">
+            <div class="twitterShare" style="float: left;">
+              <a href="https://twitter.com/share" class="twitter-share-button"
+                data-url="http://q42.nl/blog/post/{{id}}/{{slug}}" data-via="q42">Tweet</a>
+            </div>
+  
+            <div class="facebookShare" style="float: left;">
+              <div class="fb-like" data-send="false" data-width="80" data-show-faces="false"></div>
+            </div>
           </div>
-
-          <div class="facebookShare" style="float: left;">
-            <div class="fb-like" data-send="false" data-width="80" data-show-faces="false"></div>
-          </div>
-        </div>
+        {{/unless}}
 
         {{> tags}}
 
       </article>
 
+      {{#unless isPhantom}}
       <div id="disqus_thread" style="margin-top: 1em"></div>
       <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      {{/unless}}
 
     </section>
   {{/with}}
@@ -176,7 +181,9 @@
     <h2><strong>Web</strong>log</h2>
     <p>Dit is het blog van Q42, waarin Q'ers schrijven over hun werk, passie en het leven bij Q42.</p>
     <p>Diezelfde Q'ers zijn ook actief op Twitter. We hebben een lijstje gemaakt, kijk maar: <a href="https://twitter.com/q42/q-ers">Q'ers op Twitter</a>. En je kunt ons natuurlijk ook volgen op <a href="http://twitter.com/q42">@q42</a>.</p>
-    <iframe class="btn" frameborder="0" border="0" scrolling="no" allowtransparency="true" height="25" width="128" src="http://platform.tumblr.com/v1/follow_button.html?button_type=1&tumblelog=q42nl&color_scheme=light"></iframe>
+    {{#unless isPhantom}}
+      <iframe class="btn" frameborder="0" border="0" scrolling="no" allowtransparency="true" height="25" width="128" src="http://platform.tumblr.com/v1/follow_button.html?button_type=1&tumblelog=q42nl&color_scheme=light"></iframe>
+    {{/unless}}
     <br/><br/>
     {{> otherPosts}}
   </div>

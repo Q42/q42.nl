@@ -6,6 +6,11 @@ Meteor.startup(function () {
   Backbone.history.start({pushState: true});
 });
 
+var isPhantom = /phantom/i.test(navigator.userAgent);
+Handlebars.registerHelper("isPhantom", function() {
+  return isPhantom;
+});
+
 Template.body.content = function() {
   var page = Session.get("page") || "home";
   var template = Template[page] || Template["error404"];
@@ -67,26 +72,29 @@ function reattachBehavior() {
   // scroll to top of page
   window.scrollTo(0,0);
 
-  // facebook widget
-  (function (d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/nl_NL/all.js#xfbml=1&appId=292443547438127";
-    fjs.parentNode.insertBefore(js, fjs);
-  } (document, 'script', 'facebook-jssdk'));
-
-  resizeFBwidget();
-
-  // Disqus widget
-  (function() {
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    dsq.src = 'http://q42.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
+  if (!isPhantom)
+  {
+    // facebook widget
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/nl_NL/all.js#xfbml=1&appId=292443547438127";
+      fjs.parentNode.insertBefore(js, fjs);
+    } (document, 'script', 'facebook-jssdk'));
   
-  // Twitter
-  twttr.widgets.load();
+    resizeFBwidget();
+  
+    // Disqus widget
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://q42.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    
+    // Twitter
+    twttr.widgets.load();
+  }
   
   // fade in new page
   Meteor.defer(function() {

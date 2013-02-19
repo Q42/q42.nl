@@ -15,6 +15,7 @@ Template.blog.post = function() {
 }
 Template.blog.rendered = function() {
   toggleLoadingState();
+  syntaxHighlight();
 }
 Template.blog.pagination = function() {
   var item = PageCounts.findOne({ tag: Session.get("blogtag") || "" });
@@ -41,7 +42,7 @@ Template.blog.tag = function() {
 Template.blogpost.post = function() {
   return Posts.findOne({ id: Session.get("blogpostid") });
 }
-Template.blogpost.rendered = function() {
+Template.blogpost.rendered = function() {  
   toggleLoadingState();
 
   (function (d, s, id) {
@@ -51,6 +52,9 @@ Template.blogpost.rendered = function() {
     js.src = "//connect.facebook.net/nl_NL/all.js#xfbml=1&appId=292443547438127";
     fjs.parentNode.insertBefore(js, fjs);
   } (document, 'script', 'facebook-jssdk'));
+  
+  syntaxHighlight();
+
 }
 
 Template.postDate.prettyDate = function() {
@@ -73,4 +77,21 @@ Handlebars.registerHelper("typeIs", function(type) {
 
 function toggleLoadingState() {
   $(".blog,.block-text,.subcontent,#pageNav").toggleClass("loading", Session.get("blogloading"));
+}
+
+function syntaxHighlight() {   
+  if (typeof disableStyleCode != 'undefined') { return; }
+
+  var a = false;
+
+  $('code').each(function() {
+    if (!$(this).parent().hasClass('prettyprint')) {
+      $(this).wrap('<pre class="prettyprint" />');
+      a = true;  
+    }
+    
+    
+  });
+
+  if (a) { prettyPrint(); } 
 }

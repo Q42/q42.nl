@@ -1,10 +1,44 @@
+<template name="employees">
+{{#each employee}}
+<li>
+<span class="name">{{firstname}}</span>
+	<span class="contactData">
+		<a href="mailto:{{handle}}@q42.nl">{{email}}@q42.nl</a>
+    {{#if phone}}
+		<a href="tel:{{phone}}">{{phone}}</a>
+    {{/if}}
+	</span>
+	<img class="zw" data-src="/images/{{avatar_static}}" src="/images/{{avatar_static}}" width="108" alt="{{name}}" title="{{name}}">
+	<div class="polaroid">
+		<a class="insetshadow">
+			<img class="color" data-src="/images/{{avatar_animated}}" src="/images/{{avatar_static}}" width="220" alt="{{name}}" title="{{name}}">
+		</a>
+		<h3>{{name}}</h3>
+		<p class="contactData">
+			<span class="email">
+				<a href="mailto:{{handle}}@q42.nl">{{email}}@q42.nl</a>
+			</span>
+      {{#if phone}}
+			<span class="phonenumber">{{phone}}</span>
+      {{/if}}
+      {{#if web}}
+      <span class="website"><a href="{{web}}">website</a></span>
+      {{/if}}
+		</p>
+	</div>
+</li>
+ 
+{{/each}}
+</template>
+
+
 <template name="over-q42">
   <section>
     <section>
       <header class="block-text">
         <h1>Over <b>Q42</b></h1>
       </header>
-
+      
       <section>
         <article class="block-large">
           <div class="bigText introText">
@@ -21,7 +55,7 @@
           </div>
         </article>
       </section>
-
+      
       <section id="contact">
         <section class="block-large">
           <article class="block-small block-with-icons">
@@ -36,7 +70,7 @@
               </ul>
             </div >
           </article>
-
+          
           <article class="block-small block-with-icons">
             <address class="vcard body">
               <h2>Adres</h2>
@@ -62,7 +96,7 @@
                 <span class="hidden tel"><img src="/images/icon-phone.png" width="30" /><div>070-4452342</div></span>
             </address>
           </article>
-
+          
           <article class="block-small block-with-icons">
             <div class="body">
               <h2>Bereikbaarheid</h2>
@@ -86,212 +120,29 @@
               </ul>
             </div>
           </article>
-
+          
         </section>
       </section>
-
+      
       <section id="colleagues">
         <article class="block-full">
           <div class="body">
             <h2>Hallo, wij zijn de Q-ers</h2>
                 <h3>Aangenaam kennis te maken.</h3>
                 <ol>
-                  <li><span class="name">alexander</span><span class="contactData"><a href="mailto:alexander@q42.nl"><email>alexander@q42.nl</email></a>  <a href="tel:"><phone></phone></a></span><img class="zw" src="/images/anonymous.jpg" width="108" alt="Alexander Overvoorde" title="Alexander Overvoorde"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/anonymous.jpg" width="220" alt="Alexander Overvoorde" title="Alexander Overvoorde"></a><h3><name>Alexander Overvoorde</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:alexander@q42.nl"><email>alexander@q42.nl</email></a></span><span class="phonenumber"><phone></phone></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">arian</span><span class="contactData"><a href="mailto:arian@q42.nl"><email>arian@q42.nl</email></a>  <a href="tel:"><phone></phone></a></span><img class="zw" src="/images/arianzw.jpg" width="108" alt="Arian van Gend" title="Arian van Gend"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/arian-gr.jpg" width="220" alt="Arian van Gend" title="Arian van Gend"></a><h3><name>Arian van Gend</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:arian@q42.nl"><email>arian@q42.nl</email></a></span><span class="phonenumber"><phone></phone></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">bas</span><span class="contactData"><a href="mailto:bas@q42.nl"><email>bas@q42.nl</email></a>  <a href="tel:070-4452364"><phone>070-4452364</phone></a></span><img class="zw" src="/images/baszw.jpg" width="108" alt="Bas Warmerdam" title="Bas Warmerdam"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/bas-gr.jpg" width="220" alt="Bas Warmerdam" title="Bas Warmerdam"></a><h3><name>Bas Warmerdam</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:bas@q42.nl"><email>bas@q42.nl</email></a></span><span class="phonenumber"><phone>070-4452364</phone></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">benjamin</span><span class="contactData"><a href="mailto:benjamin@q42.nl"><email>benjamin@q42.nl</email></a>  <a href="tel:"><phone></phone></a></span><img class="zw" src="/images/benjaminzw.jpg" width="108" alt="Benjamin de Jager" title="Benjamin de Jager"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/benjamin-gr.jpg" width="220" alt="Benjamin de Jager" title="Benjamin de Jager"></a><h3><name>Benjamin de Jager</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:benjamin@q42.nl"><email>benjamin@q42.nl</email></a></span><span class="phonenumber"><phone></phone></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">bob</span><span class="contactData"><a href="mailto:bob@q42.nl"><email>bob@q42.nl</email></a>  <a href="tel:070-4452352"><phone>070-4452352</phone></a></span><img class="zw" src="/images/bobzw.jpg" width="108" alt="Bob van Oorschot" title="Bob van Oorschot"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/bob-gr.jpg" width="220" alt="Bob van Oorschot" title="Bob van Oorschot"></a><h3><name>Bob van Oorschot</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:bob@q42.nl"><email>bob@q42.nl</email></a></span><span class="phonenumber"><phone>070-4452352</phone></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">chris</span><span class="contactData"><a href="mailto:chris@q42.nl"><email>chris@q42.nl</email></a>  <a href="tel:070-4452353"><phone>070-4452353</phone></a></span><img class="zw" src="/images/chriszw.jpg" width="108" alt="Chris Waalberg" title="Chris Waalberg"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/chris-gr.jpg" width="220" alt="Chris Waalberg" title="Chris Waalberg"></a><h3><name>Chris Waalberg</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:chris@q42.nl"><email>chris@q42.nl</email></a></span><span class="phonenumber"><phone>070-4452353</phone></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">christiaan</span><span class="contactData"><a href="mailto:christiaan@q42.nl"><email>christiaan@q42.nl</email></a>  <a href="tel:"><phone></phone></a></span><img class="zw" src="/images/christiaanzw.jpg" width="108" alt="Christiaan Hees" title="Christiaan Hees"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/christiaan-gr.jpg" width="220" alt="Christiaan Hees" title="Christiaan Hees"></a><h3><name>Christiaan Hees</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:christiaan@q42.nl"><email>christiaan@q42.nl</email></a></span><span class="phonenumber"><phone></phone></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">coen</span><span class="contactData"><a href="mailto:coen@q42.nl"><email>coen@q42.nl</email></a>  <a href="tel:070-4452359"><phone>070-4452359</phone></a></span><img class="zw" src="/images/coenzw.jpg" width="108" alt="Coen Bijpost" title="Coen Bijpost"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/coen-gr.jpg" width="220" alt="Coen Bijpost" title="Coen Bijpost"></a><h3><name>Coen Bijpost</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:coen@q42.nl"><email>coen@q42.nl</email></a></span><span class="phonenumber"><phone>070-4452359</phone></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">cynthia</span><span class="contactData"><a href="mailto:cynthia@q42.nl"><email>cynthia@q42.nl</email></a>  <a href="tel:070-4452310"><phone>070-4452310</phone></a></span><img class="zw" src="/images/cynthiazw.jpg" width="108" alt="Cynthia Wijntje" title="Cynthia Wijntje"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/cynthia-gr.jpg" width="220" alt="Cynthia Wijntje" title="Cynthia Wijntje"></a><h3><name>Cynthia Wijntje</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:cynthia@q42.nl"><email>cynthia@q42.nl</email></a></span><span class="phonenumber"><phone>070-4452310</phone></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">elaine</span><span class="contactData"><a href="mailto:elaine@q42.nl"><email>elaine@q42.nl</email></a>  <a href="tel:"><phone></phone></a></span><img class="zw" src="/images/elainezw.jpg" width="108" alt="Elaine Oliver" title="Elaine Oliver"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/elaine-gr.jpg" width="220" alt="Elaine Oliver" title="Elaine Oliver"></a><h3><name>Elaine Oliver</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:elaine@q42.nl"><email>elaine@q42.nl</email></a></span><span class="phonenumber"><phone></phone></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">frank</span><span class="contactData"><a href="mailto:frank@q42.nl"><email>frank@q42.nl</email></a>  <a href="tel:070-4452368"><phone>070-4452368</phone></a></span><img class="zw" src="/images/frankzw.jpg" width="108" alt="Frank Raterink" title="Frank Raterink"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/frank-gr.jpg" width="220" alt="Frank Raterink" title="Frank Raterink"></a><h3><name>Frank Raterink</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:frank@q42.nl"><email>frank@q42.nl</email></a></span><span class="phonenumber"><phone>070-4452368</phone></span><span class="website"><a href="http://www.frankraterink.nl/">website</a></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">herman</span><span class="contactData"><a href="mailto:herman@q42.nl"><email>herman@q42.nl</email></a>  <a href="tel:"><phone></phone></a></span><img class="zw" src="/images/hermanzw.jpg" width="108" alt="Herman Banken" title="Herman Banken"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/herman-gr.jpg" width="220" alt="Herman Banken" title="Herman Banken"></a><h3><name>Herman Banken</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:herman@q42.nl"><email>herman@q42.nl</email></a></span><span class="phonenumber"><phone></phone></span><span class="website"><a href="http://hermanbanken.nl">website</a></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">ivo</span><span class="contactData"><a href="mailto:ivo@q42.nl"><email>ivo@q42.nl</email></a>  <a href="tel:"><phone></phone></a></span><img class="zw" src="/images/ivozw.jpg" width="108" alt="Ivo de Kler" title="Ivo de Kler"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/ivo-gr.jpg" width="220" alt="Ivo de Kler" title="Ivo de Kler"></a><h3><name>Ivo de Kler</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:ivo@q42.nl"><email>ivo@q42.nl</email></a></span><span class="phonenumber"><phone></phone></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">jaap</span><span class="contactData"><a href="mailto:jaap@q42.nl"><email>jaap@q42.nl</email></a>  <a href="tel:"><phone></phone></a></span><img class="zw" src="/images/jaapzw.jpg" width="108" alt="Jaap Taal" title="Jaap Taal"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/jaap-gr.jpg" width="220" alt="Jaap Taal" title="Jaap Taal"></a><h3><name>Jaap Taal</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:jaap@q42.nl"><email>jaap@q42.nl</email></a></span><span class="phonenumber"><phone></phone></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">jan-willem</span><span class="contactData"><a href="mailto:janwillem@q42.nl"><email>janwillem@q42.nl</email></a>  <a href="tel:"><phone></phone></a></span><img class="zw" src="/images/janwillemzw.jpg" width="108" alt="Jan Willem Maneschijn" title="Jan Willem Maneschijn"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/janwillem-gr.jpg" width="220" alt="Jan Willem Maneschijn" title="Jan Willem Maneschijn"></a><h3><name>Jan Willem Maneschijn</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:janwillen@q42.nl"><email>janwillem@q42.nl</email></a></span><span class="phonenumber"><phone></phone></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">jasper</span><span class="contactData"><a href="mailto:jasper@q42.nl"><email>jasper@q42.nl</email></a>  <a href="tel:"><phone></phone></a></span><img class="zw" src="/images/jasperzw.jpg" width="108" alt="Jasper Kaizer" title="Jasper Kaizer"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/jasper-gr.jpg" width="220" alt="Jasper Kaizer" title="Jasper Kaizer"></a><h3><name>Jasper Kaizer</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:jasper@q42.nl"><email>jasper@q42.nl</email></a></span><span class="phonenumber"><phone></phone></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">jelle</span><span class="contactData"><a href="mailto:jelle@q42.nl"><email>jelle@q42.nl</email></a>  <a href="tel:"><phone></phone></a></span><img class="zw" src="/images/jellezw.jpg" width="108" alt="Jelle Visser" title="Jelle Visser"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/jelle-gr.jpg" width="220" alt="Jelle Visser" title="Jelle Visser"></a><h3><name>Jelle Visser</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:jelle@q42.nl"><email>jelle@q42.nl</email></a></span><span class="phonenumber"><phone></phone></span><span class="website"><a href="http://www.jhelle.com">website</a></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">jeroen</span><span class="contactData"><a href="mailto:jeroen@q42.nl"><email>jeroen@q42.nl</email></a>  <a href="tel:070-4452367"><phone>070-4452367</phone></a></span><img class="zw" src="/images/jeroenzw.jpg" width="108" alt="Jeroen Gijsman" title="Jeroen Gijsman"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/jeroen-gr.jpg" width="220" alt="Jeroen Gijsman" title="Jeroen Gijsman"></a><h3><name>Jeroen Gijsman</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:jeroen@q42.nl"><email>jeroen@q42.nl</email></a></span><span class="phonenumber"><phone>070-4452367</phone></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">johan</span><span class="contactData"><a href="mailto:johan@q42.nl"><email>johan@q42.nl</email></a>  <a href="tel:070-4452379"><phone>070-4452379</phone></a></span><img class="zw" src="/images/johanzw.jpg" width="108" alt="Johan Huijkman" title="Johan Huijkman"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/johan-gr.jpg" width="220" alt="Johan Huijkman" title="Johan Huijkman"></a><h3><name>Johan Huijkman</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:johan@q42.nl"><email>johan@q42.nl</email></a></span><span class="phonenumber"><phone>070-4452379</phone></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">kamil</span><span class="contactData"><a href="mailto:kamil@q42.nl"><email>kamil@q42.nl</email></a>  <a href="tel:070-4452357"><phone>070-4452357</phone></a></span><img class="zw" src="/images/kamilzw.jpg" width="108" alt="Kamil Afsar" title="Kamil Afsar"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/kamil-gr.jpg" width="220" alt="Kamil Afsar" title="Kamil Afsar"></a><h3><name>Kamil Afsar</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:kamil@q42.nl"><email>kamil@q42.nl</email></a></span><span class="phonenumber"><phone>070-4452357</phone></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">kars</span><span class="contactData"><a href="mailto:kars@q42.nl"><email>kars@q42.nl</email></a>  <a href="tel:070-4452350"><phone>070-4452350</phone></a></span><img class="zw" src="/images/karszw.jpg" width="108" alt="Kars Veling" title="Kars Veling"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/kars-gr.jpg" width="220" alt="Kars Veling" title="Kars Veling"></a><h3><name>Kars Veling</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:kars@q42.nl"><email>kars@q42.nl</email></a></span><span class="phonenumber"><phone>070-4452350</phone></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">katja</span><span class="contactData"><a href="mailto:katja@q42.nl"><email>katja@q42.nl</email></a>  <a href="tel:"><phone></phone></a></span><img class="zw" src="/images/katjazw.jpg" width="108" alt="Katja Hollaar" title="Katja Hollaar"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/katja-gr.jpg" width="220" alt="Katja Hollaar" title="Katja Hollaar"></a><h3><name>Katja Hollaar</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:katja@q42.nl"><email>katja@q42.nl</email></a></span><span class="phonenumber"><phone></phone></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">korjan</span><span class="contactData"><a href="mailto:korjan@q42.nl"><email>korjan@q42.nl</email></a>  <a href="tel:"><phone></phone></a></span><img class="zw" src="/images/korjanzw.jpg" width="108" alt="Korjan van Wieringen" title="Korjan van Wieringen"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/korjan-gr.jpg" width="220" alt="Korjan van Wieringen" title="Korjan van Wieringen"></a><h3><name>Korjan van Wieringen</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:korjan@q42.nl"><email>korjan@q42.nl</email></a></span><span class="phonenumber"><phone></phone></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">leonard</span><span class="contactData"><a href="mailto:leonard@q42.nl"><email>leonard@q42.nl</email></a>  <a href="tel:"><phone></phone></a></span><img class="zw" src="/images/leonardzw.jpg" width="108" alt="Leonard Punt" title="Leonard Punt"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/leonard-gr.jpg" width="220" alt="Leonard Punt" title="Leonard Punt"></a><h3><name>Leonard Punt</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:leonard@q42.nl"><email>leonard@q42.nl</email></a></span><span class="phonenumber"><phone></phone></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">lukas</span><span class="contactData"><a href="mailto:lukas@q42.nl"><email>lukas@q42.nl</email></a>  <a href="tel:070-4452366"><phone>070-4452366</phone></a></span><img class="zw" src="/images/lukaszw.jpg" width="108" alt="Lukas van Driel" title="Lukas van Driel"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/lukas-gr.jpg" width="220" alt="Lukas van Driel" title="Lukas van Driel"></a><h3><name>Lukas van Driel</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:lukas@q42.nl"><email>lukas@q42.nl</email></a></span><span class="phonenumber"><phone>070-4452366</phone></span><span class="website"><a href="http://developer.3l.nl/">website</a></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">marcel</span><span class="contactData"><a href="mailto:marcel@q42.nl"><email>marcel@q42.nl</email></a>  <a href="tel:"><phone></phone></a></span><img class="zw" src="/images/marcelzw.jpg" width="108" alt="Marcel Duin" title="Marcel Duin"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/marcel-gr.jpg" width="220" alt="Marcel Duin" title="Marcel Duin"></a><h3><name>Marcel Duin</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:marcel@q42.nl"><email>marcel@q42.nl</email></a></span><span class="phonenumber"><phone></phone></span><span class="website"><a href="http://webglmarcel.q42.net">website</a></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">mark</span><span class="contactData"><a href="mailto:mark@q42.nl"><email>mark@q42.nl</email></a>  <a href="tel:070-4452347"><phone>070-4452347</phone></a></span><img class="zw" src="/images/markzw.jpg" width="108" alt="Mark van Straten" title="Mark van Straten"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/mark-gr.jpg" width="220" alt="Mark van Straten" title="Mark van Straten"></a><h3><name>Mark van Straten</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:mark@q42.nl"><email>mark@q42.nl</email></a></span><span class="phonenumber"><phone>070-4452347</phone></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">martijn</span><span class="contactData"><a href="mailto:martijnl@q42.nl"><email>martijnl@q42.nl</email></a>  <a href="tel:"><phone></phone></a></span><img class="zw" src="/images/martijnlzw.jpg" width="108" alt="Martijn Laarman" title="Martijn Laarman"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/martijnl-gr.jpg" width="220" alt="Martijn Laarman" title="Martijn Laarman"></a><h3><name>Martijn Laarman</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:martijnl@q42.nl"><email>martijnl@q42.nl</email></a></span><span class="phonenumber"><phone></phone></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">martijn</span><span class="contactData"><a href="mailto:martijn@q42.nl"><email>martijn@q42.nl</email></a>  <a href="tel:070-4452342"><phone>070-4452342</phone></a></span><img class="zw" src="/images/martijnzw.jpg" width="108" alt="Martijn van Steenbergen" title="Martijn van Steenbergen"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/martijn-gr.jpg" width="220" alt="Martijn van Steenbergen" title="Martijn van Steenbergen"></a><h3><name>Martijn van Steenbergen</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:martijn@q42.nl"><email>martijn@q42.nl</email></a></span><span class="phonenumber"><phone>070-4452342</phone></span><span class="website"><a href="http://martijn.van.steenbergen.nl">website</a></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">martin</span><span class="contactData"><a href="mailto:martin@q42.nl"><email>martin@q42.nl</email></a>  <a href="tel:070-4452362"><phone>070-4452362</phone></a></span><img class="zw" src="/images/martinzw.jpg" width="108" alt="Martin Kool" title="Martin Kool"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/martingif.gif" width="220" alt="Martin Kool" title="Martin Kool"></a><h3><name>Martin Kool</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:martin@q42.nl"><email>martin@q42.nl</email></a></span><span class="phonenumber"><phone>070-4452362</phone></span><span class="website"><a href="http://martinkool.com">website</a></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">michiel</span><span class="contactData"><a href="mailto:michiel@q42.nl"><email>michiel@q42.nl</email></a>  <a href="tel:"><phone></phone></a></span><img class="zw" src="/images/michielzw.jpg" width="108" alt="Michiel Post" title="Michiel Post"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/michiel-gr.jpg" width="220" alt="Michiel Post" title="Michiel Post"></a><h3><name>Michiel Post</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:michiel@q42.nl"><email>michiel@q42.nl</email></a></span><span class="phonenumber"><phone></phone></span><span class="website"><a href="http://michielpost.nl">website</a></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">paul</span><span class="contactData"><a href="mailto:paul@q42.nl"><email>paul@q42.nl</email></a>  <a href="tel:"><phone></phone></a></span><img class="zw" src="/images/paulzw.jpg" width="108" alt="Paul Visschers" title="Paul Visschers"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/paul-gr.jpg" width="220" alt="Paul Visschers" title="Paul Visschers"></a><h3><name>Paul Visschers</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:paul@q42.nl"><email>paul@q42.nl</email></a></span><span class="phonenumber"><phone></phone></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">rahul</span><span class="contactData"><a href="mailto:rahul@q42.nl"><email>rahul@q42.nl</email></a>  <a href="tel:070-4452362"><phone>070-4452362</phone></a></span><img class="zw" src="/images/rahulzw.jpg" width="108" alt="Rahul Choudhury" title="Rahul Choudhury"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/rahul-gr.jpg" width="220" alt="Rahul Choudhury" title="Rahul Choudhury"></a><h3><name>Rahul Choudhury</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:rahul@q42.nl"><email>rahul@q42.nl</email></a></span><span class="phonenumber"><phone>070-4452362</phone></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">remco</span><span class="contactData"><a href="mailto:remco@q42.nl"><email>remco@q42.nl</email></a>  <a href="tel:070-4452356"><phone>070-4452356</phone></a></span><img class="zw" src="/images/remcozw.jpg" width="108" alt="Remco Veldkamp" title="Remco Veldkamp"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/remco-gr.jpg" width="220" alt="Remco Veldkamp" title="Remco Veldkamp"></a><h3><name>Remco Veldkamp</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:remco@q42.nl"><email>remco@q42.nl</email></a></span><span class="phonenumber"><phone>070-4452356</phone></span><span class="website"><a href="http://realstuffforabstractpeople.com">website</a></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">richard</span><span class="contactData"><a href="mailto:richard@q42.nl"><email>richard@q42.nl</email></a>  <a href="tel:"><phone></phone></a></span><img class="zw" src="/images/richardzw.jpg" width="108" alt="Richard Lems" title="Richard Lems"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/richard-gr.jpg" width="220" alt="Richard Lems" title="Richard Lems"></a><h3><name>Richard Lems</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:richard@q42.nl"><email>richard@q42.nl</email></a></span><span class="phonenumber"><phone></phone></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">roelf-jan</span><span class="contactData"><a href="mailto:roelfjan@q42.nl"><email>roelfjan@q42.nl</email></a>  <a href="tel:"><phone></phone></a></span><img class="zw" src="/images/roelfjanzw.jpg" width="108" alt="Roelf-Jan de Vries" title="Roelf-Jan de Vries"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/roelfjan-gr.jpg" width="220" alt="Roelf-Jan de Vries" title="Roelf-Jan de Vries"></a><h3><name>Roelf-Jan de Vries</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:roelfjan@q42.nl"><email>roelfjan@q42.nl</email></a></span><span class="phonenumber"><phone></phone></span><span class="website"><a href="http://www.roelf-jandevries.nl">website</a></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">sander</span><span class="contactData"><a href="mailto:sander@q42.nl"><email>sander@q42.nl</email></a>  <a href="tel:070-4452354"><phone>070-4452354</phone></a></span><img class="zw" src="/images/sanderzw.jpg" width="108" alt="Sander de Vos" title="Sander de Vos"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/sander-gr.jpg" width="220" alt="Sander de Vos" title="Sander de Vos"></a><h3><name>Sander de Vos</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:sander@q42.nl"><email>sander@q42.nl</email></a></span><span class="phonenumber"><phone>070-4452354</phone></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">sjoerd</span><span class="contactData"><a href="mailto:sjoerd@q42.nl"><email>sjoerd@q42.nl</email></a>  <a href="tel:"><phone></phone></a></span><img class="zw" src="/images/sjoerdzw.jpg" width="108" alt="Sjoerd Visscher" title="Sjoerd Visscher"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/sjoerd-gr.jpg" width="220" alt="Sjoerd Visscher" title="Sjoerd Visscher"></a><h3><name>Sjoerd Visscher</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:sjoerd@q42.nl"><email>sjoerd@q42.nl</email></a></span><span class="phonenumber"><phone></phone></span><span class="website"><a href="http://w3future.com">website</a></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">stef</span><span class="contactData"><a href="mailto:stef@q42.nl"><email>stef@q42.nl</email></a>  <a href="tel:070-4452351"><phone>070-4452351</phone></a></span><img class="zw" src="/images/stefzw.jpg" width="108" alt="Stef Brooijmans" title="Stef Brooijmans"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/stef-gr.jpg" width="220" alt="Stef Brooijmans" title="Stef Brooijmans"></a><h3><name>Stef Brooijmans</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:stef@q42.nl"><email>stef@q42.nl</email></a></span><span class="phonenumber"><phone>070-4452351</phone></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">suzanne</span><span class="contactData"><a href="mailto:suzanne@q42.nl"><email>suzanne@q42.nl</email></a>  <a href="tel:"><phone></phone></a></span><img class="zw" src="/images/suzannezw.jpg" width="108" alt="Suzanne Waalberg" title="Suzanne Waalberg"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/suzanne-gr.jpg" width="220" alt="Suzanne Waalberg" title="Suzanne Waalberg"></a><h3><name>Suzanne Waalberg</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:suzanne@q42.nl"><email>suzanne@q42.nl</email></a></span><span class="phonenumber"><phone></phone></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">tim</span><span class="contactData"><a href="mailto:tim@q42.nl"><email>tim@q42.nl</email></a>  <a href="tel:070-4452360"><phone>070-4452360</phone></a></span><img class="zw" src="/images/timlzw.jpg" width="108" alt="Tim Logtenberg" title="Tim Logtenberg"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/timl-gr.jpg" width="220" alt="Tim Logtenberg" title="Tim Logtenberg"></a><h3><name>Tim Logtenberg</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:tim@q42.nl"><email>tim@q42.nl</email></a></span><span class="phonenumber"><phone>070-4452360</phone></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">tim</span><span class="contactData"><a href="mailto:Timd@q42.nl"><email>Timd@q42.nl</email></a>  <a href="tel:070-4452361"><phone>070-4452361</phone></a></span><img class="zw" src="/images/timdzw.jpg" width="108" alt="Tim van Deursen" title="Tim van Deursen"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/timd-gr.jpg" width="220" alt="Tim van Deursen" title="Tim van Deursen"></a><h3><name>Tim van Deursen</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:Timd@q42.nl"><email>Timd@q42.nl</email></a></span><span class="phonenumber"><phone>070-4452361</phone></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">tim</span><span class="contactData"><a href="mailto:tims@q42.nl"><email>tims@q42.nl</email></a>  <a href="tel:070-4452369"><phone>070-4452369</phone></a></span><img class="zw" src="/images/timszw.jpg" width="108" alt="Tim van Steenis" title="Tim van Steenis"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/tims-gr.jpg" width="220" alt="Tim van Steenis" title="Tim van Steenis"></a><h3><name>Tim van Steenis</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:tims@q42.nl"><email>tims@q42.nl</email></a></span><span class="phonenumber"><phone>070-4452369</phone></span><span class="website"><a href="http://www.vansteenis-photography.nl/">website</a></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">thijs</span><span class="contactData"><a href="mailto:thijs@q42.nl"><email>thijs@q42.nl</email></a>  <a href="tel:"><phone></phone></a></span><img class="zw" src="/images/thijszw.jpg" width="108" alt="Thijs van der Meulen" title="Thijs van der Meulen"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/thijs-gr.jpg" width="220" alt="Thijs van der Meulen" title="Thijs van der Meulen"></a><h3><name>Thijs van der Meulen</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:thijs@q42.nl"><email>thijs@q42.nl</email></a></span><span class="phonenumber"><phone></phone></span><span class="website"><a href="">website</a></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">tom</span><span class="contactData"><a href="mailto:tom@q42.nl"><email>tom@q42.nl</email></a>  <a href="tel:"><phone></phone></a></span><img class="zw" src="/images/tomzw.jpg" width="108" alt="Tom Lokhorst" title="Tom Lokhorst"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/tom-gr.jpg" width="220" alt="Tom Lokhorst" title="Tom Lokhorst"></a><h3><name>Tom Lokhorst</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:tom@q42.nl"><email>tom@q42.nl</email></a></span><span class="phonenumber"><phone></phone></span><span class="website"><a href="http://tom.lokhorst.eu">website</a></span></p>
-                    </div>
-                  </li>
-                  <li><span class="name">wilbert</span><span class="contactData"><a href="mailto:wilbert@q42.nl"><email>wilbert@q42.nl</email></a>  <a href="tel:"><phone></phone></a></span><img class="zw" src="/images/wilbertzw.jpg" width="108" alt="Wilbert Mekenkamp" title="Wilbert Mekenkamp"><div class="polaroid"><a class="insetshadow"><img class="color" src="/images/wilbert-gr.jpg" width="220" alt="Wilbert Mekenkamp" title="Wilbert Mekenkamp"></a><h3><name>Wilbert Mekenkamp</name></h3>
-                      <p class="contactData"><span class="email"><a href="mailto:wilbert@q42.nl"><email>wilbert@q42.nl</email></a></span><span class="phonenumber"><phone></phone></span></p>
-                    </div>
-                  </li>
+                 	{{> employees }}  
                 </ol>
           </div>
           <div class="clear"></div>
         </article>
       </section>
-
+      
       <section id="facts1">
         <section class="block-large">
           <article class="block-small">
             <div class="body">
               <p>Q42 is méér dan de som van</p>
-              <p class="counter" id="num-qers">0</p>
+              <p class="counter">48</p>
               <p>Q'ers.</p>
             </div>
           </article>
@@ -311,7 +162,7 @@
           </article>
         </section>
       </section>
-
+      
       <section id="theBeginning">
         <article class="block-large">
           <div class="bigText">
@@ -345,7 +196,7 @@
           </div>
         </article>
       </section>
-
+      
       <section>
         <section class="block-large">
           <article id="passietijdw00tcamp" class="block-small">

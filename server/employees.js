@@ -15,7 +15,7 @@ var _kickAssQ42Folk = [
  { name: "Herman Banken", handle:"herman", web: "http://hermanbanken.nl/"},
  { name: "Ivo de Kler", handle:"ivo"},
  { name: "Jaap Taal", handle:"jaap"},
- { name: "Jan Willem Maneschijn", handle:"janwillem"},
+ { name: "Jan-Willem Maneschijn", handle:"janwillem"},
  { name: "Jasper Kaizer", handle:"jasper"},
  { name: "Jelle Visser", handle:"jelle", web: "http://www.jhelle.com/", imageAnimated: "jelle-gr.jpg"},
  { name: "Jeroen Gijsman", handle:"jeroen", phone: "070-4452367"},

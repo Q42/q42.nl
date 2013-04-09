@@ -1,6 +1,8 @@
 const BLOGPOSTS_PER_PAGE = 12;
 var lastTumblrCheck;
 
+var Posts = new Meteor.Collection("Posts");
+
 Meteor.methods({
   checkTumblr: function()
   {
@@ -67,16 +69,34 @@ function upsertPost(post)
 Meteor.publish("blogpostIndex", function (page, tag) {
   page = page || 1;
   var filter = tag ? { tags: tag } : {};
+  var self = this;
   return Posts.find(filter, {
     limit: BLOGPOSTS_PER_PAGE,
     skip: (page - 1) * BLOGPOSTS_PER_PAGE,
     sort: { timestamp: -1 },
     fields: { body: false }
+  }).observeChanges({
+    added: function (id, fields) {
+      self.added("blogpostIndex", id, fields);
+    }
+  });
+  self.ready();
+  self.onStop(function () {
+    handle.stop();
   });
 });
 
 Meteor.publish("blogpostFull", function (id) {
-  return Posts.find({ id: id });
+  var self = this;
+  var handle = Posts.find({ id: id }).observeChanges({
+    added: function (id, fields) {
+      self.added("blogpostFull", id, fields);
+    }
+  });
+  self.ready();
+  self.onStop(function () {
+    handle.stop();
+  });
 });
 
 Meteor.publish("pagesByTag", function (tag) {

@@ -1,3 +1,6 @@
+var blogpostFull = new Meteor.Collection("blogpostFull");
+var blogpostIndex = new Meteor.Collection("blogpostIndex");
+
 Deps.autorun(function() {
   Meteor.subscribe("blogpostIndex", Session.get("blogpage"), Session.get("blogtag"));
   Meteor.subscribe("blogpostFull", Session.get("blogpostid"));
@@ -5,7 +8,7 @@ Deps.autorun(function() {
 });
 
 Template.en_blog.post = Template.blog.post = function() {
-  var posts = Posts.find({}, {sort: {date: -1}});
+  var posts = blogpostIndex.find({}, {sort: {date: -1}});
   if (posts.count() > 0)
   {
     Session.set("blogloading", false);
@@ -40,7 +43,7 @@ Template.en_blog.tag = Template.blog.tag = function() {
 }
 
 Template.en_blogpost.post = Template.blogpost.post = function() {
-  return Posts.findOne({ id: Session.get("blogpostid") });
+  return blogpostFull.findOne();
 }
 Template.en_blogpost.rendered = Template.blogpost.rendered = function() {
   toggleLoadingState();
@@ -62,7 +65,7 @@ Template.en_postDate.prettyDate = Template.postDate.prettyDate = function() {
 }
 
 Template.en_otherPosts.post = Template.otherPosts.post = function() {
-  return Posts.find({id: {$ne: Session.get('blogpostid')}, title: {$exists: true}}, {limit: 12}).fetch();
+  return blogpostIndex.find({id: {$ne: Session.get('blogpostid')}, title: {$exists: true}}, {limit: 12}).fetch();
 }
 
 Handlebars.registerHelper("ifWidthEquals", function(width, options) {

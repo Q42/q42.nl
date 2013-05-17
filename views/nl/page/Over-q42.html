@@ -99,8 +99,9 @@
       <section id="colleagues">
         <article class="block-full">
           <div class="body">
-            <h2>Hallo, wij zijn de Q-ers</h2>
-            <h3>Aangenaam kennis te maken.</h3>
+            <h2>Hallo, wij zijn de Q'ers</h2>
+            <h3>Aangenaam kennis te maken. </h3>
+            {{> filter_employees}}
             <ol>
              	{{> employees }}
             </ol>
@@ -314,5 +315,32 @@
     </p>
   </div>
 </li>
+{{else}}
+<li class="no-results">Er zijn geen Q'ers getagd met "{{filter}}" :(</li>
 {{/each}}
+{{#if desjaak}}
+  <li class="no-results">
+    {{desjaakName}} is momenteel De Sjaak. Gefeliciteerd {{desjaakName}}!
+    <br><br>
+    <a class="button" href="mailto:{{desjaakHandle}}@q42.nl?subject=Je+bent+de+sjaak!+Gefeliciteerd.">Feliciteer ook {{desjaakName}} met deze eer!</a>
+  </li>
+{{/if}}
+</template>
+
+<template name="filter_employees">
+  <span id="filter-colleagues">
+    {{#isolate}}
+    <select data-role="filter-qers">
+      {{#each list}}
+        <optgroup label="{{name}}">
+          {{#each items}}
+          <option value="{{.}}">{{.}}</option>
+          {{/each}}
+        </optgroup>
+        {{else}}
+        <option>No items :(</option>
+      {{/each}}
+    </select>
+    {{/isolate}}
+  </span>
 </template>

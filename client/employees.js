@@ -1,9 +1,30 @@
+Meteor.startup(function() {
+	Session.setDefault("employees_filter", "Q'er");
+});
 Deps.autorun(function() {
 	Meteor.subscribe("employees");
 });
 Template.en_employees.employee = Template.employees.employee = function () {
-	return Employees.find({}, {sort: {name: 1}});
+	var filter = Session.get("employees_filter");
+	if (filter != "" && filter != "Q'er")
+		return Employees.find({labels: {$in: [filter]}}, {sort: {name: 1}});
+	else
+		return Employees.find({}, {sort: {name: 1}});
 }
+Template.employees.filter = function() {
+	return Session.get("employees_filter");
+}
+
+Template.employees.desjaak = function() {
+	return Session.equals("employees_filter", "De sjaak");
+}
+Template.employees.desjaakName = function() {
+	return Employees.findOne({labels: {$in: ["De sjaak"]}}).name.split(" ")[0];
+}
+Template.employees.desjaakHandle = function() {
+	return Employees.findOne({labels: {$in: ["De sjaak"]}}).handle;
+}
+
 Handlebars.registerHelper('avatar_static', function() {
 	return this.imageStatic || this.handle + "zw.jpg";
 });
@@ -144,4 +165,37 @@ var EmployeeGallery = (function () {
 
 	$(init);
 })();
+
+Template.filter_employees.list = function() {
+	var filters = [
+		 {name: "Projecten", items: ["Rijksmuseum", "9292", "Staatsloterij", "Schooltas", "Philips Hue", "TADC", "MENDO", "Iamsterdam",
+		 	"Pepper", "D-reizen", "Greetz", "Malmberg"]}
+		,{name: "Producten", items: ["Handcraft"]}
+		,{name: "Games",     items: ["Cat Quest", "Quento", "Carrrrds", "Spaceventure"]}
+		,{name: "School",    items: ["Universiteit Utrecht", "De Haagse Hogeschool", "Hogeschool Rotterdam", "TU Delft",
+																 "Enschede", "Hogeschool van Amsterdam"]}
+		,{name: "Rol",       items: ["Projectleider", "Software Engineer", "Interaction Engineer", "Q'er", "De sjaak", "Oprichter", "Student"]}
+		,{name: "Misc",      items: ["Speelt nog World of Warcraft", "Weet wat Spiffy is", "1/42e",
+			"Team Wintersport", "w00tcamp winnaar", "Heeft een baard", "Stokoud", "Tatoeage", "Voortgeplant",
+			"Rijdt soms op een motor", "Wordt binnenkort aangenomen door Microsoft", "Blauwe ogen", "Vroeger stewardess geweest",
+			"Heeft bij Fabrique gewerkt", "Meer dan 42 maanden in dienst", "Verdient minder dan Jasper", "Google IO alumni",
+			"WWDC kaartje kwijtgeraakt", "Heeft Max Raabe live gezien", "Schoenmaat 42", "IQ boven de 200", "Blessure tijdens werktijd",
+			"Ex-stagiair", "Ex-klant", "Ex-concullega", "Ex-ex-q'er"]}
+	]
+	return filters;
+}
+
+Template.filter_employees.rendered = function() {
+	$("#filter-colleagues select").val(Session.get("employees_filter"));
+}
+
+Template.filter_employees.events({
+	"change [data-role='filter-qers']": function(evt) {
+		var val = $(evt.target).val();
+		Session.set("employees_filter", val);
+	}
+});
+
+
+
 

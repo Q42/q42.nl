@@ -14,6 +14,7 @@ var _kickAssQ42Folk = [
  { name: "Gerard Dorst", handle:"gerard"},
  { name: "Guus Goossens", handle:"guus"},
  { name: "Herman Banken", handle:"herman", web: "http://hermanbanken.nl/"},
+ { name: "Huib Piguillet", handle:"huib", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg"},
  { name: "Jaap Taal", handle:"jaap"},
  { name: "Jan-Willem Maneschijn", handle:"janwillem"},
  { name: "Jasper Haggenburg", handle:"jasperh", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg", web: "http://jpunt.nl"},
@@ -116,7 +117,7 @@ addLabel("Weet wat Spiffy is",            []); // LOL!
 //addLabel("1/42e",                         ["kars", "stef", "chris", "martin", "lukas", ""]);
 //addLabel("Team Wintersport",              []);
 //addLabel("w00tcamp winnaar",              []);
-addLabel("Heeft een baard",               ["rahul", "richard", "martijn", "arian", "coen", "christiaan", "kamil"])
+addLabel("Heeft een baard",               ["rahul", "richard", "martijn", "arian", "coen", "christiaan", "kamil", "huib"])
 addLabel("Stokoud",                       ["stef", "johan"]);
 addLabel("Tatoeage",                      ["chris", "jeroen", "jasperh", "elaine"]);
 addLabel("Voortgeplant",                  ["martin", "chris", "mark", "kars", "bas", "coen", "cynthia",
@@ -131,7 +132,7 @@ addLabel("Heeft bij Fabrique gewerkt",    ["sander"]);
 addLabel("Google IO alumni",              ["kars", "rahul", "martin", "jaap", "mark", "kamil", "christiaan", "chris", "arian"]);
 addLabel("WWDC kaartje kwijtgeraakt",     ["tims"]);
 //addLabel("Heeft Max Raabe live gezien",   []);
-addLabel("Schoenmaat 42",                 ["rahul", "chris"]);
+addLabel("Schoenmaat 42",                 ["rahul", "chris", "huib"]);
 addLabel("IQ boven de 200",               ["sjoerd"]);
 addLabel("Blessure tijdens werktijd",     ["rahul", "matthijs"]);
 

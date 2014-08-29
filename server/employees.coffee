@@ -10,6 +10,7 @@ currentQers = [
   { name: "Alexander Overvoorde", handle:"alexander", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
   { name: "Arian van Gend", handle:"arian" }
   { name: "Arjen van der Ende", handle: "arjen" }
+  { name: "Bart Kiers", handle: "bart", imageAnimated: "anonymous.jpg" }
   { name: "Bas Warmerdam", handle:"bas", phone: "070-4452364" }
   { name: "Benjamin de Jager", handle:"benjamin" }
   { name: "Bob van Oorschot", handle:"bob", phone: "070-4452352" }

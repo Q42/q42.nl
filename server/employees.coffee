@@ -10,6 +10,7 @@ currentQers = [
   { name: "Alexander Overvoorde", handle:"alexander", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" }
   { name: "Arian van Gend", handle:"arian" }
   { name: "Arjen van der Ende", handle: "arjen" }
+  { name: "Bart Kiers", handle: "bart", imageAnimated: "anonymous.jpg" }
   { name: "Bas Warmerdam", handle:"bas", phone: "070-4452364" }
   { name: "Benjamin de Jager", handle:"benjamin" }
   { name: "Bob van Oorschot", handle:"bob", phone: "070-4452352" }
@@ -25,6 +26,7 @@ currentQers = [
   { name: "Guido Bouman", handle:"guido" }
   { name: "Guus Goossens", handle:"guus" }
   { name: "Herman Banken", handle:"herman", web: "http://hermanbanken.nl/" }
+  { name: "Hidde Statema", handle: "hidde", imageAnimated: "anonymous.jpg" }
   { name: "Jaap Taal", handle:"jaap" }
   { name: "Jaap Mengers", handle: "jaapm" }
   { name: "Jasper Haggenburg", handle:"jasperh", web: "http://jpunt.nl" }
@@ -48,7 +50,6 @@ currentQers = [
   { name: "Rahul Choudhury", handle:"rahul", phone: "070-4452362" }
   { name: "Remco Veldkamp", handle:"remco", phone: "070-4452356", web: "http://realstuffforabstractpeople.com/" }
   { name: "Richard Lems", handle:"richard" }
-  { name: "Roan Hageman", handle:"roan" }
   { name: "Rob Lokhorst", handle:"rob" }
   { name: "Roelf-Jan de Vries", handle:"roelfjan", web: "http://www.roelf-jandevries.nl" }
   { name: "Sander de Vos", handle:"sander", phone: "070-4452354" }
@@ -131,7 +132,7 @@ addLabel "Stokoud",                       "stef johan"
 addLabel "Broers",                        "benjamin chrisj tom rob"
 addLabel "Tatoeage",                      "chris jeroen jasperh elaine marcel tomas"
 addLabel "Voortgeplant",                  "martin chris mark kars bas coen cynthia gerard jasper johan korjan michiel remco sander stef suzanne timd"
-addLabel "Rijdt soms op een motor",       "stef jeroen arian tom lukas bob jasperh"
+addLabel "Rijdt soms op een motor",       "stef jeroen arian tom lukas bob jasperh chris"
 addLabel "Gaat binnenkort naar Microsoft", "michiel"
 addLabel "Vroeger stewardess geweest",    "cynthia"
 addLabel "Heeft bij Fabrique gewerkt",    "sander"
@@ -141,7 +142,7 @@ addLabel "WWDC kaartje kwijtgeraakt",     "tims"
 addLabel "Heeft Max Raabe live gezien",   "kars martin laurens bob lukas"
 addLabel "Schoenmaat 42",                 "rahul chris arian guus christiaan mark"
 addLabel "IQ boven de 200",               "sjoerd"
-addLabel "Blessure tijdens werktijd",     "rahul"
+addLabel "Blessure tijdens werktijd",     "rahul guus"
 addLabel "Nerf gun owner",                "mark chris arian jeroen frank guus kars benjamin"
 addLabel "Kan stiekem best goed programmeren",     "chris"
 addLabel "Namespace collision",           "chris chrisj jaap jaapm jasper jasperh mark markj timl tims timd"

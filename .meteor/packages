@@ -20,8 +20,6 @@ spacebars
 templating
 jquery
 ejson
-crypto-base
-crypto-md5
 random
 check
 spiderable

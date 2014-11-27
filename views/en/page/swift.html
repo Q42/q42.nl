@@ -1,0 +1,96 @@
+<template name="en_swift">
+	<div class="container">
+
+    <header class="block-text">
+      <h1>Swift at Q42</h1>
+    </header>
+
+    <section class="block-large">
+      <div class="intro">
+        <a class="visual caption">
+          <img data-src="http://static.q42.nl/images/welcome_swift.png" alt="">
+          <p>:help - I need an adult!</p>
+        </a>
+        <p>
+          A considerable portion of the Q-ers is in one way or another involved with iOS development. Another not necessarily overlapping but similar sized portion of the Q-ers is passionate about Functional Programming. So it's fair to say that we've been pretty excited ever since Swift was introduced at WWDC this year. 
+        </p>
+        <p>
+          We've been playing around with Swift a lot, which let to a bunch of interesting and not-so-interesting libraries, code snippets and thoughts. The (hopefully) interesting part is at your disposal here. Fork the code, play around with it and share your thoughts!
+        </p>
+
+      </div>
+      <aside class="block-small subcontent">
+        <h2>Blog posts about Swift</h2>
+        <ul>
+          {{#each post}}{{#if title}}
+          <li><a href="/blog/post/{{id}}/{{slug}}">{{title}}</a></li>
+          {{/if}}{{/each}}
+        </ul>
+      </aside>
+    </section>
+
+    <section class="block-large">
+      <div class="block-small">
+        <div class="visual caption">
+          <img data-src="http://static.q42.nl/images/swift-json-gen.png" alt="">
+          <p>Node.js + Json + Swift = buzzword bingo</p>
+        </div>
+        <div class="body">
+          <h2>Swift JsonGen</h2>
+          <p>Use a Node.js to generate Json decoders based on Swift structs. You follow?</p>
+          <p><a href="https://github.com/tomlokhorst/swift-json-gen" class="external">Code on Github</a></p>
+        </div>
+      </div>
+
+      <div class="block-small">
+        <div class="visual caption">
+          <img data-src="http://static.q42.nl/images/CoreDataKit.png" alt="CoreDataKit">
+          <p>CoreDataKit</p>
+        </div>
+        <div class="body">
+          <h2>CoreDataKit</h2>
+          <p>CoreDataKit takes care of the hard and verbose parts of CoreData. It manages child contexts for you and helps to easily fetch, create and delete objects.</p>
+          <a href="https://github.com/mac-cain13/CoreDataKit" class="external">Code on Github</a>
+        </div>
+      </div>
+
+      <div class="block-small">
+        <div class="visual caption">
+          <img data-src="http://static.q42.nl/images/segue-manager.png" alt="">
+          <p>SegueManager</p>
+        </div>
+        <div class="body">
+          <h2>SegueManager</h2>
+          <p>SegueManager makes it easier to perform segues with closures. No longer split your code into two parts when performing the segue and inside of prepareForSegue.</p>
+          <a href="https://gist.github.com/tomlokhorst/6ed40e0e00cd2989a282" class="external">Code on Github</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="block-large">
+      <div class="block-small">
+        <div class="visual caption">
+          <img data-src="http://static.q42.nl/images/cancellationToken.png" alt="Swift CancellationToken">
+          <p>Swift CancellationToken</p>
+        </div>
+        <div class="body">
+          <h2>CancellationToken</h2>
+          <p>A "cancellation token" is a little object that can be passed around to one or more asychronous tasks. This token can be used to indicate a user is no longer interested in the result of an asynchronous task. The Swift CancellationToken is modelled after its <a href="http://msdn.microsoft.com/en-us/library/dd997364(v=vs.110).aspx" class="external">.NET counterpart</a>. </p>
+          <a href="https://github.com/tomlokhorst/swift-cancellationtoken" class="external">Code on Github</a>
+        </div>
+      </div>
+
+      <div class="block-small">
+        <div class="visual caption">
+          <img data-src="http://static.q42.nl/images/optional-unwrap.png" alt="">
+          <p>Optional+Unwrap.swift</p>
+        </div>
+        <div class="body">
+          <h2>Optional+Unwrap.swift</h2>
+          <p>Unwrap multiple optionals at once:<br/> > if let (firstName, lastName) = unwrap(optionalFirstName, optionalLastName)</p>
+          <a href="https://gist.github.com/tomlokhorst/f9a826bf24d16cb5f6a3" class="external">Code on Github</a>
+        </div>
+      </div>
+    </section>
+   </div>
+</template>

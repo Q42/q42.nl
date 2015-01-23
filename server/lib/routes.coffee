@@ -50,3 +50,13 @@ Router.route "removeWWW",
     if host.indexOf("www") is 0
       @response.writeHead HTTP_REDIRECT_PERMANENT, Location: fullUrl.replace("www.", "")
       @response.end()
+
+Router.map ->
+  @route "testRoute",
+    where: "server"
+  , ->
+    @response.setHeader "access-control-allow-origin", "*"
+    @response.end()
+    return
+
+  return

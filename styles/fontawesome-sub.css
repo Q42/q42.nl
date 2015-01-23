@@ -18,6 +18,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.fa-pencil:before { content: '\e800'; }
 .fa-envelope-square:before { content: '\e800'; } /* '' */
 .fa-road:before { content: '\e801'; } /* '' */
 .fa-bolt:before { content: '\e802'; } /* '' */

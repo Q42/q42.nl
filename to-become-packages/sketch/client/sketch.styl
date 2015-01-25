@@ -7,3 +7,23 @@
   z-index 100
   background transparent
   display none /* sketchpad is off by default of course */
+
+#sketch-explanation
+  position absolute;
+  top 10rem
+  right 5em
+  font-size 12px
+  color white
+  text-shadow: 0 1px rgba(0,0,0,.3);
+  text-align right
+  width 200px
+  padding 5px 15px
+  background: rgba(0,0,0,.4);
+  border-radius 15px
+  transition linear .2s
+  pointer-events none
+  opacity 0
+
+ #sketch-button:hover + #sketch-explanation
+  opacity 1
+  background: rgba(0,0,0,.75);

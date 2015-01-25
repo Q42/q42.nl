@@ -51,19 +51,14 @@ initSketch = ->
   return
 
 toggleSketchPad = ->
-  console.log "toggle sketchpad event"
   $('#sketchpad').toggle()
   $('#sketch-button').toggleClass('active')
-
-sketchButtonEvents = ->
-  console.log "click bait" 
-  "click #sketch-button": -> toggleSketchPad
-
 
 Meteor.startup ->
   Session.setDefault("sketchLoaded", no)
 
 Template.sketchCanvas.rendered = initSketch
 
-#set click events on the sketch button
-Template.sketchButton.events click: toggleSketchPad
+#set events on the sketch button
+Template.sketchButton.events
+  click: toggleSketchPad

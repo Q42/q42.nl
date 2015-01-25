@@ -25,11 +25,7 @@ clearArea = ->
   return
 
 initSketch = ->
-  canvasHeight = $('body').height() - $('#header').height()
-  canvasWidth = $('body').width()
-  canvasOffsetY = $('#header').height()
-  $('#sketchpad').attr({ height: canvasHeight, width: canvasWidth }).css({ top: canvasOffsetY })
-  
+  calculateSketchPadSize()  
   ctx = document.getElementById("sketchpad").getContext("2d")
   $("#sketchpad").mousedown (e) ->
     mousePressed = true
@@ -50,12 +46,19 @@ initSketch = ->
 
   return
 
+# with all this dynamic shizzle going on, you never know if the document size might have changed
+# therefore we recalculate the size of the canvas upon activation
+calculateSketchPadSize = ->
+  canvasHeight = $('body').height() - $('#header').height()
+  canvasWidth = $('body').width()
+  canvasOffsetY = $('#header').height()
+  $('#sketchpad').attr({ height: canvasHeight, width: canvasWidth }).css({ top: canvasOffsetY })
+
+
 toggleSketchPad = ->
+  calculateSketchPadSize()
   $('#sketchpad').toggle()
   $('#sketch-button').toggleClass('active')
-
-Meteor.startup ->
-  Session.setDefault("sketchLoaded", no)
 
 Template.sketchCanvas.rendered = initSketch
 

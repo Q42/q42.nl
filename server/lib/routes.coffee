@@ -51,12 +51,10 @@ Router.route "removeWWW",
       @response.writeHead HTTP_REDIRECT_PERMANENT, Location: fullUrl.replace("www.", "")
       @response.end()
 
-Router.map ->
-  @route "testRoute",
-    where: "server"
-  , ->
-    @response.setHeader "access-control-allow-origin", "*"
+Router.route "fontcors",
+  where: "server"
+  path: "/public/*"
+  action: ->
+    console.log "Route: font CORS"
+    @response.writeHead 200, "Access-Control-Allow-Origin": "*"
     @response.end()
-    return
-
-  return

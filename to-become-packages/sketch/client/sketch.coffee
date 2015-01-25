@@ -25,7 +25,10 @@ clearArea = ->
   return
 
 initSketch = ->
-  $('#sketchpad').attr({ height: $('body').height(), width: $('body').width() })
+  canvasHeight = $('body').height() - $('#header').height()
+  canvasWidth = $('body').width()
+  canvasOffsetY = $('#header').height()
+  $('#sketchpad').attr({ height: canvasHeight, width: canvasWidth }).css({ top: canvasOffsetY })
   
   ctx = document.getElementById("sketchpad").getContext("2d")
   $("#sketchpad").mousedown (e) ->
@@ -47,8 +50,20 @@ initSketch = ->
 
   return
 
+toggleSketchPad = ->
+  console.log "toggle sketchpad event"
+  $('#sketchpad').toggle()
+  $('#sketch-button').toggleClass('active')
+
+sketchButtonEvents = ->
+  console.log "click bait" 
+  "click #sketch-button": -> toggleSketchPad
+
 
 Meteor.startup ->
   Session.setDefault("sketchLoaded", no)
 
 Template.sketchCanvas.rendered = initSketch
+
+#set click events on the sketch button
+Template.sketchButton.events click: toggleSketchPad

@@ -90,7 +90,7 @@ nav
 #header #mobile-menu-icon
   pointer-events all
 
-#toggle-fullscreen
+#toggle-fullscreen, #sketch-button
   position absolute
   top 7rem
   right 1rem
@@ -102,6 +102,14 @@ nav
   text-align center
   cursor pointer
   background white
+  
+#sketch-button
+  top 10 rem
+  z-index 101 /* has to be higher than the sketchpad itself */
+
+#sketch-button.active
+  background black
+  color white
 
 .fullscreen #header
   displayFlex()

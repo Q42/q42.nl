@@ -24,6 +24,12 @@ clearArea = ->
   ctx.clearRect 0, 0, ctx.canvas.width, ctx.canvas.height
   return
 
+getImageData = ->
+  return ctx.getImageData 0, 0, $('#sketchpad').width(), $('#sketchpad').height()
+
+putImageData = (imageData) ->
+  ctx.putImageData imageData, 0, 0
+
 initSketch = ->
   calculateSketchPadSize()  
   ctx = document.getElementById("sketchpad").getContext("2d")
@@ -45,6 +51,8 @@ initSketch = ->
     return
 
   return
+
+
 
 # with all this dynamic shizzle going on, you never know if the document size might have changed
 # therefore we recalculate the size of the canvas upon activation

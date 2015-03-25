@@ -38,6 +38,12 @@
     lang: "en"
 
   customPageWithBlogTags
+    routeName: "scala"
+    path: "/scala"
+    tags: ["scala"]
+    lang: "en"
+
+  customPageWithBlogTags
     routeName: "vacatures"
     path: "/vacatures"
     tags: ["vacature"]

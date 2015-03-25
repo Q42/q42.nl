@@ -1,0 +1,32 @@
+<template name="en_scala">
+	<div class="container">
+
+    <header class="block-text">
+      <h1 style="display: none;">Scala at Q42</h1>
+    </header>
+
+    <section class="block-large">
+      <div class="intro">
+        <a class="visual caption">
+          <img data-src="http://static.q42.nl/images/swift/SwiftAtQ42@2x.png" alt="Scala at Q42">
+        </a>
+        <p>
+          Scala is an object-functional programming language for general software applications. Scala has full support for functional programming and a very strong static type system. This allows programs written in Scala to be very concise and thus smaller in size than other general-purpose programming languages.
+		  Scala source code is intended to be compiled to Java bytecode (but can also be compiled to JavaScript), so that the resulting executable code runs on a Java virtual machine. Java libraries may be used directly in Scala code and vice versa. This means you can use a lot of the JVM libraries published in the past decade! But it doesn't mean we use new libraries like; Akka, Scalaz, Play!, etc on the contrary!		  
+        </p>
+        <p>
+          We've done a few projects in Scala now and we are quite happy with it. The code is more concise, contains less bugs and is better maintainable! There are also some very exciting things in the works (but some of them are quite production-ready)! Like Scala.JS, Akka-Stream, Akka-Http, Play! 3.0, etc
+        </p>
+      </div>
+      <aside class="block-small subcontent">
+        <h2>Blog posts about Scala</h2>
+          <ul>
+              {{#each post}}
+                  <li><a href="/blog/post/{{id}}/{{slug}}">{{title}}</a></li>
+              {{/each}}
+          </ul>
+      </aside>
+    </section>
+	
+   </div>
+</template>

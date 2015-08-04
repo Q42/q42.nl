@@ -5,26 +5,39 @@
       <h1 style="display: none;">Scala at Q42</h1>
     </header>
 
-    <section class="block-large">
-      <div class="intro">
-        <a class="visual caption">
-          <img data-src="http://static.q42.nl/images/scala/logo.png" alt="Scala at Q42">
-        </a>
-        <p>
-          Scala is an object-functional programming language for general software applications. Scala has full support for functional programming and a very strong static type system. This allows programs written in Scala to be very concise and thus smaller in size than other general-purpose programming languages.Java libraries may be used directly in Scala code and vice versa. This means you can use a lot of the JVM libraries published in the past decade! But it doesn't mean we use new libraries like; Akka, Scalaz, Play!, etc on the contrary!
-        </p>
-        <p>
-          We've done a few projects in Scala and we are quite happy with it. The code is more concise, contains less bugs and is better maintainable! There are also some very exciting things in the works (but some of them are quite production-ready)! Like Scala.JS, Akka-Stream, Akka-Http, Play! 3.0, etc.
-        </p>
+  <section>
+      <div class="block-large">
+        <div class="intro">
+          <a class="visual caption">
+            <img data-src="http://static.q42.nl/images/scala/logo.png" alt="Scala at Q42">
+          </a>
+          <p>
+            Scala is an object-functional programming language for general software applications. Scala has full support for functional programming and a very strong static type system. This allows programs written in Scala to be very concise and thus smaller in size than other general-purpose programming languages. Java libraries may be used directly in Scala code and vice versa. This means you can use a lot of the JVM libraries published in the past decade! But it doesn't mean we don't use new libraries like; Akka, Scalaz/Cats, Shapeless and Play!
+          </p>
+        </div>
+
+        <aside class="block-small subcontent">
+          <h2>Blog posts about Scala</h2>
+            <ul>
+                {{#each post}}
+                    <li><a href="/blog/post/{{id}}/{{slug}}">{{title}}</a></li>
+                {{/each}}
+            </ul>
+        </aside>
       </div>
-      <aside class="block-small subcontent">
-        <h2>Blog posts about Scala</h2>
-          <ul>
-              {{#each post}}
-                  <li><a href="/blog/post/{{id}}/{{slug}}">{{title}}</a></li>
-              {{/each}}
-          </ul>
-      </aside>
+    </section>
+
+    <section class="block-large right">
+      <div class="body">
+        <h2>Malmberg BAPS</h2>
+        <p>Malmberg BAPS is an educational platform that is used in Dutch elementary schools. Teachers use it on their digital schoolboards to work with the lesson content interactively and pupils can use the school's computers and tablets to practice and do tests.</p>
+        <p>The content is entered in BAPS' authoring and publishing environment written in entirely in Scala from the ground up. The application relies heavily on frameworks and libraries such as Akka, ReactiveMongo and Play!</p>
+        <p>We use MongoDB for document storage, which amongst other things enables us to persist algebraic data types elegantly. To ease the development we created macros which allow us to do partial reads and updates in a type safe manner.</p>
+        <p>We are really happy with the way Scala helped us in day-to-day development. The code was strongly typed, concise and allowed us to express complex abstractions due the powerful type system and the macro library we created.</p>
+      </div>
+      <div class="visual caption">
+        <img data-src="http://static.q42.nl/images/scala/malmberg.png" alt="" src="http://static.q42.nl/images/jumpstarts/malmberg.png">
+      </div>
     </section>
 	
    </div>

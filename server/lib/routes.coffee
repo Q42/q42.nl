@@ -14,6 +14,7 @@ redirectNlToCom = (name, path) ->
 
 redirectNlToCom "meteor", "/meteor"
 redirectNlToCom "swift", "/swift"
+redirectNlToCom "scala", "/scala"
 redirectNlToCom "vr", "/vr"
 redirectNlToCom "ixe", "/interaction-engineering"
 

@@ -32,6 +32,12 @@
     lang: "en"
 
   customPageWithBlogTags
+    routeName: "girlcode"
+    path: "/girlcode"
+    tags: ["girlcode"]
+    lang: "en"
+
+  customPageWithBlogTags
     routeName: "swift"
     path: "/swift"
     tags: ["swift"]

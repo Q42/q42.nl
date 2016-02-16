@@ -64,7 +64,9 @@ a
 
 #page
   transition transform .2s ease
-  box-shadow -2px 0 20px rgba(0,0,0,.2)
+  box-shadow 0 0 20px rgba(0,0,0,0.5)
+  @media (min-width 480px)
+    box-shadow none
 
 #not-found
   margin 40px auto

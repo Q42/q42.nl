@@ -60,7 +60,7 @@ currentQers = [
   { name: "Tobias Stikvoort", handle:"tobias", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
   { name: "Tom Lokhorst", handle:"tom", web: "http://tom.lokhorst.eu/", tumblr: "tomlokhorst" },
   { name: "Tomas Harkema", handle:"tomas" },
-  { name: "Wouter Horsman", handle:"wouterh", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
+  { name: "Wouter Horsman", handle:"wouterh" },
   { name: "Wouter van Drunen", handle: "wouter" }
 ];
 

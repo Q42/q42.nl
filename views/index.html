@@ -57,15 +57,13 @@
 
   <style>
     body {
-      background-color: #f0f3ed;
+      background-color: #84bc2d;
       font-family: "RobotoDraft", "Helvetica Neue", Helvetica, Arial, sans-serif;
       margin: 0;
       min-height: 100vh;
     }
     @media (min-width: 480px) { body { border: solid 1rem #84bc2d; } }
   </style>
-
-  <script src="//q42.github.io/logo/q42.js" defer></script>
 </head>
 
 <template name="main">
@@ -77,10 +75,14 @@
       {{> Template.dynamic template=header}}
     </div>
 
-    {{#if subsReady}}
+    {{#if isBlog}}
       {{> Template.dynamic template=body}}
     {{else}}
-      {{> loading}}
+      {{#if subsReady}}
+        {{> Template.dynamic template=body}}
+      {{else}}
+        {{> loading}}
+      {{/if}}
     {{/if}}
 
     {{> Template.dynamic template=footer}}
@@ -89,5 +91,7 @@
       {{> chat}}
     {{/if}}
   </div>
+
+  <script src="{{assetsUrl}}/q42.js" defer></script>
 
 </template>

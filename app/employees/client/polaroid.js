@@ -3,22 +3,12 @@ import { Template } from 'meteor/templating'
 import { polaroidVisibility } from './lib/global'
 
 Template.polaroid.onRendered(function(){
-  this.autorun( () => {
-    if ( !(polaroidVisibility.equals(Template.currentData()._id)) ){
-      $polaroid = this.$(".polaroid");
-      rotate = (Math.floor(Math.random() * 21) - 10);
-      rotateValue = `translate(-30px, -30px) rotateZ(${rotate}deg)`;
-      _.each(["webkit", "moz", "ms", "o"], (type) =>
-        $polaroid.css(`-${type}-transform`, rotateValue));
-      $polaroid.css("transform", rotateValue);
-
-      if (this.find("video")) this.find("video").play();
-    }
-  });
-});
-
-Template.polaroid.onDestroyed(function(){
-  this.find("video") && this.find("video").pause();
+  $polaroid = this.$(".polaroid");
+  rotate = (Math.floor(Math.random() * 21) - 10);
+  rotateValue = `translate(-30px, -30px) rotateZ(${rotate}deg)`;
+  _.each(["webkit", "moz", "ms", "o"], (type) =>
+    $polaroid.css(`-${type}-transform`, rotateValue));
+  $polaroid.css("transform", rotateValue);
 });
 
 Template.polaroid.helpers({

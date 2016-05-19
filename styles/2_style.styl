@@ -3,7 +3,7 @@
 body
   font 300 1rem bodyFont
   margin 0
-  background-color #f0f3ed
+  background-color qColor
 
   @media (min-width 480px)
     border solid 1rem qColor
@@ -63,10 +63,18 @@ a
     border-bottom-color qColor
 
 #page
+  // animation fadeIn ease .25s
+  // animation-fill-mode forwards
+  // opacity 0
+
+  background-color #f0f3ed
   transition transform .2s ease
   box-shadow -2px 0 20px rgba(0,0,0,.2)
   @media (min-width 480px)
     box-shadow none
+
+  &.inverted
+    background-color transparent
 
 #not-found
   margin 40px auto
@@ -254,6 +262,8 @@ a
   margin-top 0
 
 // http://stackoverflow.com/q/8720931/16308
+.block-large > .block-small:first-child:nth-last-child(1),
+.block-large > .block-small:first-child:nth-last-child(1) ~ div,
 .block-large > .block-small:first-child:nth-last-child(2),
 .block-large > .block-small:first-child:nth-last-child(2) ~ div
   max-width 33.3333%
@@ -280,6 +290,9 @@ a
       color black
   h3
     font-weight 400
+  .visual img, .visual video
+    object-fit cover
+    height 160px
 
 .inverted .container .block-small
   color white

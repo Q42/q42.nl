@@ -1,13 +1,13 @@
 import { Mongo } from 'meteor/mongo'
 import { Template } from 'meteor/templating'
-import { EmployeeCount } from '../../employees/lib/shared'
+import { Employees, EmployeeCount } from '../../employees/lib/shared'
 
-const PostsWithAuthors = new Mongo.Collection("posts_with_authors");
+const PostsWithAuthors = new Mongo.Collection("Posts");
 
 Template.homeBlogposts.helpers({
   postLink() {
-    const post = this.post;
-    return post.type === 'link' ? post.url : `/blog/post/${post.id}/${post.slug}`;
+    return this.type === 'link' ?
+      this.url : `/blog/post/${this.id}/${this.slug}`;
   },
 
   isByQer(authorName) {
@@ -16,11 +16,20 @@ Template.homeBlogposts.helpers({
   },
 
   num_employees() {
-    if (EmployeeCount.findOne()) return EmployeeCount.findOne().count;
+    if (EmployeeCount.findOne())
+      return EmployeeCount.findOne().count;
   },
 
   postWithAuthor() {
-    return PostsWithAuthors.find({"post.intro": {$exists: true}});
+    return PostsWithAuthors.find({
+      $or: [
+        {description: {$exists: true}},
+        {intro: {$exists: true}}
+      ]
+    });
+  },
+  author() {
+    return Employees.findOne({name: this.authorName});
   },
 
   cleanIntro(intro) {

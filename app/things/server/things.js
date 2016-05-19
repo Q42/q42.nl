@@ -1,4 +1,4 @@
-import { Meteor, Assets } from 'meteor/meteor'
+import { Meteor } from 'meteor/meteor'
 import { Match } from 'meteor/check'
 
 import { Things } from '../lib/collections'
@@ -22,13 +22,20 @@ Meteor.startup(() => {
     "livelearn", "nannii", "paper", "shell",
     "spinn", "swisscom", "taxi-electric", "tesloop",
     "umuntu-media", "moti", "nexi", "locali",
-    "printr", "stockit", "kazoo"
+    "printr", "stockit", "kazoo", "nl-projecten-intro"
   ]) {
+    let $set = {
+      name: thingId
+    };
     try {
-      Things.upsert({name: thingId}, {$set: {
-        name: thingId,
-        content_en: Assets.getText(`things/${thingId}.html`)
-      }});
-    } catch (e) {}
+      if (thingId.indexOf("en-") === 0)
+        $set.content_en = Assets.getText(`things/${thingId}.html`);
+      if (thingId.indexOf("nl-") === 0)
+        $set.content_nl = Assets.getText(`things/${thingId}.html`);
+
+      Things.upsert({name: thingId}, {$set: $set});
+    } catch (e) {
+      console.log("Couldn't upsert Thing:", e);
+    }
   }
 });

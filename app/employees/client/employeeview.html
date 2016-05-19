@@ -17,7 +17,7 @@
 <template name="polaroid">
   <div class="polaroid">
     {{#if supportsWebm}}
-    <video src="{{assetsUrl}}/video/employees/{{handle}}.webm" loop
+    <video src="{{assetsUrl}}/video/employees/{{handle}}.webm" loop autoplay
            poster="{{assetsUrl}}/images/employees/{{avatar_static}}"></video>
     {{else}}
     <img src="{{assetsUrl}}/images/employees/{{avatar_animated}}" alt="{{name}}">

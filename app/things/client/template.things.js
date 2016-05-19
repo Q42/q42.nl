@@ -19,6 +19,8 @@ Template.thing.helpers({
     if (thing) {
       if (thing.content_en)
         thing.content_en = hackyReplaceAssetsUrl(thing.content_en);
+      if (thing.content_nl)
+        thing.content_nl = hackyReplaceAssetsUrl(thing.content_nl);
       return thing;
     }
   }

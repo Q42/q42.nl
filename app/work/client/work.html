@@ -1,34 +1,48 @@
-<template name="workTagBlock">
-  {{#if work.showTagFiltersHere}}
-    {{#if workTags}}
-    <aside class="work-tags block-small">
-      <ul>
-        {{#each tag in workTags}}
-          <li><a href="/work/tagged/{{tag}}" class="{{#if isSelected tag}}selected{{/if}}">{{tag}}</a></li>
-        {{/each}}
-        <li><a href="/work/tagged/herpderp" class="{{#if isSelected 'herpderp'}}selected{{/if}}">herpderp</a></li>
-      </ul>
-    </aside>
-    {{/if}}
+<template name="pinnedWork">
+  {{#if item}}
+    {{> work item=item size=size align=align}}
   {{/if}}
 </template>
 
-<template name="portfolioItem">
-  {{#if work.name}}
-    <div class="portfolio-item {{isPinned work}}">
-      <a href="/work/{{work.slug}}">
-        <img src="{{work.image.url}}" alt="">
-        <div class="details">
-          <h2>{{work.name}}</h2>
-          <p class="slogan">{{work.subtitle}}</p>
-        </div>
-      </a>
+<template name="workItems">
+  {{#each row in workItems}}
+    <div class="block-large">
+      {{#each workItem in row}}
+        {{> work item=workItem size="small"}}
+      {{/each}}
     </div>
-  {{else}}
-    {{#if work.clientName}}
-    <div class="client-only portfolio-item {{isPinned work}}">
-      <h2>{{work.clientName}}</h2>
+  {{/each}}
+</template>
+
+<template name="work">
+  <div class="block-{{size}}{{#if align}} {{align}}{{/if}}">
+    <div class="visual caption">
+      {{#with imageThumbnail item.image}}
+        <img src="{{file}}" alt="">
+        {{#if title}}
+          <p>{{#if langEn}}{{title_en}}{{else}}{{title}}{{/if}}</p>
+        {{/if}}
+      {{else}}
+        <img src="https://unsplash.it/600/320/?random" alt="">
+      {{/with}}
     </div>
-    {{/if}}
+    <div class="body">
+      <h2>{{item.name}}</h2>
+      <h3>{{item.slogan_nl}}</h3>
+      {{{item.intro_nl}}}
+    </div>
+  </div>
+</template>
+
+<template name="workFilterBlock">
+  {{#if workTags}}
+  <aside class="work-tags block-small">
+    <ul>
+      {{#each tag in workTags}}
+        <li><a href="/work/tagged/{{tag}}" class="{{#if isSelected tag}}selected{{/if}}">{{tag}}</a></li>
+      {{/each}}
+      <li><a href="/work/tagged/herpderp" class="{{#if isSelected 'herpderp'}}selected{{/if}}">herpderp</a></li>
+    </ul>
+  </aside>
   {{/if}}
 </template>

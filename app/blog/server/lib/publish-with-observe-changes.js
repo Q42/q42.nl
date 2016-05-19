@@ -4,20 +4,25 @@ import { Meteor } from 'meteor/meteor'
 // This one also includes observeChanges handlers
 export const publishWithObserveChanges = function (name, fn) {
   Meteor.publish(name, function() {
-    var self = this;
-    var handle = fn.apply(this, arguments).observeChanges({
-      added: function (id, fields) {
+    const self = this;
+    const cursor = fn.apply(this, arguments);
+    if (!cursor) {
+      this.ready();
+      return;
+    }
+    const handle = cursor.observeChanges({
+      added: function(id, fields) {
         self.added(name, id, fields);
       },
-      changed: function (id, fields) {
+      changed: function(id, fields) {
         self.changed(name, id, fields);
       },
-      removed: function (id) {
+      removed: function(id) {
         self.removed(name, id);
       }
     });
     self.ready();
-    self.onStop(function () {
+    self.onStop(function() {
       handle.stop();
     });
   });

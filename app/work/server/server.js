@@ -2,70 +2,57 @@ import { Meteor } from 'meteor/meteor'
 import { Mongo } from 'meteor/mongo'
 import { _ } from 'meteor/underscore'
 
-import { Work } from '../lib/collections'
+import { Work, Media } from '../lib/collections'
 
-Meteor.publish("work", (slug, tag) => {
-  if (slug)
-    return Work.find({slug: slug});
-  else if (tag)
-    return Work.find({"properties.tags": {$in: [tag]}});
-  else
-    return Work.find();
+Meteor.publishComposite("work", function(tag, type) {
+  const alwaysFilter = {draft: false};
+  let fields = {
+    name: 1, clientName: 1, intro_nl: 1, image: 1,
+    "properties.pinned": 1, slogan_nl: 1
+  };
+  let query = {};
+  if (tag) {
+    query = {"properties.tags": {$in: [tag]}};
+  }
+  else if (type) {
+    query = {type: type};
+  }
+
+  return [
+    {
+      find: function() {
+        return Work.find(_.extend(alwaysFilter, query), {fields: fields});
+      },
+      children: [
+        {
+          find: function(workItem) {
+            // XXX: only the small image for now
+            return workItem.image ?
+              Media.find(
+                {$or: [{_id: workItem.image.small},{_id: workItem.image.main}]},
+                {
+                  fields: {
+                    file: 1, imageWidth: 1, imageHeight: 1,
+                    title: 1, description: 1
+                  },
+                  limit: 2
+                }
+              )
+              : null;
+          }
+        }
+      ]
+    }
+  ];
+
+  return Work.find(_.extend(alwaysFilter, query), {fields: fields});
 });
-Meteor.publish("workTags", function(){
-  const work = Work.find({}, {fields: {_id: 1, "properties.tags": 1}});
-  const tags = _.map(work.fetch(), (w) => w.properties.tags);
+
+Meteor.publish("workTags", function() {
+  const work = Work.find({}, {fields: {_id: 1, "properties.tags": 1}}).fetch();
+  const tags = _.map(work, w => w.properties.tags);
   this.added("work_tags", new Mongo.ObjectID(), {
     tags: _.compact(_.uniq(_.flatten(tags))).sort()
   });
   this.ready();
-});
-
-Meteor.startup(() => {
-  if (Work.find().count() === 0) {
-    Work.insert({
-      slug: "klm-apple-watch",
-      name: "KLM for Apple Watch",
-      clientName: "KLM",
-      slogan: "Check in from your watch",
-      slogan_nl: "Check in vanaf je horloge",
-      intro: `
-        <p>Together with AKQA we made checking in with KLM even easier!
-        Your Apple Watch gives you insight into your next flight, terminal,
-        gate, seat and even how long it'll take to walk to your gate.</p>
-        <p><a href="http://localhost/blog/post/125336396528/klms-apple-watch-app-catches-your-plane">Read how we did it</a></p>
-      `,
-      intro_nl: `
-        <p>Samen met AKQA hebben we inchecken bij KLM nog makkelijker gemaakt!</p>
-        <p><a href="http://localhost/blog/post/125336396528/klms-apple-watch-app-catches-your-plane">Lees hoe we het gedaan hebben</a></p>
-      `,
-      properties: {
-        pinned: false,
-        category: "project",
-        qers: ["guus", "kamil", "jasper"],
-        date: new Date("2015-09-01"),
-        tags: ["travel", "apple-watch", "swift", "ios", "app", "wearable"]
-      },
-      image: {
-        url: "https://storage.googleapis.com/static.q42.nl/images/projecten/klm-applewatch3.jpg",
-        caption: "So much more convenient than a stack of paper",
-        caption_nl: "Zoveel handiger dan een stapel papier"
-      },
-      things: [
-        {
-          size: 'large',
-          thingId: 'tesloop',
-          align: 'right'
-        },
-        {
-          size: 'small',
-          thingId: 'game-of-drones'
-        },
-        {
-          size: 'large',
-          thingId: 'shell'
-        }
-      ]
-    });
-  }
 });

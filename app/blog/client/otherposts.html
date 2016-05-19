@@ -2,19 +2,15 @@
   <div class="block-large" id="other-posts">
     {{#each post}}
     <div class="block-small">
-      <div class="visual" style="height:160px;overflow:hidden">
+      <div class="visual"><a href="/blog/post/{{id}}/{{slug}}">
         {{#if firstImage}}
           <img src="{{firstImage}}" alt="">
         {{else}}
-          <img src="{{assetsUrl}}/images/employees/anonymous.jpg"
-               alt="" style="margin-top:-20%">
+          <img src="{{assetsUrl}}/images/employees/anonymous.jpg" alt="">
         {{/if}}
-      </div>
+      </a></div>
       <div class="body">
         <h2><a href="/blog/post/{{id}}/{{slug}}">{{title}}</a></h2>
-        <p><a href="/blog/post/{{id}}/{{slug}}">
-          {{#if langEn}}Read more{{else}}Lees meer{{/if}}
-        </a></p>
       </div>
     </div>
     {{/each}}

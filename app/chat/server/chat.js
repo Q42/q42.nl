@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor'
 import { Mongo } from 'meteor/mongo'
 import { HTTP } from 'meteor/http'
+import { Picker } from 'meteor/meteorhacks:picker'
 import { ChatMessages } from '../lib/shared'
 import { Utils } from '../../../lib/utils'
 

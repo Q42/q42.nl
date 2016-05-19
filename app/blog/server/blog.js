@@ -8,8 +8,6 @@ const BLOGPOSTS_PER_PAGE = 12;
 let lastTumblrCheck;
 
 const Posts = new Mongo.Collection("Posts");
-Posts._ensureIndex({tags: 1});
-
 const TumblrKey = Meteor.settings.public.TUMBLR_KEY;
 
 const separateTags = (tag) => {
@@ -28,10 +26,11 @@ Meteor.methods({
     Meteor.http.get("https://api.tumblr.com/v2/blog/q42nl.tumblr.com/posts", {
       params: { api_key: TumblrKey, limit: 5 }
     }, (error, result) => {
-      const count = result && result.data && result.data.response &&
+      const count = result.data && result.data.response &&
                   result.data.response.posts &&
                   result.data.response.posts.length;
       if (result.statusCode == 200 && count) {
+        console.log("Updating " + count + " from Tumblr.");
         for (let i = 0; i < count; i++)
           upsertPost(result.data.response.posts[i]);
       }
@@ -132,29 +131,22 @@ publishWithObserveChanges("blogpostFull", (id) => {
 });
 
 // XXX: limit how much of the intro is sent to the client
-Meteor.publishComposite("postsWithAuthors", function(englishOnly) {
+Meteor.publish("postsWithAuthors", function(englishOnly) {
   const filter = englishOnly ? {tags: 'en'} : {};
-  return [
-    {
-      find: function() {
-        return Posts.find(filter, {sort: {date: -1}, limit: 3, fields: {
-          title: 1, authorName: 1, slug: 1,
-          intro: 1, prettyDate: 1, id: 1,
-          type: 1, url: 1, description: 1
-        }});
-      },
-      children: [
-        {
-          find: function(post) {
-            return post.authorName ?
-              Employees.find({name: post.authorName}, {limit: 1, fields:{
-                name: 1, handle: 1
-              }}) : null;
-          }
-        }
-      ]
-    }
-  ];
+  const posts = Posts.find(filter, {sort: {date: -1}, limit: 3, fields: {
+    title: 1, authorName: 1, slug: 1,
+    intro: 1, prettyDate: 1, id: 1,
+    type: 1, url: 1
+  }}).map((rec) => {
+    const author = Employees.findOne({name: rec.authorName});
+    return {post: rec, author: author};
+  });
+
+  _.each(posts, (p) => {
+    this.added("posts_with_authors", p.post._id, p);
+  });
+
+  this.ready();
 });
 
 Meteor.publish("pagesByTag", function(tag) {

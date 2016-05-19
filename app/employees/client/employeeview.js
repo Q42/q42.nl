@@ -1,5 +1,3 @@
-import { Template } from 'meteor/templating'
-
 import { polaroidVisibility } from './lib/global'
 
 Template.employeeView.helpers({

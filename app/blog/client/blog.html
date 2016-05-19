@@ -22,17 +22,11 @@
       </p>
     </header>
 
-    {{#if subsReady 'allPosts'}}
-      <div class="blog block-large">
-        {{> blogposts}}
-      </div>
-    {{else}}
-      {{> loading}}
-    {{/if}}
+    <div class="blog block-large">
+      {{> blogposts}}
+    </div>
 
-    {{#if subsReady 'pages'}}
-      {{> pageNav}}
-    {{/if}}
+    {{> pageNav}}
 
   </div>
 </template>

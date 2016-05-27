@@ -3,37 +3,10 @@
     <h2>
       {{#if langEn}}What we're up to{{else}}Wat ons bezighoudt{{/if}}
     </h2>
-    {{#each postWithAuthor}}
-      <div class="newsitem {{isByQer authorName}}">
-        <a href="{{postLink}}">
-          {{#if cleanImg intro}}
-            <div class="image col"><img src="{{cleanImg intro}}" alt=""></div>
-          {{/if}}
-          <div class="col">
-            <h2>{{title}}</h2>
-            {{#if intro}}
-              <p class="preview">{{cleanIntro intro}}</p>
-            {{else}}
-              {{#if description}}
-                <p class="preview">{{cleanIntro description}}</p>
-              {{/if}}
-            {{/if}}
-            <div class="metadata">
-              <div class="date">{{prettyDate}}</div>
-              {{#if isByQer authorName}}
-                <div class="author">
-                  <p>
-                    {{authorName}}
-                    <img src="{{assetsUrl}}/images/employees/{{author.handle}}.jpg" alt="{{authorName}}">
-                  </p>
-                </div>
-              {{/if}}
-            </div>
-          </div>
-        </a>
-      </div>
-    {{/each}}
     <p>
+      {{#each postWithAuthor}}
+        <a href="{{postLink}}">{{title}}</a> &mdash;
+      {{/each}}
       {{#if langEn}}
       <a href="/blog/tagged/en">More...</a>
       {{else}}

@@ -1,27 +1,25 @@
 <template name="home">
 
+  <section class="block-full intro-outro invert">
+    <h1 class="tagline">Creative Technology</h1>
+    <p>Q42 bouwt aan
+        <a href="/apps">apps</a>,
+        <a href="/web">websites</a>,
+        <a href="/iot">connected devices</a>,
+        <a href="/games">games</a>, en
+        <a href="/vr">VR</a>.
+        <!-- en
+        <a href="/jumpstarts">jumpstarts</a>. -->
+      <br/>
+      Dat doen we met z’n {{num_employees}}-en vanuit Amsterdam, Den Haag en Mountain View.
+    </p>
+  </section>
+
   {{> hero}}
 
-  <div class="container">
+  {{> homeBlogposts}}
 
-    <section class="block-full intro-outro invert">
-      <h1 class="tagline">Creative Technology</h1>
-      <p>Q42 bouwt aan
-          <a href="/apps">apps</a>,
-          <a href="/web">websites</a>,
-          <a href="/iot">connected devices</a>,
-          <a href="/games">games</a>, en
-          <a href="/vr">VR</a>.
-          <!-- en
-          <a href="/jumpstarts">jumpstarts</a>. -->
-        <br/>
-        Dat doen we met z’n {{num_employees}}-en vanuit Amsterdam, Den Haag en Mountain View.
-      </p>
-    </section>
-
-    {{> homeBlogposts}}
-
-    <section class="block-large">
+    <!-- <section class="block-large">
       <div class="block-small">
         <div class="visual caption">
           <img src="{{assetsUrl}}/images/projecten/postnl.jpg" alt=""/>
@@ -102,7 +100,7 @@
           <p>Leren van en met elkaar: dat is waarom we meetups organiseren, o.a.
             over Meteor, Girl Code, games, Google Cloud Platform, maar alles is
             fair game wat ons betreft!</p>
-          <!-- <p><a href="#">Meer over onze meetups</a></p> -->
+          <p><a href="#">Meer over onze meetups</a></p>
         </div>
       </div>
 
@@ -148,7 +146,6 @@
           <p><a href="https://q42.com/interaction-engineering">Lees ons manifesto</a> (Engels)</p>
         </div>
       </div>
-    </section>
+    </section> -->
 
-  </div>
 </template>

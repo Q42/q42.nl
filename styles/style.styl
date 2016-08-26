@@ -4,8 +4,12 @@ body
   font 300 1rem bodyFont
   margin 0
   background-color qColor
+  display flex
+  flex-direction column
+  justify-content space-between
 
   @media (min-width 480px)
+    box-sizing border-box
     border solid 1rem qColor
 
   @media (max-width: 480px)
@@ -151,6 +155,9 @@ a
   .block-large
     position relative
     margin 0 auto 16px auto
+    &.full-bleed
+      @media (min-width 940px)
+        width 100%
     &.solid
       background #fff
       box-shadow 0 1px 1px rgba(0,0,0,.18)

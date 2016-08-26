@@ -69,13 +69,13 @@
 <template name="main">
   <div id="fb-root"></div>
 
-  <div id="page" class="{{inverted}}">
+  <div id="page" class="{{inverted}}{{#if isRoute 'home'}} home{{/if}}">
 
-    <div id="header" style="background-color: {{portfolioItemBgColor}}">
+    <div id="header">
       {{> Template.dynamic template=header}}
     </div>
 
-    {{#if isBlog}}
+    {{#if isRoute "blog"}}
       {{> Template.dynamic template=body}}
     {{else}}
       {{#if subsReady}}

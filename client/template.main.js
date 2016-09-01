@@ -8,7 +8,6 @@ Template.main.helpers({
   header: () => Meteor.settings.public.siteVersion === "en" ? "en_header" : "header",
   footer: () => Meteor.settings.public.siteVersion === "en" ? "en_footer" : "footer",
   openChat: () => Session.equals("openChat", true),
-  visible: () => "visible-backgrounds",
   inverted() {
     return (FlowRouter.getRouteName() === 'home') ? 'inverted' : '';
   }

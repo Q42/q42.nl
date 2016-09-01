@@ -1,12 +1,12 @@
+import { Meteor } from 'meteor/meteor'
 import { Picker } from 'meteor/meteorhacks:picker'
-import { _ } from 'meteor/underscore'
 
 // Use Picker middleware to handle server-side routes
 // per https://github.com/meteorhacks/picker/issues/22
 
 const HTTP_REDIRECT_PERMANENT = 302;
 
-redirect(["/meteor", "/swift", "/interaction-engineering", "/io", "/girlcode"],
+redirect(["/meteor", "/swift", "/interaction-engineering", "/io", "/girlcode", "/jumpstarts"],
   "q42.nl", "q42.com");
 redirect(["/games", "/vacatures"], "q42.com", "q42.nl");
 

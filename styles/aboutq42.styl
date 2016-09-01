@@ -25,6 +25,10 @@
   .qer, img
     width 108px
     height 108px
+    background-color #ccccc6
+
+  .qer:not(.qer-shown) img
+    filter grayscale(1)
 
   @media (max-width 620px)
     img
@@ -37,9 +41,6 @@
   .qer
     position relative
     margin 0 8px 8px 0
-    // opacity 0
-    // animation-fill-mode forwards !important
-    // animation fadeIn .25s ease
 
     @media (max-width: 620px)
       width 100%
@@ -48,11 +49,7 @@
       margin-right 0
 
     @media (max-width 480px)
-      height 70px
-
-    // for i in (2..64)
-    //   &:nth-child({i})
-    //     animationDelay .02s * i
+      height 60px
 
     &.no-results
       width auto

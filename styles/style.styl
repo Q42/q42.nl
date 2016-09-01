@@ -1,13 +1,6 @@
 @import "variables.styl"
 
 body
-  font 300 1rem bodyFont
-  margin 0
-  background-color qColor
-
-  @media (min-width 480px)
-    border solid 1rem qColor
-
   @media (max-width: 480px)
     &.show-mobile-menu
       overflow-x hidden
@@ -43,11 +36,9 @@ blockquote
   &:before
     content: "“"
     font-size 3rem
-    font-family serifTitleFont
     float left
 
   p
-    font-family serifTitleFont
     padding 0 2.5rem
 
 cite

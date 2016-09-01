@@ -11,6 +11,9 @@ const currentQers = [
   { name: "Christiaan Hees", handle:"christiaan", tumblr: "www-chees-info" },
   { name: "Corina Maduro", handle:"corina" },
   { name: "Cynthia Wijntje", handle:"cynthia" },
+  { name: "Djamilla Kruijdenberg", handle: "djamilla", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
+  { name: "Eline Lubberts", handle: "eline", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
+  { name: "Floris van der Breggen", handle: "floris", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
   { name: "Frank Raterink", handle:"frank", web: "http://www.franklabs.nl" },
   { name: "Gerard Dorst", handle:"gerard" },
   { name: "Guido Bouman", handle:"guido" },
@@ -41,9 +44,9 @@ const currentQers = [
   { name: "Remco Veldkamp", handle:"remco", web: "http://realstuffforabstractpeople.com/" },
   { name: "Ricardo Snoek", handle:"ricardo", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
   { name: "Richard Lems", handle:"richard" },
-  { name: "Rik Nijessen", handle:"rikn", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
   { name: "Rob Lokhorst", handle:"rob" },
   { name: "Roelf-Jan de Vries", handle:"roelfjan", web: "http://www.roelf-jandevries.nl", tumblr: "roelfjandevries" },
+  { name: "Roos Luteijn", handle:"roos", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
   { name: "Sander de Vos", handle:"sander" },
   { name: "Sander Ploegsma", handle:"sanderp", web:"https://sanderp.nl" },
   { name: "Silvy van Houdt", handle:"silvy" },
@@ -59,7 +62,6 @@ const currentQers = [
   { name: "Tobias Stikvoort", handle:"tobias", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
   { name: "Tom Lokhorst", handle:"tom", web: "http://tom.lokhorst.eu/", tumblr: "tomlokhorst" },
   { name: "Tomas Harkema", handle:"tomas" },
-  { name: "Wouter Horsman", handle:"wouterh" },
   { name: "Wouter van Drunen", handle: "wouter" }
 ];
 

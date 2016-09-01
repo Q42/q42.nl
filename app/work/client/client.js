@@ -9,36 +9,34 @@ import { Utils } from '../../../lib/utils'
 import { Work, WorkTags, Media } from '../lib/collections'
 import { $Helpers, $OnCreated } from '../../../client/lib/_template'
 
-Template.workItems.onCreated(function() {
+const workSortOrder = {"properties.pinned": 1, "properties.date": -1, name: 1};
+
+Template.listAllProjects.onCreated(function() {
   this.autorun(() => {
     this.subscribe("work", null, null);
   });
 });
-Template.workItems.helpers({
+Template.listAllProjects.helpers({
   workItems() {
-    const work = Work.find({"properties.pinned": false}, {
-      sort: {"properties.date": -1}
-    }).fetch();
-    return _.chain(work).groupBy( (el, i) => ~~(i/3) ).toArray().value();
-  }
-});
-Template.work.helpers({
-  imageThumbnail(image) {
-    if (!image) return;
-    const size = Template.currentData().size;
-    const imageId = size === "large" ? image.main : image.small;
-    const media = Media.findOne(imageId);
-    if (media) return media;
+    const work = Work.find({}, { sort: workSortOrder }).fetch();
+    const index = Template.currentData().index || 0;
+    const pinned = work.filter(x => x.properties.pinned).slice(index);
+    const unpinned = work.filter(x => !x.properties.pinned);
+    const unpinnedGrouped = _.toArray(_.groupBy(unpinned, (el, i) => ~~(i/3)));
+    return _.zip(pinned, unpinnedGrouped);
   }
 });
 
-Template.pinnedWork.onCreated(function() {
-  this.index = Template.currentData().index;
-});
-Template.pinnedWork.helpers({
-  item() {
-    const index = Template.instance().index;
-    return Work.findOne({"properties.pinned": true}, {skip: index});
+Template.workItem.helpers({
+  imageThumbnail(image) {
+    if (!image) return;
+    const size = Template.currentData().size;
+    const imageId = size.match(/large/) ? image.main : image.small;
+    const media = Media.findOne(imageId);
+    if (media) return media;
+  },
+  time() {
+    return +new Date();
   }
 });
 
@@ -49,7 +47,9 @@ Template.workFilterBlock.helpers({
       return tags.tags;
   },
   isSelected(filter) {
-    const selectedFilter = Template.instance().selectedFilter.get() || FlowRouter.current().params.tag;
+    const selectedFilter =
+      Template.instance().selectedFilter.get()
+      || FlowRouter.current().params.tag;
     return selectedFilter === filter;
   }
 });
@@ -67,5 +67,18 @@ Template.workFilterBlock.events({
     // FlowRouter.go($(evt.target).attr("href"));
     evt.preventDefault();
     Template.instance().selectedFilter.set(type);
+  }
+});
+
+Template.pinnedWork.helpers({
+  item() {
+    const index = Template.currentData().index;
+    return Work.findOne(
+      { "properties.pinned": true },
+      {
+        sort: workSortOrder,
+        skip: index
+      }
+    );
   }
 });

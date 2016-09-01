@@ -23,13 +23,13 @@ const roles = {
   "Interaction Engineer": "rahul johan roelfjan frank guido richard",
   "Q'er": allHandles,
   "Oprichter": "kars",
-  "Student": "herman tomas jimmy tobias sanderp rikn",
+  "Student": "herman tomas jimmy tobias sanderp",
   "Ex-stagiair": "jeroen lukas chris bob katja timl tims kamil",
   "Ex-klant": "gerard stef taco",
   "Ex-concullega": [
     "arjen", "sander", "bas", "guido", "jaap", "jasper", "jasperh", "johan",
     "roelfjan", "marcel", "mark", "mathijs", "michiel", "stef", "timd", "taco",
-    "wouter", "corina", "silvy", "bram", "wouterh"
+    "wouter", "corina", "silvy", "bram", "wouterh", "roos"
   ],
   "Ex-ex-q'er": "sjoerd laurens suzanne",
   "Ex-Fabriquer": "sander bram",
@@ -41,7 +41,7 @@ const roles = {
 const arbitrary = {
   "Girl Code": "katja kristin",
   "Codeuur": "lukas thijs kars johan",
-  "Speelt nog World of Warcraft": "rahul christiaan richard benjamin tims",
+  "Speelt nog World of Warcraft": "rahul richard benjamin tims ricardo",
   "Weet wat Spiffy is": "bob timl martin remco lukas sjoerd kars laurens" /* LOL! */,
   "Team Wintersport": [
     "lukas", "bob", "chris", "mark", "jeroen", "katja", "stef", "roelfjan",
@@ -49,17 +49,17 @@ const arbitrary = {
     "leonard", "thijs"
   ],
   "Heeft een baard": "rahul richard arian christiaan kamil jasperh marcel braml",
-  "Stokoud": "stef johan",
+  ">= 42": "stef johan",
   "Broers": "tom rob",
   "Tatoeage": "chris jeroen jasperh marcel tomas",
   "Voortgeplant": [
     "martin", "chris", "mark", "kars", "bas", "cynthia", "gerard", "jaap",
     "jasper", "johan", "korjan", "michiel", "remco", "sander", "stef",
-    "suzanne", "timd", "laurens", "taco", "bart", "kamil", "wouterh"
+    "suzanne", "timd", "laurens", "taco", "bart", "kamil", "wouterh", "braml"
   ],
   "Rijdt soms op een motor": "stef jeroen arian tom lukas bob jasperh chris",
-  "Gaat binnenkort naar Microsoft":"michiel",
-  "Vroeger stewardess geweest": "cynthia",
+  "Gaat binnenkort naar Microsoft": "michiel",
+  "Voormalig stewardess": "cynthia",
   "Verdient minder dan Jasper": _.without(allHandles, "jasper"),
   "Google IO alumni": [
     "kars", "rahul", "martin", "jaap", "mark", "remco", "kamil", "christiaan",
@@ -74,11 +74,13 @@ const arbitrary = {
   "Kan stiekem best programmeren": "chris",
   "Namespace collision": [
     "jaap", "jaapm", "jasper", "jasperh", "timl", "tims",
-    "timd", "leonard", "gerard", "sander", "sanderp", "wouter", "wouterh"
+    "timd", "leonard", "gerard", "sander", "sanderp", "wouter", "wouterh",
+    "bram", "braml"
   ],
   "Emigrant": "rahul",
   "Gewerkt met de Two Guys": "martin rahul richard",
-  "Troll": "benjamin"
+  "Troll": "benjamin",
+  "Emojinaam": "taco roos",
 };
 
 _.each(_.extend(roles, arbitrary),

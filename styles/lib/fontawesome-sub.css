@@ -34,5 +34,6 @@
 .fa-slack:before { content: '\e80b'; } /* '' */
 .fa-phone-square:before { content: '\e80c'; } /* '' */
 .fa-music:before { content: '\e810'; } /* '' */
+.fa-instagram:before { content: "\f16d"; }
 
 .fa-2x:before { font-size: 2em; }

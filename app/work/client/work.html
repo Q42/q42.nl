@@ -1,20 +1,25 @@
 <template name="pinnedWork">
   {{#if item}}
-    {{> work item=item size=size align=align}}
+    {{> workItem item=item size=size align=align}}
   {{/if}}
 </template>
 
-<template name="workItems">
+<template name="listAllProjects">
   {{#each row in workItems}}
+    {{#if row.[0]}}
+      {{> workItem item=row.[0] size="large"}}
+    {{/if}}
+    {{#if row.[1]}}
     <div class="block-large">
-      {{#each workItem in row}}
-        {{> work item=workItem size="small"}}
+      {{#each item in row.[1]}}
+        {{> workItem item=item size="small"}}
       {{/each}}
     </div>
+    {{/if}}
   {{/each}}
 </template>
 
-<template name="work">
+<template name="workItem">
   <div class="block-{{size}}{{#if align}} {{align}}{{/if}}">
     <div class="visual caption">
       {{#with imageThumbnail item.image}}
@@ -23,13 +28,17 @@
           <p>{{#if langEn}}{{title_en}}{{else}}{{title}}{{/if}}</p>
         {{/if}}
       {{else}}
-        <img src="https://unsplash.it/600/320/?random" alt="">
+        <img src="https://unsplash.it/600/320/?random&time={{time}}" alt="">
       {{/with}}
     </div>
     <div class="body">
       <h2>{{item.name}}</h2>
-      <h3>{{item.slogan_nl}}</h3>
-      {{{item.intro_nl}}}
+      <h3>{{#if langEn}}{{item.slogan}}{{else}}{{item.slogan_nl}}{{/if}}</h3>
+      {{#if langEn}}
+        {{{item.intro}}}
+      {{else}}
+        {{{item.intro_nl}}}
+      {{/if}}
     </div>
   </div>
 </template>
@@ -41,7 +50,6 @@
       {{#each tag in workTags}}
         <li><a href="/work/tagged/{{tag}}" class="{{#if isSelected tag}}selected{{/if}}">{{tag}}</a></li>
       {{/each}}
-      <li><a href="/work/tagged/herpderp" class="{{#if isSelected 'herpderp'}}selected{{/if}}">herpderp</a></li>
     </ul>
   </aside>
   {{/if}}

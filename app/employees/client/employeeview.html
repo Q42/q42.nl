@@ -7,7 +7,7 @@
       <a href="tel:{{phone}}">{{phone}}</a>
       {{/if}}
     </span>
-    <img src="{{assetsUrl}}/images/employees/{{avatar_static}}" alt="{{name}}">
+    <img src="{{avatar_static}}" alt="{{name}}">
     {{#if showPolaroid}}
       {{> polaroid}}
     {{/if}}
@@ -18,9 +18,9 @@
   <div class="polaroid">
     {{#if supportsWebm}}
     <video src="{{assetsUrl}}/video/employees/{{handle}}.webm" loop autoplay
-           poster="{{assetsUrl}}/images/employees/{{avatar_static}}"></video>
+           poster="{{avatar_static}}"></video>
     {{else}}
-    <img src="{{assetsUrl}}/images/employees/{{avatar_animated}}" alt="{{name}}">
+    <img src="{{avatar_animated}}" alt="{{name}}">
     {{/if}}
     <h3>{{name}}</h3>
     <p class="contactData">

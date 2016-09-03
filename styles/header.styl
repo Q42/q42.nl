@@ -2,15 +2,22 @@
 
 #header
 
-  nav
-    li
-      opacity 0
-      animation fadeInHeader .5s cubic-bezier(.87,-.41,.19,1.44)
-      animation-fill-mode forwards !important
+  .q42-logo
+    width 100px
+    height 140px
+    @media (max-width 480px)
+      width 78px
+      height 110px
 
-    for i in (2..5)
-      li:nth-child({i})
-        animation-delay 0.05s * i
+  // nav
+  //   li
+  //     opacity 0
+  //     animation fadeInHeader .5s cubic-bezier(.87,-.41,.19,1.44)
+  //     animation-fill-mode forwards !important
+  //
+  //   for i in (2..5)
+  //     li:nth-child({i})
+  //       animation-delay 0.05s * i
 
   @media (max-width 480px)
     li > .q42-logo

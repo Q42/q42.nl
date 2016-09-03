@@ -1,4 +1,3 @@
-<!-- girl code page -->
 <template name="en_girlcode">
   <div class="container">
     <header class="block-text">
@@ -6,11 +5,11 @@
       <img src="/images/girlcode/logo-girlcode.png" alt="">
     </header>
     <section>
-      <div class="block-large">
+      <div class="block-large solid">
         <div class="intro">
           <p>At Q42 we aspire to make the software we build not only useful but
-            also friendly; we want to include and make it open to literally
-            everyone. The web, tech in general, and code specifically should not
+            also friendly; we want to include and make it open to everyone.
+            In fact, tech in general, and code specifically should not
             only be accessible for all to use but also to build. As a company
             comprised mainly of developers, we want to help make that change!</p>
           <p><a href="http://meetup.com/girlcode">Girl Code</a> is our initiative
@@ -21,18 +20,18 @@
             you'll join us in making this difference.</p>
           <p>
             Interested in talking about anything related to Girl Code?
-            <a href="mailto:ineke@q42.nl">Email us</a>!
+            <a href="mailto:girlcode@q42.nl">Email us</a>!
           </p>
         </div>
         <aside class="block-small subcontent">
           <h2>See also</h2>
           <ul>
             <li><a href="http://meetup.com/girlcode">Girl Code meetup group</a></li>
-            <li><a href="http://girlcode.q42.com">Tic Tac Toe tutorial</a></li>
+            <li><a href="http://girlcode.q42.com">GirlCode subsite</a></li>
             {{#each post}}{{#if title}}
             <li><a href="/blog/post/{{id}}/{{slug}}">{{title}}</a></li>
             {{/if}}{{/each}}
-            <li><a href="http://codeuur.nl">Teaching all kids to code (Dutch)</a></li>
+            <li><a href="http://codeuur.nl">Teaching all kids to code</a> (Dutch)</li>
           </ul>
         </aside>
       </div>
@@ -43,15 +42,20 @@
           <h2>Girl Code at Q42</h2>
           <p>Professional coders aren’t necessarily male. That is what we see as
             an undeniable fact, but also as a statement we want to enforce in the
-            real world. So when Lieke Boon offered to give a talk about unconscious
-            bias in tech, <a href="https://twitter.com/afkatja">Katja</a> (developer)
+            real world. So when <a href="https://twitter.com/Lieke2208">Lieke Boon</a>
+            offered to give a talk about unconscious bias in tech,
+            <a href="https://twitter.com/afkatja">Katja</a> (developer)
             asked <a href="https://twitter.com/FYIneke">Ineke</a> (PR): "Can't we
             make this bigger than just one talk for Q'ers only?". Ineke answered,
             "We can and we should!". And so they did. Girl Code was born and the
             first meetup was planned.</p>
-          <p>And in our own world of code? Since last year, the percentage of women
-            at Q42 has risen from just 6% to 15%, and we're not done! So, check out
-            our <a href="//www.q42.nl/vacatures">vacancies</a> (Dutch) and send us your code!</p>
+          <p>And in our own world of code? The percentage of programming women
+            at Q42 is still way below the average 10% in the Netherlands (based on
+            <a href="http://www.mailswitch.nl/files/1638-b42440b5fca651165e886d684da2520c.pdf" target="_blank">data
+            published by the Dutch employment bureau in 2015</a> (Dutch),
+            so we're not there yet. If you want to help improve these statistics,
+            check out our <a href="https://q42.homerun.co/?lang=en">vacancies</a>
+            and send us your code!</p>
         </div>
           <div class="visual caption">
             <img src="{{assetsUrl}}/images/girlcode/ineke-katja.jpg" alt="">
@@ -69,36 +73,103 @@
             <div class="body">
               <h2>Girl Code @ Nerds on Stage</h2>
               <p>Nerds on Stage, a yearly tech event for Dutch high school
-                students, describes itself as a place to 'Meet the brightest
+                students, describes itself as a place to 'meet the brightest
                 minds in technology and creativity'. So when we were asked to
                 give two mini lectures there, we simply couldn't refuse. And
                 we're glad we didn't, because we had a blast!
               </p>
               <p><a href="https://www.q42.nl/blog/post/134796783753/girl-code-nerds-on-stage">
-                Read about our day at Nerds on Stage (Dutch)
-              </a></p>
+                Read about our day at Nerds on Stage
+              </a> (Dutch)</p>
             </div>
           </div>
           <div class="block-small">
             <div class="visual caption">
-              <img src="{{assetsUrl}}/images/girlcode/girlcodemeetsmeteor.png" alt="">
-              <p>"It works!!!"</p>
+              <img src="{{assetsUrl}}/images/girlcode/girlcodemeetsmeteor.jpg" alt="">
+              <p>Coding together</p>
             </div>
             <div class="body">
               <h2>Girl Code meets Meteor</h2>
-              <p>To shake things up a bit we organized a hands-on coding meetup instead of just talks. During Girl Code meets Meteor everyone built their own version of Tic Tac Toe in the good company of other Girl Coders and Meteor tutors.</p>
-              <p><a href="https://q42.com/blog/post/139108852893/girl-code-meets-meteor">Read about our night here</a></p>
+              <p>To shake things up a bit we organised a hands-on coding meetup
+                instead of just talks. During Girl Code meets Meteor everyone
+                built their own version of Tic Tac Toe in the good company of
+                other Girl Coders and Meteor tutors.</p>
+              <p>We also offered a second chance to attend this meetup at our
+                Amsterdam office. 50(!) of you did. So the world has gained 50
+                extra special awesome games of Tic Tac Toe. Wow!</p>
+              <p><a href="https://q42.com/blog/post/139108852893/girl-code-meets-meteor">Read about our night</a>
+              or <a href="http://www.meetup.com/girlcode/photos/26824017/">check out pics of the Rerun we did</a>!</p>
             </div>
           </div>
           <div class="block-small">
             <div class="visual caption">
-              <img src="{{assetsUrl}}/images/girlcode/girlcodererun.png" alt="">
-              <p>Glasses-wearing equality</p>
+              <img src="{{assetUrl}}/images/girlcode/iot.jpg" alt="">
+              <p>GirlCode meets IoT</p>
             </div>
             <div class="body">
-              <h2>Girl Code meets Meteor rerun</h2>
-              <p>A rerun like on tv and as good as any good old Friends rerun. We wanted to offer a second chance to attend this meetup at our Amsterdam office. 50(!) of you did. So the world has gained 50 extra special awesome games of Tic Tac Toe. Wow!</p>
-              <p><a href="http://www.meetup.com/girlcode/photos/26824017/">And we've got pictures to prove it</a></p>
+              <h2>GirlCode meets Internet of Things</h2>
+              <p>IoT has become increasingly ubiquitous in our daily lives. It
+                makes our lives easier and offers fun opportunities for us
+                coders. Beyond coding apps and websites, you can bring your
+                coding into the real world even more when you do something
+                with IoT.</p>
+              <p>For this meetup, we've arranged for cool talks and demos on
+                IoT and IoT-projects.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="block-large">
+          <div class="block-small">
+            <div class="visual caption">
+              <img src="{{assetUrl}}/images/girlcode/girlsday.jpg" alt="">
+              <p>Girls learning to programm</p>
+            </div>
+            <div class="body">
+              <h2>GirlCode meets VHTO's Girlsday</h2>
+              <p>Unconscious bias is formed very early in our lives, so we took
+                part in the annual Girls Day organized by VHTO. The idea is to
+                show schoolgirls that tech professions are not necessarily only
+                for boys. Girls coded with Scratch and showed enormous creativity
+                and enjoyed programming!</p>
+              <p>In their feedback, most of them said they expected our
+                profession to be very boring and it turned out to be completely
+                the opposite!</p>
+            </div>
+          </div>
+          <div class="block-small">
+            <div class="visual caption">
+              <img src="{{assetUrl}}/images/girlcode/nightnerds.jpg" alt="">
+              <p>GirlCode @ Night of the Nerds</p>
+            </div>
+            <div class="body">
+              <h2>Night of the Nerds</h2>
+              <p>GirlCode was invited to
+                <a href="https://www.facebook.com/nightofthenerds/">Night of
+                the Nerds 2016</a> to tell about our cause and show some cool
+                demos. Ineke and Kristin were at this event and showcased our
+                Connected Hula Hoop and gave a tech talk.</p>
+              <p>Schoolchildren were gathered to get inspired about tech
+                professions, and programming, and the result is, again, that
+                children react positively to the description of coding professions.</p>
+            </div>
+          </div>
+          <div class="block-small">
+            <div class="visual caption">
+              <img src="{{assetUrl}}/images/girlcode/visionapi.jpg" alt="">
+              <p>Dive into Vision API</p>
+            </div>
+            <div class="body">
+              <h2>GirlCode meets Google Vision API</h2>
+              <p>Google was in Amsterdam with GCP Next World Tour, so we
+                hijacked Girl Googler
+                <a href="https://twitter.com/SRobTweets">Sara Robinson</a>!
+                We organized an introduction to the API, hands-on Vision API
+                workshop and concluded with a brainstorm to inspire everyone to
+                get started with the API.</p>
+              <p>The result of the brainstorm session seemed to be that we have
+                to do something with Tinder and the Vision API…</p>
             </div>
           </div>
         </div>
@@ -107,16 +178,12 @@
         <div class="block-large right">
           <div class="body">
             <h2>The very first Girl Code meetup</h2>
-            <p>Words without action won't change the world. So, to put our money
-              where our mouth is, we've organized our first meetup right after we
+            <p>Just talk and no action won't change the world. So, to put our money
+              where our mouth is, we organised our first meetup right after we
               started Girl Code. The result was an inspiring night with talks and
               demos from four professional Girl Coders, a talk by Lieke Boon, and
               a very enthusiastic attendance by all sorts of Girl Coders from Girls
               in Tech's and our own network.</p>
-            <p>Successful in their work, we think of our four speakers as role
-              models to girls who play with the idea to get into tech and an
-              inspiration to girls who already are into code. Boys, of course,
-              were welcome too!</p>
             <a href="https://q42.com/blog/post/123023600323/girl-code">
               Read more about this night and all of the talks on our blog.
             </a>

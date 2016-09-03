@@ -66,7 +66,8 @@ You need the following prerequisites:
 
  - `config/q42.nl/settings.json` and `config/q42.com/settings.json` based on the
    above template. In the '.com' version, be sure to set siteVersion to 'en'.
-	 Make sure _all_ fields are configured.
+	 Make sure _all_ fields are configured. Since Meteor 1.4, the MONGO_OPLOG_URL
+	 also needs a ?replicaSet querystring parameter.
  - Git Flow, which you can get here:
 	 https://github.com/nvie/gitflow/wiki/Installation -- note you'll need to
 	 `git flow init` while on the `develop` branch, as the git flow state isn't

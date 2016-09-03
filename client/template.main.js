@@ -14,7 +14,6 @@ Template.main.helpers({
     return null;
   },
   openChat: () => Session.equals("openChat", true),
-  visible: () => "visible-backgrounds",
   inverted() {
     return (FlowRouter.getRouteName() === 'home') ? 'inverted' : '';
   }

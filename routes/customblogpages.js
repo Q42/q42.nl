@@ -26,7 +26,7 @@ customBlogPages = (router) => {
         BlazeLayout.render("main", {
           header: "header",
           footer: "footer",
-          body: RouteUtils.getTemplate(obj.routeName)
+          body: RouteUtils.getTemplate(obj.routeName) || "error404"
         });
       },
       subscriptions() {

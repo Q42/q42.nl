@@ -1,53 +1,14 @@
 ﻿<template name="projecten">
   <div class="container">
 
-    <header class="block-text">
+    <header class="block-text" style="display: none">
       <h1>Werk</h1>
     </header>
 
-    {{> pinnedWork index=0 size="large full-bleed" align="left"}}
-
-    {{> thing id="nl-projecten-intro"}}
-
-    <div class="block-large">
-      {{> pinnedWork index=1 size="small"}}
-      {{> pinnedWork index=2 size="small"}}
-      {{> pinnedWork index=3 size="small"}}
-    </div>
-
-    {{> listAllProjects index=4}}
-
-    <section id="handcraft">
-      <div class="block-large">
-        <div class="body">
-          <h2>Handcraft</h2>
-          <h3>Interactive HTML prototypes</h3>
-          <p>Handcraft is een online editor die voortkomt uit ons geloof in het "design in the browser"-principe. En we vinden het zelf erg handig om mee te prototypen. We kunnen dan lekker makkelijk ons werk delen met collega's, partners en klanten.</p>
-          <p><a href="http://handcraft.com/" class="external">Bekijk Handcraft</a></p>
-        </div>
-        <div class="visual caption">
-          <img src="{{assetsUrl}}/images/handcraft.jpg" alt="Handcraft" />
-          <p>Ambachtelijk handwerk FTW!</p>
-        </div>
-      </div>
-    </section>
+    {{> projects pinnedFirst=true intro='nl-projecten-intro'}}
 
     <section>
       <div class="block-large">
-        <div class="block-small">
-          <div class="visual caption">
-            <img src="{{assetsUrl}}/images/projecten/subiet.jpg" alt=""/>
-            <p>Subiet... vertrekt je trein</p>
-          </div>
-          <div class="body">
-            <h2>Subiet</h2>
-            <h3>De app voor de frequente treinreiziger</h3>
-            <p>Reis je vaak op vaste trajecten met de trein? Dan is <a href="http://subietapp.nl">Subiet</a> de ideale app voor jou.
-              Met Subiet heb je namelijk direct overzicht over de vertrektijden op jouw vaste trajecten.</p>
-            <p>We ontwikkelden Subiet samen met onze makkers bij <a href="http://oakandmorrow.com">Oak &amp; Morrow</a>.</p>
-            <p><a href="/blog/post/122940751318/subiet-een-app-voor-de-frequente-treinreiziger" class="external">Meer over Subiet</a></p>
-          </div>
-        </div>
         <div class="block-small">
           <div class="visual caption">
             <video src="{{assetsUrl}}/video/trello.webm" autoplay loop>
@@ -77,21 +38,18 @@
             <p><a href="http://micr.io">Laat zien dan!</a></p>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section id="games">
-      <div class="block-large">
-        <div class="body">
-          <h2>Games</h2>
-          <h3>Digitaal en analoog</h3>
-          <p>Peter Pan blijft altijd jong. Q-ers eigenlijk ook. Games spelen zit in ons bloed en als we even de tijd ervoor nemen maken we ook graag spellen.</p>
-          <p>En om dat creatieve en katalyserende proces gezond in een bedrijf te passen zeggen we voortaan officieel dat we ook "games maken". Een soort pleziertherapie.</p>
-          <p><a href="/games">Check al onze games</a></p>
-        </div>
-        <div class="visual caption">
-          <img src="{{assetsUrl}}/images/games/games-q.jpg" alt="Spelen en maken. Digitaal en analoog." />
-          <p>Spelen en maken. Digitaal en analoog.</p>
+        <div class="block-small">
+          <div class="visual caption">
+            <img src="{{assetsUrl}}/images/projecten/lakenhal.jpg" alt="">
+            <p>Beter dan "dekenhal"!</p>
+          </div>
+          <div class="body">
+            <h2>Museum de Lakenhal</h2>
+            <h3>Met Ruby on Rails</h3>
+            <p>Leiden heeft een rijk kunstenaarsverleden. Niemand minder dan Rembrandt van Rijn, Jan Steen en Gerrit Dou waren van Leidse komaf. Naast stukken van deze en andere Leidse kunstenaars vind je in Museum de Lakenhal stukken over de Leidse geschiedenis en de kunstnijverheid in de stad.</p>
+            <p>In samenwerking met Fabrique maakten wij de nieuwe website, ditmaal (voor het eerst!) met Ruby on Rails.</p>
+            <p><a href="http://lakenhal.nl" class="external">Bekijk de verhalen</a></p>
+          </div>
         </div>
       </div>
     </section>
@@ -112,19 +70,6 @@
         </div>
         <div class="block-small">
           <div class="visual caption">
-            <img src="{{assetsUrl}}/images/linkapp.png" alt="Klein maar fijn."/>
-            <p>Klein maar fijn.</p>
-          </div>
-          <div class="body">
-            <h2>Link</h2>
-            <h3>World's smallest social network</h3>
-            <p>Soms ben je ergens met een groep vrienden en wil je gewoon even weten wie waar is, wat ze doen, etc. Wintersport bijvoorbeeld, een bedrijfsuitje of een event. Niet gedoe met Facebook of SMS, maar een klein tijdelijk netwerkje waar ook nieuwe mensen op aan mogen haken.</p>
-            <p>Dat is Link. Gratis, voor op je iPhone.</p>
-            <p><a href="http://lnkapp.com" class="external">lnkapp.com</a></p>
-          </div>
-        </div>
-        <div class="block-small">
-          <div class="visual caption">
             <img src="{{assetsUrl}}/images/livejs.jpg" alt="Live JS"/>
             <p>Met Live.js wordt programmeren als musiceren.</p>
           </div>
@@ -135,11 +80,6 @@
             <p><a href="http://livejs.com" class="external">Download live.js</a></p>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="block-large">
         <div class="block-small">
           <div class="visual caption">
             <img src="{{assetsUrl}}/images/projecten/mendo2.jpg" alt=""/>
@@ -150,19 +90,6 @@
             <h3>Spannend HTML5 &amp; CSS3 spul</h3>
             <p>“MENDO is a candy store for book aficionados,” is hoe Roy, Joeri en Joost hun Amsterdamse winkel treffend omschrijven. Die beleving, maar dan online. Dat was de opdracht die Perceptor en Q42 kregen. Een uitdaging, maar met de fantastische content van MENDO en de unieke ontwerp-skills van Perceptor was het voor ons een feest om dat te verrijken met hippe web-technologieën.</p>
             <p><a href="http://mendo.nl" class="external">Bekijk Mendo.nl</a></p>
-          </div>
-        </div>
-        <div class="block-small">
-          <div class="visual caption">
-            <img src="{{assetsUrl}}/images/projecten/lakenhal.jpg" alt="">
-            <p>Beter dan "dekenhal"!</p>
-          </div>
-          <div class="body">
-            <h2>Museum de Lakenhal</h2>
-            <h3>Met Ruby on Rails</h3>
-            <p>Leiden heeft een rijk kunstenaarsverleden. Niemand minder dan Rembrandt van Rijn, Jan Steen en Gerrit Dou waren van Leidse komaf. Naast stukken van deze en andere Leidse kunstenaars vind je in Museum de Lakenhal stukken over de Leidse geschiedenis en de kunstnijverheid in de stad.</p>
-            <p>In samenwerking met Fabrique maakten wij de nieuwe website, ditmaal (voor het eerst!) met Ruby on Rails.</p>
-            <p><a href="http://lakenhal.nl" class="external">Bekijk de verhalen</a></p>
           </div>
         </div>
       </div>

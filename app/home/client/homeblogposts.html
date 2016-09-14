@@ -1,30 +1,20 @@
 <template name="homeBlogposts">
   <section class="newslist">
-    <h2>
-      {{#if langEn}}What we're up to{{else}}Wat ons bezighoudt{{/if}}
-    </h2>
     {{#each postWithAuthor}}
-      <div class="newsitem {{isByQer authorName}}">
-        <a href="{{postLink}}">
-          {{#if cleanImg intro}}
-            <div class="image col"><img src="{{cleanImg intro}}" alt=""></div>
-          {{/if}}
+      <div class="newsitem {{isByQer displayAuthor}}">
+        <a href="https://medium.com/q42bv/{{uniqueSlug}}">
+          <div class="image col">
+            <img src="{{#if img}}{{img}}{{else}}{{assetsUrl}}/images/next.svg{{/if}}" alt="">
+          </div>
           <div class="col">
             <h2>{{title}}</h2>
-            {{#if intro}}
-              <p class="preview">{{cleanIntro intro}}</p>
-            {{else}}
-              {{#if description}}
-                <p class="preview">{{cleanIntro description}}</p>
-              {{/if}}
-            {{/if}}
             <div class="metadata">
-              <div class="date">{{prettyDate}}</div>
-              {{#if isByQer authorName}}
+              <div class="date">{{firstPublishedAt}}</div>
+              {{#if isByQer displayAuthor}}
                 <div class="author">
                   <p>
-                    {{authorName}}
-                    <img src="{{assetsUrl}}/images/employees/{{author.handle}}.jpg" alt="{{authorName}}">
+                    {{displayAuthor}}
+                    <img src="{{assetsUrl}}/images/employees/{{author.handle}}.jpg" alt="{{displayAuthor}}">
                   </p>
                 </div>
               {{/if}}
@@ -33,12 +23,5 @@
         </a>
       </div>
     {{/each}}
-    <p>
-      {{#if langEn}}
-      <a href="/blog/tagged/en">More...</a>
-      {{else}}
-      <a href="/blog">Nog meer...</a>
-      {{/if}}
-    </p>
   </section>
 </template>

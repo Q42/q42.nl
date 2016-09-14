@@ -5,18 +5,13 @@
     margin-top 100px
     margin-bottom 100px
 
-.startingpoints
-  span
-    margin 0 1rem
-  a
-    font-weight 500
-    border none
-    text-decoration underline
-
 .newslist
-  width 600px
-  margin 0 auto 3rem auto
-  border-bottom solid 1px rgba(255,255,255,.3)
+  display flex
+  align-items center
+
+  @media (min-width 620px)
+    margin 0 5rem 5rem 5rem
+    overflow-x hidden
 
   & > h2, & > p, & > p a
     color white
@@ -31,23 +26,18 @@
 
   @media (max-width 600px)
     width 100%
+    flex-wrap wrap
 
 .newsitem
-  perspective 2000px
-  animation-fill-mode forwards !important
-  animation scaleUp 0.6s cubic-bezier(.34,.91,.62,1.09)
-  border-bottom solid 1px #555
-  // font-family monoFont
-
-  for i in (2..10)
-    &:nth-child({i})
-      animation-delay 0.1s * i
+  flex 1
+  @media (min-width 620px)
+    min-width 340px
 
   .col:last-child
     flex 4
 
   h2
-    font-size 24px
+    font-size 16px
     color qColor
     margin-top 0
 
@@ -57,15 +47,13 @@
     align-items center
     border none
     color white
-    background-color #222
-    padding 2rem
+    padding 0 2rem 1rem 2rem
     font-weight 300
     &:hover
       color white
       h2
         text-decoration underline
         color qColor + #333
-
 
   p
     margin-top 0
@@ -87,14 +75,14 @@
       height 32px
 
   .image
-    width 150px
-    height 150px
-    margin-left -120px
+    width 75px
+    height 75px
     margin-right 1rem
     overflow hidden
-    border solid 10px #333
+    border solid 5px #333
     border-radius 50%
+    background-color #222
     img
       object-fit cover
-      width 150px
-      height 150px
+      width 75px
+      height 75px

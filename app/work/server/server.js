@@ -4,15 +4,16 @@ import { _ } from 'meteor/underscore'
 
 import { Work, Media } from '../lib/collections'
 
-Meteor.publishComposite("work", (tag, type) => {
+Meteor.publishComposite("work", (type, category) => {
   const query = { draft: false };
 
   const langEn = Meteor.settings.public.siteVersion === "en";
 
   const alwaysPublishFields = {
     "properties.pinned": 1,
+    "properties.pinnedPosition": 1,
     "properties.secret": 1,
-    "properties.date": 1
+    "properties.date": 1,
   };
   const fields = {
     name: 1, clientName: 1, image: 1,
@@ -25,11 +26,11 @@ Meteor.publishComposite("work", (tag, type) => {
     ...alwaysPublishFields
   };
 
-  if (tag) {
-    Object.assign(query, { "properties.tags": {$in: [tag]} });
+  if (type) {
+    Object.assign(query, { type });
   }
-  else if (type) {
-    Object.assign(query, { type: type });
+  else if (category) {
+    Object.assign(query, { category });
   }
 
   const workQueryObject = (fields, secret) => ({
@@ -47,7 +48,7 @@ Meteor.publishComposite("work", (tag, type) => {
             {
               fields: {
                 file: 1, imageWidth: 1, imageHeight: 1,
-                title: 1, description: 1
+                title: 1, description: 1, title_en: 1,
               },
               limit: 2
             }
@@ -63,11 +64,11 @@ Meteor.publishComposite("work", (tag, type) => {
   ];
 });
 
-Meteor.publish("workTags", function() {
-  const work = Work.find({}, {fields: {"properties.tags": 1}}).fetch();
-  const tags = _.map(work, w => w.properties.tags);
-  this.added("work_tags", new Mongo.ObjectID(), {
-    tags: _.compact(_.uniq(_.flatten(tags))).sort()
-  });
-  this.ready();
-});
+// Meteor.publish("workTags", function() {
+//   const work = Work.find({}, {fields: {"properties.tags": 1}}).fetch();
+//   const tags = _.map(work, w => w.properties.tags);
+//   this.added("work_tags", new Mongo.ObjectID(), {
+//     tags: _.compact(_.uniq(_.flatten(tags))).sort()
+//   });
+//   this.ready();
+// });

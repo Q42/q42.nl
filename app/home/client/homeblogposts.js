@@ -1,18 +1,19 @@
 import { Mongo } from 'meteor/mongo'
 import { Template } from 'meteor/templating'
 import { Employees, EmployeeCount } from '../../employees/lib/shared'
-
-const PostsWithAuthors = new Mongo.Collection("Posts");
+import { MediumPosts } from '../../medium_posts/lib/shared'
 
 Template.homeBlogposts.helpers({
-  postLink() {
-    return this.type === 'link' ?
-      this.url : `/blog/post/${this.id}/${this.slug}`;
+  isByQer(authorName) {
+    return
+      (authorName && authorName !== 'Q42')
+      ? 'byqer'
+      : '';
   },
 
-  isByQer(authorName) {
-    return (authorName !== 'Rahul Choudhury' && authorName !== 'Q42' &&
-        authorName !== 'Ineke Scheffers') ? 'byqer' : '';
+  firstPublishedAt() {
+    const d = new Date(this.firstPublishedAt);
+    return `${d.getDate()}-${d.getMonth() + 1}-${d.getFullYear()}`;
   },
 
   num_employees() {
@@ -21,36 +22,9 @@ Template.homeBlogposts.helpers({
   },
 
   postWithAuthor() {
-    return PostsWithAuthors.find({
-      $or: [
-        {description: {$exists: true}},
-        {intro: {$exists: true}}
-      ]
-    });
+    return MediumPosts.find();
   },
   author() {
-    return Employees.findOne({name: this.authorName});
-  },
-
-  cleanIntro(intro) {
-    // XXX: trolololol
-    let tag = document.createElement('div');
-    tag.innerHTML = intro;
-    let txt = tag.innerText;
-    txt = txt.substr(0, 150);
-    txt = txt.substr(0, Math.min(txt.length, txt.lastIndexOf(" ")));
-    if (txt)
-      return txt + "...";
-    return "";
-  },
-
-  cleanImg(intro) {
-    // XXX: trolololol
-    let div = document.createElement('div');
-    div.innerHTML = intro;
-    let img = div.querySelector('img');
-    if (img)
-      return img.src;
-    return "";
+    return Employees.findOne({name: this.displayAuthor});
   }
 });

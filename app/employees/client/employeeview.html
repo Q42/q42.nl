@@ -1,5 +1,6 @@
 <template name="employeeView">
   <li class="qer {{#if showPolaroid}}qer-shown{{/if}}">
+    <img src="{{avatar_static}}" alt="{{name}}">
     <span class="name">{{firstname}}</span>
     <span class="contactData">
       <a href="mailto:{{handle}}@q42.nl">{{email}}@q42.nl</a>
@@ -7,7 +8,6 @@
       <a href="tel:{{phone}}">{{phone}}</a>
       {{/if}}
     </span>
-    <img src="{{avatar_static}}" alt="{{name}}">
     {{#if showPolaroid}}
       {{> polaroid}}
     {{/if}}

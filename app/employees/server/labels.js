@@ -39,7 +39,7 @@ const roles = {
 
 // Arbitrary selections
 const arbitrary = {
-  "Girl Code": "katja kristin",
+  "Girl Code": "katja kristin lukas",
   "Codeuur": "lukas thijs kars johan",
   "Speelt nog World of Warcraft": "rahul richard benjamin tims ricardo",
   "Weet wat Spiffy is": "bob timl martin remco lukas sjoerd kars laurens" /* LOL! */,

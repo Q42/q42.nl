@@ -15,23 +15,15 @@ Make sure your editor has support for .editorconfig, and .jshintrc.
 
 ## Add settings you need
 
-Create a `config/dev/settings.json` file containing the correct Tumblr and
+Create a `config/dev/settings.json` file containing the correct
 Kadira account information:
 
 ```
 {
 	"public": {
 		"siteVersion": "nl", // or "en" to develop the .com site
-		"TUMBLR_KEY": "..."
 	},
 	"private": {
-		"chatConfig": {
-			"incomingUrl": "INCOMING_SLACK_HOOK_URL",
-			"outgoingToken": "OUTGOING_SLACK_TOKEN"
-		},
-		"serviceConfiguration": [
-			{ ... }
-		]
 		"MONGO_URL": "...",
 		"MONGO_OPLOG_URL": "..."
 	},
@@ -42,13 +34,11 @@ Kadira account information:
 }
 ```
 
-The Tumblr key is required for the blog to not explode (even though you won't
-actually be able to see any posts without our real API key). If you misconfigure
-Kadira, you'll just get console errors. You can get a hold of the keys in the
-"q42.nl" vault in 1Password.
+If you misconfigure Kadira, you'll just get console errors. You can get a hold
+of the keys in the "q42.nl" vault in 1Password.
 
 (if you use the config file as above, without actual values, the site will still
-	run, but without blog, and with warnings/errors).
+	run, but with warnings/errors).
 
 ## Running the site locally
 
@@ -92,11 +82,6 @@ if you want to edit some content, just navigate to that file and edit it! A
 really fast way to clean up spelling mistakes and similar small problems is to
 just load the repository on Github and use its built-in editor to edit files.
 Github will automatically fork the project for you and submit a pull request.
-
-# Credits
-
-We use the reblog icon by Yo Szczepanska from the Noun Project:
-http://thenounproject.com/term/reblog/7116/ (CC BY 3.0).
 
 # License?
 

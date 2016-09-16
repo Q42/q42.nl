@@ -2,21 +2,19 @@
   <section class="newslist">
     {{#each postWithAuthor}}
       <div class="newsitem {{isByQer authorName}}">
-        <a href="{{postLink}}">
-          {{#let img=(cleanImg intro)}}
-            <div class="image col">
-              <img src="{{#if img}}{{img}}{{else}}{{assetsUrl}}/images/next.svg{{/if}}" alt="">
-            </div>
-          {{/let}}
+        <a href="https://medium.com/q42bv/{{uniqueSlug}}">
+          <div class="image col">
+            <img src="{{#if img}}{{img}}{{else}}{{assetsUrl}}/images/next.svg{{/if}}" alt="">
+          </div>
           <div class="col">
             <h2>{{title}}</h2>
             <div class="metadata">
-              <div class="date">{{prettyDate}}</div>
-              {{#if isByQer authorName}}
+              <div class="date">{{firstPublishedAt}}</div>
+              {{#if isByQer displayAuthor}}
                 <div class="author">
                   <p>
-                    {{authorName}}
-                    <img src="{{assetsUrl}}/images/employees/{{author.handle}}.jpg" alt="{{authorName}}">
+                    {{displayAuthor}}
+                    <img src="{{assetsUrl}}/images/employees/{{author.handle}}.jpg" alt="{{displayAuthor}}">
                   </p>
                 </div>
               {{/if}}

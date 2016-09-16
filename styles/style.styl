@@ -64,6 +64,11 @@ a
     color qColor
     border-bottom-color qColor
 
+.fa-icon
+  width 24px
+  height 24px
+  vertical-align middle
+
 #page
   // animation fadeIn ease .25s
   // animation-fill-mode forwards
@@ -163,27 +168,14 @@ a
       margin-bottom 0
     &.block-no-padding
       padding 0
-    &.blog
-      // to accommodate tumblr's weird image width
-      @media (min-width 540px)
-        width 540px
-      @media (max-width 539px)
-        max-width 100%
 
     @media (max-width 940px)
       flex-direction column
       .intro
         margin-right 0
         width inherit
-      &.blog
-        flex-wrap inherit
-        flex-direction column
       &.right .body
         order inherit
-
-    @media (max-width 480px)
-      &.blog:first-child
-        margin-top 32px
 
     & > .body
       margin 0
@@ -298,6 +290,11 @@ a
 
 .block-large
   display flex
+
+  @media (min-width 940px)
+    &.full-bleed
+      width auto
+      margin -220px 0 16px 0
 
   &.block-no-padding-after
     padding-bottom 0
@@ -470,10 +467,6 @@ a
 
 @media (max-width 940px)
 
-  .blog .blog-posts,
-  .blog .blog-post
-    padding 0
-
   // http://stackoverflow.com/q/8720931/16308
   .block-large > .block-small:first-child:nth-last-child(1),
   .block-large > .block-small:first-child:nth-last-child(1) ~ div,
@@ -482,7 +475,6 @@ a
     max-width inherit !important
 
 @media (min-width: 941px)
-  .blog,
   #not-found,
   .block-text,
   .block-large,
@@ -491,8 +483,7 @@ a
 
 @media (max-width: 620px)
 
-  .visual iframe,
-  .blog-item iframe
+  .visual iframe
     width 100%
 
   .fb_iframe_widget,

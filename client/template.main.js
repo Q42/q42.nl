@@ -13,7 +13,6 @@ Template.main.helpers({
     }
     return null;
   },
-  openChat: () => Session.equals("openChat", true),
   inverted() {
     return (FlowRouter.getRouteName() === 'home') ? 'inverted' : '';
   }

@@ -15,6 +15,7 @@
         <aside class="block-small subcontent">
           <h2>Zie ook</h2>
           <ul>
+						<li><a href="https://medium.com/q42bv/tagged/vacature">op Medium</a></li>
 						<li><a href="https://q42.homerun.co">Onze vacaturesite</a></li>
           	<li><a href="/over-q42">Over Q42</a></li>
             <li><a href="https://q42.com/interaction-engineering">Interaction Engineering</a> (Engels)</li>
@@ -22,21 +23,6 @@
         </aside>
       </div>
     </section>
-
-    <div class="blog block-large">
-      <div class="blog-posts">
-      {{#each post}}
-        <div class="blog-item">
-  	      <h1><a href="/blog/post/{{id}}/{{slug}}">{{title}}</a></h1>
-  	      {{> postDate}}
-  	      {{{intro}}}
-  	      <p class="block-readmore">
-  	        <a href="/blog/post/{{id}}/{{slug}}" class="readmore">Read more</a>
-  	      </p>
-        </div>
-      {{/each}}
-      </div>
-  	</div>
 
 	</div>
 </template>

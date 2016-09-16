@@ -11,6 +11,10 @@ body
   @media (min-width 480px)
     box-sizing border-box
     border solid 1rem qColor
+    transition border-color ease .25s
+
+    &.colorCycle
+      animation colorCycle infinite linear 2.5s
 
   @media (max-width: 480px)
     &.show-mobile-menu

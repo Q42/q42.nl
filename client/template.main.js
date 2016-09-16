@@ -17,3 +17,9 @@ Template.main.helpers({
     return (FlowRouter.getRouteName() === 'home') ? 'inverted' : '';
   }
 });
+
+Template.main.events({
+  'mouseover .fun, mouseout .fun'() {
+    $(document.body).toggleClass('colorCycle');
+  }
+})

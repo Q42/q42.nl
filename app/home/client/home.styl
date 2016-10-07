@@ -1,16 +1,19 @@
 @import "../../../styles/variables.styl"
 
 @media (min-width 620px)
-  .block-full:first-child
-    margin-top 100px
-    margin-bottom 100px
+  #page.home
+    display flex
+    flex-direction column
+    justify-content space-between
+    height 100%
+    flex 1
 
 .newslist
   display flex
   align-items center
 
   @media (min-width 620px)
-    margin 0 5rem 5rem 5rem
+    margin 0 5rem
     overflow-x hidden
 
   & > h2, & > p, & > p a
@@ -86,3 +89,19 @@
       object-fit cover
       width 75px
       height 75px
+
+.home-footer
+  padding 20px 0
+  margin 0 2rem
+  color rgba(255,255,255,.5)
+  font-size 12px
+  text-align center
+  &:hover
+    color white
+
+  a
+    color rgba(255,255,255,.5)
+
+  .dot
+    display inline-block
+    padding 0 .5rem

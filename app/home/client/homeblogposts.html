@@ -1,7 +1,7 @@
 <template name="homeBlogposts">
   <section class="newslist">
     {{#each postWithAuthor}}
-      <div class="newsitem {{isByQer displayAuthor}}">
+      <div class="newsitem {{isByQer authorName}}">
         <a href="https://medium.com/q42bv/{{uniqueSlug}}">
           <div class="image col">
             <img src="{{#if img}}{{img}}{{else}}{{assetsUrl}}/images/next.svg{{/if}}" alt="">

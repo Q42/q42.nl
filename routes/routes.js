@@ -28,15 +28,18 @@ FlowRouter.triggers.enter([Triggers.setupPage]);
 
 const renderPage = (templateName) => {
   BlazeLayout.render("main", {
-    header: "header",
-    footer: "footer",
     body: templateName
   });
 };
 
 if (Meteor.isClient) {
+  BlazeLayout.setRoot('body');
+
   Template.registerHelper("subsReady", (name) => {
     return name ? FlowRouter.subsReady(name) : FlowRouter.subsReady();
+  });
+  Template.registerHelper("isRoute", (route) => {
+    return FlowRouter.getRouteName() === route;
   });
 }
 

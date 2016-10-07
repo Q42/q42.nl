@@ -1,6 +1,21 @@
 @import "variables.styl"
 
 body
+  font 300 1rem bodyFont
+  margin 0
+  background-color qColor
+  display flex
+  flex-direction column
+  justify-content space-between
+
+  @media (min-width 480px)
+    box-sizing border-box
+    border solid 1rem qColor
+    transition border-color ease .25s
+
+    &.colorCycle
+      animation colorCycle infinite linear 2.5s
+
   @media (max-width: 480px)
     &.show-mobile-menu
       overflow-x hidden
@@ -147,6 +162,9 @@ a
   .block-large
     position relative
     margin 0 auto 16px auto
+    &.full-bleed
+      @media (min-width 940px)
+        width 100%
     &.solid
       background #fff
       box-shadow 0 1px 1px rgba(0,0,0,.18)
@@ -265,8 +283,9 @@ a
     font-weight 700
     font-style italic
     color titleColor
+    text-shadow 8px 8px 0 black
     @media (min-width 480px)
-      font-size 80px
+      font-size 75px
 
 .inverted .block-full
   color white

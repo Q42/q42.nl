@@ -6,8 +6,20 @@ import { Utils } from '../lib/utils'
 
 Template.main.helpers({
   header: () => Meteor.settings.public.siteVersion === "en" ? "en_header" : "header",
-  footer: () => Meteor.settings.public.siteVersion === "en" ? "en_footer" : "footer",
+  footer: () => {
+    const isHome = FlowRouter.getRouteName() === "home";
+    if (!isHome) {
+      return Meteor.settings.public.siteVersion === "en" ? "en_footer" : "footer"
+    }
+    return null;
+  },
   inverted() {
     return (FlowRouter.getRouteName() === 'home') ? 'inverted' : '';
   }
 });
+
+Template.main.events({
+  'mouseover .fun, mouseout .fun'() {
+    $(document.body).toggleClass('colorCycle');
+  }
+})

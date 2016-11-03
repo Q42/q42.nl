@@ -52,7 +52,6 @@ FlowRouter.route("/", {
     renderPage(getTemplate("home"));
   },
   subscriptions() {
-    this.register("employeeCount", Meteor.subscribe("employeeCount"));
     this.register("latestMediumPosts", Meteor.subscribe("latestMediumPosts"));
   }
 });

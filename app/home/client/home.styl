@@ -8,6 +8,9 @@
     height 100%
     flex 1
 
+.home-headline p a
+  color black
+
 .newslist
   display flex
   align-items center
@@ -16,8 +19,6 @@
     margin 0 5rem
     overflow-x hidden
 
-  & > h2, & > p, & > p a
-    color white
   & > p
     margin 40px 0 !important
   & > h2, & > p
@@ -28,8 +29,7 @@
     smallcaps()
 
   @media (max-width 600px)
-    width 100%
-    flex-wrap wrap
+    display block
 
 .newsitem
   flex 1
@@ -41,7 +41,6 @@
 
   h2
     font-size 16px
-    color qColor
     margin-top 0
 
   a
@@ -49,14 +48,12 @@
     justify-content space-between
     align-items center
     border none
-    color white
     padding 0 2rem 1rem 2rem
     font-weight 300
     &:hover
-      color white
+      color black
       h2
         text-decoration underline
-        color qColor + #333
 
   p
     margin-top 0
@@ -66,7 +63,6 @@
     justify-content space-between
     align-items center
     font-size .8rem
-    color rgba(255,255,255,.7)
 
   .author
     float right
@@ -78,29 +74,23 @@
       height 32px
 
   .image
-    width 75px
+    width 45px
     height 75px
     margin-right 1rem
     overflow hidden
-    border solid 5px #333
-    border-radius 50%
-    background-color #222
+    text-align center
+    line-height 75px
     img
       object-fit cover
-      width 75px
-      height 75px
+      width 50px
+      height 50px
+      vertical-align middle
 
 .home-footer
   padding 20px 0
   margin 0 2rem
-  color rgba(255,255,255,.5)
   font-size 12px
   text-align center
-  &:hover
-    color white
-
-  a
-    color rgba(255,255,255,.5)
 
   .dot
     display inline-block

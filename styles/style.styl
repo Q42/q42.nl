@@ -74,10 +74,6 @@ a
   vertical-align middle
 
 #page
-  // animation fadeIn ease .25s
-  // animation-fill-mode forwards
-  // opacity 0
-
   background-color #f0f3ed
   transition transform .5s cubic-bezier(.87,-.41,.19,1.44)
   box-shadow -2px 0 20px rgba(0,0,0,.2)
@@ -225,8 +221,6 @@ a
   @media all and (max-width: 620px)
     padding 40px 0
 
-  .inverted h1
-    color white
   h1
     font italic 700 80px titleFont
     margin 0
@@ -283,15 +277,8 @@ a
     font-weight 700
     font-style italic
     color titleColor
-    text-shadow 8px 8px 0 black
     @media (min-width 480px)
       font-size 75px
-
-.inverted .block-full
-  color white
-
-.inverted .tagline
-  color white
 
 .block-large
   display flex
@@ -372,15 +359,6 @@ a
   .visual img, .visual video
     object-fit cover
     height 160px
-
-.inverted .container .block-small
-  color white
-  a
-    color white
-    border-color rgba(255,255,255,0.8)
-    &:hover
-      color qColor
-      border-color qColor
 
 .subcontent
   padding 32px

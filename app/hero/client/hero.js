@@ -10,6 +10,23 @@ import { FlowRouter } from 'meteor/kadira:flow-router'
 //   catch (e) {}
 // });
 
+Template.hero.events({
+  'click #bg-video-pause'(evt, tmpl) {
+    const videoEl = tmpl.find('#bg-video');
+    const buttonEl = evt.target;
+    let str = "";
+    if (videoEl.paused) {
+      videoEl.play();
+      str = '&#9612;&#9612; Pause video';
+      buttonEl.innerHTML = str;
+    } else {
+      videoEl.pause();
+      str = '&#9612;&#9612; Play video';
+      buttonEl.innerHTML = str;
+    }
+  }
+})
+
 Template.hero.helpers({
   show: function() {
     return (FlowRouter.getRouteName() === "home");

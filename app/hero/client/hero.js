@@ -10,6 +10,10 @@ import { FlowRouter } from 'meteor/kadira:flow-router'
 //   catch (e) {}
 // });
 
+Template.hero.onRendered(function() {
+  this.find('video').playbackRate = 0.75;
+});
+
 Template.hero.events({
   'click #bg-video-pause'(evt, tmpl) {
     const videoEl = tmpl.find('#bg-video');
@@ -21,7 +25,7 @@ Template.hero.events({
       buttonEl.innerHTML = str;
     } else {
       videoEl.pause();
-      str = '&#9612;&#9612; Play video';
+      str = '&#9654; Play video';
       buttonEl.innerHTML = str;
     }
   }

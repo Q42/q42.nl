@@ -16,6 +16,6 @@ Template.numCupsOfCoffeeSparkline.helpers({
   }
 });
 
-Template.numCupsOfCoffeeSparkline.onCreated(function() {
-  this.subscribe("coffeeCounterHistory");
-});
+// Template.numCupsOfCoffeeSparkline.onCreated(function() {
+//   this.subscribe("coffeeCounterHistory");
+// });

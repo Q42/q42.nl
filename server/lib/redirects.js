@@ -6,7 +6,7 @@ import { Picker } from 'meteor/meteorhacks:picker'
 
 const HTTP_REDIRECT_PERMANENT = 302;
 
-redirect(["/meteor", "/swift", "/interaction-engineering", "/girlcode", "/jumpstarts"],
+redirect(["/meteor", "/swift", "/interaction-engineering", "/jumpstarts"],
   "www.q42.nl", "www.q42.com");
 redirect(["/games", "/vacatures"], "www.q42.com", "www.q42.nl");
 

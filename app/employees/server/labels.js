@@ -42,7 +42,6 @@ const roles = {
 
 // Arbitrary selections
 const arbitrary = {
-  "Girl Code": "kristin lukas",
   "Codeuur": "lukas thijs kars johan",
   "Speelt nog World of Warcraft": "rahul richard benjamin tims ricardo",
   "Weet wat Spiffy is": "bob timl martin remco lukas sjoerd kars laurens" /* LOL! */,
@@ -51,8 +50,8 @@ const arbitrary = {
     "sjoerd", "jaapm", "kars", "timd", "guido", "arjen", "tomas",
     "leonard", "thijs"
   ],
-  "Heeft een baard": "rahul richard arian christiaan kamil jasperh marcel braml",
-  ">= 42": "stef johan",
+  "Heeft een baard": "rahul richard arian christiaan kamil jasperh marcel braml jeroen",
+  ">= 42": "stef johan kars",
   "Broers": "tom rob",
   "Tatoeage": "chris jeroen jasperh marcel tomas",
   "Voortgeplant": [

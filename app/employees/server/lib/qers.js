@@ -21,7 +21,7 @@ const currentQers = [
   { name: "Herman Banken", handle:"herman", web: "http://hermanbanken.nl/" },
   { name: "Jaap Taal", handle:"jaap" },
   { name: "Jaap Mengers", handle: "jaapm" },
-  { name: "Jan Jouke", handle: "janjouke", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
+  { name: "Jan-Jouke", handle: "janjouke", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
   { name: "Jasper Haggenburg", handle:"jasperh", web: "http://jpunt.nl" },
   { name: "Jasper Kaizer", handle:"jasper" },
   { name: "Jeroen Gijsman", handle:"jeroen" },

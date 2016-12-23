@@ -5,7 +5,7 @@
 
 
 http@1.2.10
-stylus@2.513.7
+stylus@2.513.8
 reactive-dict@1.1.8
 meteorhacks:kadira
 reactive-var@1.0.11
@@ -26,7 +26,7 @@ ejson@1.0.13
 spacebars@1.0.12
 check@1.2.4
 fastclick@1.0.13
-ecmascript@0.5.9
+ecmascript@0.6.1
 force-ssl@1.0.13
 standard-minifier-js@1.2.1
 modules@0.7.7

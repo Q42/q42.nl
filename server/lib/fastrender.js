@@ -1,4 +1,4 @@
-import { FastRender } from 'meteor/meteorhacks:fast-render'
+import { FastRender } from 'meteor/staringatlights:fast-render'
 
 FastRender.onAllRoutes(function() {
   this.subscribe("employeeCount");

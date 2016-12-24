@@ -44,8 +44,6 @@ logging@1.1.16
 mdg:seo@1.1.0
 meteor@1.6.0
 meteor-base@1.0.4
-meteorhacks:fast-render@2.16.0
-meteorhacks:inject-data@2.0.0
 meteorhacks:kadira@2.30.3
 meteorhacks:meteorx@1.4.1
 meteorhacks:picker@1.0.3
@@ -75,6 +73,8 @@ shell-server@0.2.1
 spacebars@1.0.13
 spacebars-compiler@1.0.13
 standard-minifier-js@1.2.1
+staringatlights:fast-render@2.16.3
+staringatlights:inject-data@2.0.5
 stylus@2.513.8
 templating@1.2.15
 templating-compiler@1.2.15

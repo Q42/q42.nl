@@ -28,7 +28,7 @@ Template.numLinesOfCode.helpers({
       linesWritten(date) {
         const timeWorked = new Date(date.getTime() - this.startsAt.getTime());
         const perc = Math.min(1, timeWorked.getTime() / this.workLength.getTime());
-        return this.codeLinesPerDay * perc;
+        return Math.max(0, this.codeLinesPerDay * perc);
       }
     }
 

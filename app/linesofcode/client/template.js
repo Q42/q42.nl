@@ -6,7 +6,7 @@ import { Employees } from '../../employees/lib/shared'
 
 Template.numLinesOfCode.helpers({
   numLinesOfCode() {
-    const numQers = Employees.find().count();
+    const numQers = Employees.find({labels:'Software Engineer'}).count();
     let counter = 0;
     let to = null;
 

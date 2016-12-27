@@ -84,6 +84,7 @@ const arbitrary = {
   "Troll": "benjamin",
   "Emojinaam": "taco roos",
   "Heeft the Wire gezien": "rahul jaapm jasperk chris braml jeroen wouter christiaan johan corina",
+  "Tomas en de Raketten": "tomas chris tobias korjan sjoerd jimmy",
 };
 
 _.each(_.extend(roles, arbitrary),

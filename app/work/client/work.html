@@ -43,7 +43,7 @@
       {{/with}}
     </div>
     <div class="body">
-      <h2>{{item.name}}</h2>
+      <h2>{{#if langEn}}{{item.name_en}}{{else}}{{item.name}}{{/if}}</h2>
       <h3>{{#if langEn}}{{item.slogan}}{{else}}{{item.slogan_nl}}{{/if}}</h3>
       {{#if langEn}}
         {{{item.intro}}}

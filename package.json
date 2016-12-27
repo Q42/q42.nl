@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Q42.nl and Q42.com websites",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "babel-runtime": "^6.18.0"
+  },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
     "postcss-easy-import": "^1.0.1"
@@ -24,7 +26,11 @@
   "postcss": {
     "plugins": {
       "postcss-easy-import": {},
-      "autoprefixer": {"browsers": ["last 2 versions"]}
+      "autoprefixer": {
+        "browsers": [
+          "last 2 versions"
+        ]
+      }
     }
   }
 }

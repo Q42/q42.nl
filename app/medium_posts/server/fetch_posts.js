@@ -3,7 +3,10 @@ import { Meteor } from 'meteor/meteor'
 import { Mongo } from 'meteor/mongo'
 import { MediumPosts } from '../lib/shared'
 
-const latestPostsUrl = 'https://medium.com/q42bv/tagged/news?format=json';
+const langEn = Meteor.settings.public.siteVersion === "en";
+// Since we can't filter by multiple tags, just grab English stories for q42.com
+const tag = langEn ? "en" : "news";
+const latestPostsUrl = `https://medium.com/q42bv/tagged/${tag}?format=json`;
 
 const MEDIUM_SCRIPT_EXECUTION_PREVENTION = '])}while(1);</x>';
 

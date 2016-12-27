@@ -16,7 +16,8 @@ Meteor.publishComposite("work", (type, category) => {
     "properties.date": 1,
   };
   const fields = {
-    name: 1, clientName: 1, image: 1,
+    clientName: 1, image: 1,
+    [langEn ? 'name_en' : 'name']: 1,
     [langEn ? 'intro' : 'intro_nl']: 1,
     [langEn ? 'slogan' : 'slogan_nl']: 1,
     ...alwaysPublishFields

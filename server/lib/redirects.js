@@ -31,7 +31,7 @@ function redirect(urls, from, to) {
     const match = () => from ? req.headers.host === from : true;
     if (match() && urls.indexOf(req.url) !== -1) {
       const destination = from ? `https://${to}${req.url}` : to;
-      console.log(`Redirect ${from} to ${destination}`);
+      console.log(`Redirect ${from ? from : req.url} to ${destination}`);
       res.writeHead(HTTP_REDIRECT_PERMANENT, {
         Location: destination
       });

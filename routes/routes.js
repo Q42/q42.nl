@@ -60,7 +60,7 @@ FlowRouter.route("/", {
 FlowRouter.route("/blog/post/:id/:title", {
   name: "blogpostRedirect",
   action() {
-    const title = encodeURIComponent(FlowRouter.getParam('title'));
+    const title = encodeURIComponent(FlowRouter.getParam('title').replace(/-/g, ' '));
     window.location.href = `https://medium.com/q42bv/search?q=${title}`;
   }
 });

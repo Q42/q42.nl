@@ -23,15 +23,15 @@ const roles = {
   "Interaction Engineer": "rahul johan roelfjan frank guido richard",
   "Q'er": allHandles,
   "Oprichter": "kars",
-  "Student": "herman tomas jimmy tobias sanderp",
-  "Ex-stagiair": "jeroen lukas chris bob timl tims kamil",
+  "Student": "herman tomas jimmy tobias sanderp mathijsb",
+  "Ex-stagiair": "jeroen lukas chris bob timl tims kamil roan",
   "Ex-klant": "gerard stef taco",
   "Ex-concullega": [
     "arjen", "sander", "bas", "guido", "jaap", "jasper", "jasperh", "johan",
     "roelfjan", "marcel", "mark", "mathijs", "michiel", "stef", "timd", "taco",
     "wouter", "corina", "silvy", "bram", "roos"
   ],
-  "Ex-ex-q'er": "sjoerd laurens suzanne",
+  "Ex-ex-q'er": "sjoerd laurens suzanne roan",
   "Ex-Fabriquer": "sander bram",
   "Mr. Sarien.net": "martin",
   "Google Expert": "kars christiaan rahul",
@@ -58,7 +58,7 @@ const arbitrary = {
     "martin", "chris", "mark", "kars", "bas", "cynthia", "gerard", "jaap",
     "jasper", "johan", "korjan", "michiel", "remco", "sander", "stef",
     "suzanne", "timd", "laurens", "taco", "bart", "kamil", "braml",
-    "lukas"
+    "lukas", "kristin"
   ],
   "Rijdt soms op een motor": "stef jeroen arian tom lukas bob jasperh chris",
   "Gaat binnenkort naar Microsoft": "michiel",

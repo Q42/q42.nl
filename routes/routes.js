@@ -78,6 +78,13 @@ FlowRouter.route("/blog/:whatever*", {
   }
 })
 
+FlowRouter.route("/vacatures", {
+  name: "vacaturesRedirect",
+  action() {
+    window.location.href = 'https://q42.homerun.co/';
+  }
+})
+
 /*****************************************************************************/
 // CUSTOM PAGES                                                               /
 /*****************************************************************************/
@@ -92,12 +99,6 @@ customPage({
   routeName: "swift",
   path: "/swift",
   tags: ["swift"]
-});
-
-customPage({
-  routeName: "vacatures",
-  path: "/vacatures",
-  tags: ["vacature"]
 });
 
 customPage({

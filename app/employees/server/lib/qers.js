@@ -11,7 +11,6 @@ const currentQers = [
   { name: "Christiaan Hees", handle:"christiaan", tumblr: "www-chees-info" },
   { name: "Corina Maduro", handle:"corina" },
   { name: "Cynthia Wijntje", handle:"cynthia" },
-  { name: "Eline Lubberts", handle: "eline", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
   { name: "Floris van der Breggen", handle: "floris", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
   { name: "Frank Raterink", handle:"frank", web: "http://www.franklabs.nl" },
   { name: "Gerard Dorst", handle:"gerard" },

@@ -17,6 +17,7 @@ const currentQers = [
   { name: "Guido Bouman", handle:"guido" },
   { name: "Guus Goossens", handle:"guus" },
   { name: "Herman Banken", handle:"herman", web: "http://hermanbanken.nl/" },
+  { name: "Hildo Bijl", handle: "hildo", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
   { name: "Jaap Taal", handle:"jaap" },
   { name: "Jaap Mengers", handle: "jaapm" },
   { name: "Jan-Jouke", handle: "janjouke", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },

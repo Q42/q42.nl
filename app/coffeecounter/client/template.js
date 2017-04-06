@@ -9,7 +9,8 @@ Template.numCupsOfCoffee.onCreated(function() {
 Template.numCupsOfCoffee.helpers({
   numCupsOfCoffee() {
     const coffeeCounter = CoffeeCounter.findOne();
-    if (coffeeCounter)
+    if (coffeeCounter) {
       return coffeeCounter.counter;
+    }
   }
 });

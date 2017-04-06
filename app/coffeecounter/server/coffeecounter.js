@@ -6,12 +6,12 @@ firebase.initializeApp({
 });
 
 const startOfDay = new Date(new Date().setHours(0,0,0,0)).toISOString();
-var coffeeRef = firebase.database().ref('coffee');
-var recentCoffee = coffeeRef.orderByChild('published_at').startAt(startOfDay);
+const coffeeRef = firebase.database().ref('coffee');
+const recentCoffee = coffeeRef.orderByChild('published_at').startAt(startOfDay);
 
 Meteor.publish('coffeeCounter', function() {
-  var counter = 0;
-  var initializing = true;
+  let counter = 0;
+  let initializing = true;
   recentCoffee.on('child_added', (id) => {
     counter++;
 

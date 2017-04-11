@@ -16,10 +16,13 @@ const fetchFromMedium = () => {
     if (err) return;
     const json = JSON.parse(res.content.replace(MEDIUM_SCRIPT_EXECUTION_PREVENTION, ''));
     if (json.success) {
-      MediumPosts.remove({});
+      MediumPosts.remove({
+        lang: Meteor.settings.public.siteVersion
+      });
       json.payload.posts.slice(0, 3).forEach(function(post) {
         const { title, virtuals, firstPublishedAt, uniqueSlug, displayAuthor } = post;
         MediumPosts.insert({
+          lang: Meteor.settings.public.siteVersion,
           title, firstPublishedAt, uniqueSlug, displayAuthor,
           imageId: virtuals.previewImage.imageId
         });
@@ -36,5 +39,7 @@ Meteor.startup(function() {
 });
 
 Meteor.publish("latestMediumPosts", function() {
-  return MediumPosts.find();
+  return MediumPosts.find({
+    lang: Meteor.settings.public.siteVersion
+  });
 });

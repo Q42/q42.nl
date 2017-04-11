@@ -8,7 +8,9 @@ const HTTP_REDIRECT_PERMANENT = 302;
 
 redirect(["/meteor", "/swift", "/interaction-engineering", "/girlcode", "/jumpstarts"],
   "www.q42.nl", "www.q42.com");
-redirect(["/games", "/vacatures"], "www.q42.com", "www.q42.nl");
+redirect(["/games"], "www.q42.com", "www.q42.nl");
+
+redirect(["/vacatures"], null, "https://q42.homerun.co/");
 
 redirect(["/accessibility", "/a11y"], null,
   "https://www.q42.com/interaction-engineering");
@@ -31,7 +33,7 @@ function redirect(urls, from, to) {
     const match = () => from ? req.headers.host === from : true;
     if (match() && urls.indexOf(req.url) !== -1) {
       const destination = from ? `https://${to}${req.url}` : to;
-      console.log(`Redirect ${from} to ${destination}`);
+      console.log(`Redirect ${from ? from : req.url} to ${destination}`);
       res.writeHead(HTTP_REDIRECT_PERMANENT, {
         Location: destination
       });

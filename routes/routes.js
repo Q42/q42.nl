@@ -60,7 +60,7 @@ FlowRouter.route("/", {
 FlowRouter.route("/blog/post/:id/:title", {
   name: "blogpostRedirect",
   action() {
-    const title = encodeURIComponent(FlowRouter.getParam('title'));
+    const title = encodeURIComponent(FlowRouter.getParam('title').replace(/-/g, ' '));
     window.location.href = `https://medium.com/q42bv/search?q=${title}`;
   }
 });
@@ -78,6 +78,13 @@ FlowRouter.route("/blog/:whatever*", {
   }
 })
 
+FlowRouter.route("/vacatures", {
+  name: "vacaturesRedirect",
+  action() {
+    window.location.href = 'https://q42.homerun.co/';
+  }
+})
+
 /*****************************************************************************/
 // CUSTOM PAGES                                                               /
 /*****************************************************************************/
@@ -92,12 +99,6 @@ customPage({
   routeName: "swift",
   path: "/swift",
   tags: ["swift"]
-});
-
-customPage({
-  routeName: "vacatures",
-  path: "/vacatures",
-  tags: ["vacature"]
 });
 
 customPage({
@@ -123,7 +124,7 @@ FlowRouter.route("/:page", {
   subscriptions(params) {
     if (_.contains(["over-q42", "about-q42"], params.page)){
       this.register("employees", Meteor.subscribe("employees"));
-      this.register("coffeeCounter", Meteor.subscribe("coffeeCounter"));
+      // this.register("coffeeCounter", Meteor.subscribe("coffeeCounter"));
       this.register("toilets", Meteor.subscribe("toilets"));
     }
     if (_.contains(["projecten", "projects"], params.page)){

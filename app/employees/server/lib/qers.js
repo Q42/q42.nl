@@ -44,7 +44,7 @@ const currentQers = [
   { name: "Remco Veldkamp", handle:"remco", web: "http://realstuffforabstractpeople.com/" },
   { name: "Ricardo Snoek", handle:"ricardo", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
   { name: "Richard Lems", handle:"richard" },
-  { name: "Roan Hageman", handle: "roan", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
+  { name: "Roan Hageman", handle: "roan" },
   { name: "Rob Lokhorst", handle:"rob" },
   { name: "Roelf-Jan de Vries", handle:"roelfjan", web: "http://www.roelf-jandevries.nl", tumblr: "roelfjandevries" },
   { name: "Roos Luteijn", handle:"roos", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },

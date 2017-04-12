@@ -3,14 +3,11 @@ import { Template } from 'meteor/templating'
 
 import { Employees } from '../../employees/lib/shared'
 
-const interval = null;
+let interval = null;
 
 Template.numLinesOfCode.onCreated(function() {
   this.linesOfCode = new ReactiveVar(0);
-  if (interval) {
-    Meteor.clearInterval(interval);
-  }
-  Meteor.setInterval(() => {
+  interval = Meteor.setInterval(() => {
     Meteor.call('linesOfCodeCounter', (err, res) => {
       this.linesOfCode.set(res);
     });
@@ -18,6 +15,10 @@ Template.numLinesOfCode.onCreated(function() {
   Meteor.call('linesOfCodeCounter', (err, res) => {
     this.linesOfCode.set(res);
   });
+});
+
+Template.numLinesOfCode.onDestroyed(function() {
+  Meteor.clearInterval(interval);
 });
 
 Template.numLinesOfCode.helpers({

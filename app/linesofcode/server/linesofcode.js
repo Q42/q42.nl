@@ -16,7 +16,7 @@ class Engineer {
     const timeWorkedInMinutes = Math.max(0, dateInMinutes - this.startsAtMinutes);
     const minutesWorkPerDay = this.hoursWorkPerDay * 60;
     const perc = Math.min(1, timeWorkedInMinutes / minutesWorkPerDay);
-    return this.codeLinesPerDay * perc;
+    return Math.round(this.codeLinesPerDay * perc);
   }
 }
 
@@ -28,15 +28,7 @@ function numLinesOfCode(date) {
   if (_.contains([0,6], date.getDay()))
     return 0;
 
-  let counter = 0;
-  let to = null;
-
-  let lines = 0;
-  _.times(numEngineers, (i) => lines += Engineers[i].linesWritten(date));
-  counter = Math.max(Math.round(lines), 0);
-
-  // console.log(`At ${date} we've written ${counter} lines of code.`);
-  return counter;
+  return Engineers.reduce((lines, engineer) => lines += engineer.linesWritten(date), 0);
 }
 
 Meteor.methods({

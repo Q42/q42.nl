@@ -12,16 +12,22 @@ const recentCoffee = coffeeRef.orderByChild('published_at').startAt(startOfDay);
 let counter = [];
 recentCoffee.on('child_added', (data) => {
   counter.push(data.val());
-
 });
 
 function countCoffeeToday() {
   counter = counter.filter(c => c.published_at > new Date(new Date().setHours(0,0,0,0)).toISOString());
-  console.log(`Coffee counter: ${counter.length} are from today.`);
   return counter.length;
 }
 
 Meteor.publish('coffeeCounter', function() {
   this.added('coffeeCounter', 'main', { counter: countCoffeeToday() });
+
+  const interval = Meteor.setInterval(() => {
+    this.changed('coffeeCounter', 'main', { counter: countCoffeeToday() });
+  }, 1000);
+  this.onStop(() => {
+    Meteor.clearInterval(interval);
+  });
+
   this.ready();
 });

@@ -4,7 +4,7 @@ import { _ } from 'meteor/underscore'
 
 import { Employees } from '../../employees/lib/shared'
 
-class Qer {
+class Engineer {
   constructor() {
     this.codeLinesPerDay = _.random(100, 600);
     this.hoursWorkPerDay = _.random(6, 8);
@@ -20,9 +20,9 @@ class Qer {
   }
 }
 
-let Qers = [];
-const numQers = Employees.find({labels:'Software Engineer'}).count();
-_.times(numQers, () => Qers.push(new Qer()));
+let Engineers = [];
+const numEngineers = Employees.find({labels:'Software Engineer'}).count();
+_.times(numEngineers, () => Engineers.push(new Engineer()));
 
 function numLinesOfCode(date) {
   if (_.contains([0,6], date.getDay()))
@@ -32,7 +32,7 @@ function numLinesOfCode(date) {
   let to = null;
 
   let lines = 0;
-  _.times(numQers, (i) => lines += Qers[i].linesWritten(date));
+  _.times(numEngineers, (i) => lines += Engineers[i].linesWritten(date));
   counter = Math.max(Math.round(lines), 0);
 
   // console.log(`At ${date} we've written ${counter} lines of code.`);

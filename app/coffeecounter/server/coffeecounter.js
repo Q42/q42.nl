@@ -12,12 +12,13 @@ const recentCoffee = coffeeRef.orderByChild('published_at').startAt(startOfDay);
 let counter = [];
 recentCoffee.on('child_added', (data) => {
   counter.push(data.val());
+
 });
 
 function countCoffeeToday() {
-  const coffee = counter.filter(c => c.published_at > new Date(new Date().setHours(0,0,0,0)).toISOString());
-  console.log(`Returning coffee: ${coffee.length} of ${counter.length} are from today.`);
-  return coffee.length;
+  counter = counter.filter(c => c.published_at > new Date(new Date().setHours(0,0,0,0)).toISOString());
+  console.log(`Coffee counter: ${counter.length} are from today.`);
+  return counter.length;
 }
 
 Meteor.publish('coffeeCounter', function() {

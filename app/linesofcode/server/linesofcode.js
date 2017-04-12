@@ -35,7 +35,7 @@ function numLinesOfCode(date) {
   _.times(numQers, (i) => lines += Qers[i].linesWritten(date));
   counter = Math.max(Math.round(lines), 0);
 
-  console.log(`At ${date} we've written ${counter} lines of code.`);
+  // console.log(`At ${date} we've written ${counter} lines of code.`);
   return counter;
 }
 

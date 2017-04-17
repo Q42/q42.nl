@@ -19,14 +19,28 @@ function countCoffeeToday() {
   return counter.length;
 }
 
+Meteor.methods({
+  addCoffee() {
+    coffeeRef.push().set({
+      coreid: 'q42.nl-test',
+      data: 'espresso',
+      event: 'store-coffee',
+      location: 'q020',
+      published_at: new Date().toISOString(),
+    });
+  }
+});
+
 Meteor.publish('coffeeCounter', function() {
   this.added('coffeeCounter', 'main', { counter: countCoffeeToday() });
 
-  const interval = Meteor.setInterval(() => {
+  const onChildAdded = (data) => {
     this.changed('coffeeCounter', 'main', { counter: countCoffeeToday() });
-  }, 1000);
+  }
+
+  recentCoffee.limitToLast(1).on('child_added', onChildAdded);
   this.onStop(() => {
-    Meteor.clearInterval(interval);
+    recentCoffee.limitToLast(1).off('child_added', onChildAdded);
   });
 
   this.ready();

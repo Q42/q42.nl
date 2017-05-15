@@ -25,7 +25,6 @@ diff-sequence@1.0.7
 ecmascript@0.7.2
 ecmascript-runtime@0.3.15
 ejson@1.0.13
-email@1.2.0
 fastclick@1.0.13
 force-ssl@1.0.14
 force-ssl-common@1.0.14
@@ -45,7 +44,6 @@ logging@1.1.17
 mdg:seo@1.1.0
 meteor@1.6.1
 meteor-base@1.0.4
-meteorhacks:kadira@2.30.3
 meteorhacks:meteorx@1.4.1
 meteorhacks:picker@1.0.3
 minifier-css@1.2.16
@@ -55,7 +53,6 @@ modules@0.8.1
 modules-runtime@0.7.10
 mongo@1.1.16
 mongo-id@1.0.6
-mongo-livedata@1.0.12
 npm-mongo@2.2.24
 observe-sequence@1.0.16
 ordered-dict@1.0.9

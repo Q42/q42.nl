@@ -23,7 +23,7 @@ const roles = {
   "Interaction Engineer": "rahul johan roelfjan frank guido richard",
   "Q'er": allHandles,
   "Oprichter": "kars",
-  "Student": "herman tomas jimmy tobias sanderp mathijsb",
+  "Student": "herman tomas jimmy tobias sanderp",
   "Ex-stagiair": "jeroen lukas chris bob timl tims kamil roan",
   "Ex-klant": "gerard stef taco",
   "Ex-concullega": [

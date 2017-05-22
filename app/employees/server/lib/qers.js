@@ -37,7 +37,6 @@ const currentQers = [
   { name: "Marcel Duin", handle:"marcel", web: "http://webglmarcel.q42.net/" },
   { name: "Mark van Straten", handle:"mark" },
   { name: "Martin Kool", handle:"martin", web: "http://martinkool.com/" },
-  { name: "Mathijs Bernson", handle: "mathijsb", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
   { name: "Mathijs Kadijk", handle: "mathijs", web: "http://mathijskadijk.nl/", tumblr: "mathijskadijk" },
   { name: "Michiel Post", handle:"michiel", web: "http://michielpost.nl/", tumblr: "michielpostnl" },
   { name: "Rahul Choudhury", handle:"rahul", tumblr: "primigenus" },

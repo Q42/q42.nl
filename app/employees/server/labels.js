@@ -18,7 +18,7 @@ const roles = {
   "Projectleider": "jasper korjan timd gerard laurens taco silvy braml janjouke",
   "Software Engineer": _.without(
     allHandles,
-    "stef", "cynthia", "suzanne", "corina", "silvy", "eline"
+    "stef", "cynthia", "suzanne", "corina", "silvy"
   ),
   "Interaction Engineer": "rahul johan roelfjan frank guido richard",
   "Q'er": allHandles,

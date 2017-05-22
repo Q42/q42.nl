@@ -15,8 +15,7 @@ Make sure your editor has support for .editorconfig, and .jshintrc.
 
 ## Add settings you need
 
-Create a `config/dev/settings.json` file containing the correct
-Kadira account information:
+Create a `config/dev/settings.json` file
 
 ```
 {
@@ -26,19 +25,11 @@ Kadira account information:
 	"private": {
 		"MONGO_URL": "...",
 		"MONGO_OPLOG_URL": "..."
-	},
-	"kadira": {
-		"appId": "...",
-		"appSecret": "..."
 	}
 }
 ```
 
-If you misconfigure Kadira, you'll just get console errors. You can get a hold
-of the keys in the "q42.nl" vault in 1Password.
-
-(if you use the config file as above, without actual values, the site will still
-	run, but with warnings/errors).
+(if you use the config file as above, without actual values, the site will still run, but with warnings/errors).
 
 ## Running the site locally
 

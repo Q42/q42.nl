@@ -18,12 +18,12 @@ const roles = {
   "Projectleider": "jasper korjan timd gerard laurens taco silvy braml janjouke",
   "Software Engineer": _.without(
     allHandles,
-    "stef", "cynthia", "suzanne", "corina", "silvy", "eline"
+    "stef", "cynthia", "suzanne", "corina", "silvy"
   ),
   "Interaction Engineer": "rahul johan roelfjan frank guido richard",
   "Q'er": allHandles,
   "Oprichter": "kars",
-  "Student": "herman tomas jimmy tobias sanderp mathijsb",
+  "Student": "herman tomas jimmy tobias sanderp",
   "Ex-stagiair": "jeroen lukas chris bob timl tims kamil roan",
   "Ex-klant": "gerard stef taco",
   "Ex-concullega": [

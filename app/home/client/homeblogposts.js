@@ -22,7 +22,9 @@ Template.homeBlogposts.helpers({
   },
 
   postWithAuthor() {
-    return MediumPosts.find();
+    return MediumPosts.find({
+      lang: Meteor.settings.public.siteVersion
+    });
   },
   author() {
     return Employees.findOne({name: this.displayAuthor});

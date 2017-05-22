@@ -1,31 +1,47 @@
-// import { Meteor } from 'meteor/meteor'
-// import { DDP } from 'meteor/ddp'
-// import { Mongo } from 'meteor/mongo'
-// import { Counts } from 'meteor/tmeasday:publish-counts'
-// import { _ } from 'meteor/underscore'
-//
-// const iotApi = DDP.connect("https://iot-api.scalingo.io");
-// const CoffeeCups = new Mongo.Collection("coffeecups", iotApi);
-//
-// Meteor.publish("coffeeCounter", function() {
-//   const yesterday = new Date(new Date().setHours(0,0,0,0)).toISOString();
-//   Counts.publish(this, "coffeeCups",
-//     CoffeeCups.find({published_at: {$gt: yesterday}}));
-// });
-//
-// Meteor.publish("coffeeCounterHistory", function() {
-//   const threeWeeks = 1000 * 60 * 60 * 24 * 21;
-//   let threeWeeksAgo = new Date().setHours(0,0,0,0) - threeWeeks;
-//   threeWeeksAgo = new Date(threeWeeksAgo).toISOString();
-//   const cups = CoffeeCups.find({published_at: {$gt: threeWeeksAgo}},
-//     {fields: {published_at: 1}});
-//
-//   const grouped = _.groupBy(cups.fetch(), (doc) => {
-//     return +new Date(doc.published_at).setHours(0,0,0,0);
-//   });
-//   const result = _.map(grouped, arr => arr.length).join(",");
-//
-//   // XXX: make this reactive to the above cursor if we want it to be live
-//   this.added("coffeecups", null, { values: result });
-//   this.ready();
-// });
+import { Meteor } from 'meteor/meteor'
+import firebase from 'firebase';
+
+firebase.initializeApp({
+  databaseURL: 'https://iot-api.firebaseio.com',
+});
+
+const startOfDay = new Date(new Date().setHours(0,0,0,0)).toISOString();
+const coffeeRef = firebase.database().ref('coffee');
+const recentCoffee = coffeeRef.orderByChild('published_at').startAt(startOfDay);
+
+let counter = [];
+recentCoffee.on('child_added', (data) => {
+  counter.push(data.val());
+});
+
+function countCoffeeToday() {
+  counter = counter.filter(c => c.published_at > new Date(new Date().setHours(0,0,0,0)).toISOString());
+  return counter.length;
+}
+
+Meteor.methods({
+  addCoffee() {
+    coffeeRef.push().set({
+      coreid: 'q42.nl-test',
+      data: 'espresso',
+      event: 'store-coffee',
+      location: 'q020',
+      published_at: new Date().toISOString(),
+    });
+  }
+});
+
+Meteor.publish('coffeeCounter', function() {
+  this.added('coffeeCounter', 'main', { counter: countCoffeeToday() });
+
+  const onChildAdded = (data) => {
+    this.changed('coffeeCounter', 'main', { counter: countCoffeeToday() });
+  }
+
+  recentCoffee.limitToLast(1).on('child_added', onChildAdded);
+  this.onStop(() => {
+    recentCoffee.limitToLast(1).off('child_added', onChildAdded);
+  });
+
+  this.ready();
+});

@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
-    "postcss-easy-import": "^2.0.0"
+    "postcss-easy-import": "^2.1.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -53,7 +53,7 @@ const arbitrary = {
   "Heeft een baard": "rahul richard arian christiaan kamil jasperh marcel braml jeroen",
   ">= 42": "stef johan kars",
   "Broers": "tom rob",
-  "Tatoeage": "chris jeroen jasperh marcel tomas",
+  "Tatoeage": "chris jeroen jasperh marcel tomas sahan",
   "Voortgeplant": [
     "martin", "chris", "mark", "kars", "bas", "cynthia", "gerard", "jaap",
     "jasper", "johan", "korjan", "michiel", "remco", "sander", "stef",
@@ -68,6 +68,7 @@ const arbitrary = {
     "kars", "rahul", "martin", "jaap", "mark", "remco", "kamil", "christiaan",
     "chris", "arian", "guus", "stef", "lukas", "taco", "wouter"
   ],
+  "Politicoloog": "sahan",
   "WWDC kaartje kwijtgeraakt": "tims",
   "Heeft Max Raabe live gezien": "kars martin laurens bob lukas",
   "Schoenmaat 42": "rahul chris arian guus christiaan mark taco",
@@ -76,14 +77,14 @@ const arbitrary = {
   "Kan stiekem best programmeren": "chris",
   "Namespace collision": [
     "jaap", "jaapm", "jasper", "jasperh", "timl", "tims",
-    "timd", "leonard", "gerard", "sander", "sanderp",
+    "timd", "sander", "sanderp",
     "bram", "braml"
   ],
   "Emigrant": "rahul",
   "Gewerkt met de Two Guys": "martin rahul richard",
   "Troll": "benjamin",
   "Emojinaam": "taco roos",
-  "Heeft the Wire gezien": "rahul jaapm jasperk chris braml jeroen wouter christiaan johan corina",
+  "Heeft the Wire gezien": "rahul jaapm jasperk chris braml jeroen wouter christiaan johan corina sahan",
   "Tomas en de Raketten": "tomas chris tobias korjan sjoerd jimmy",
 };
 

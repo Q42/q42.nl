@@ -11,22 +11,27 @@ const latestPostsUrl = `https://medium.com/q42bv/tagged/${tag}?format=json`;
 const MEDIUM_SCRIPT_EXECUTION_PREVENTION = '])}while(1);</x>';
 
 const fetchFromMedium = () => {
-  console.log('Start fetch from Medium...');
   HTTP.get(latestPostsUrl, (err, res) => {
-    if (err) return;
+    if (err) {
+      console.error('Unable to fetch medium posts', err);
+    }
     const json = JSON.parse(res.content.replace(MEDIUM_SCRIPT_EXECUTION_PREVENTION, ''));
-    if (json.success) {
+    if (json.success && json.payload.references.Post) {
       MediumPosts.remove({
         lang: Meteor.settings.public.siteVersion
       });
-      json.payload.posts.slice(0, 3).forEach(function(post) {
+      Object.keys(json.payload.references.Post).slice(0, 3).forEach(function(postId) {
+        const post = json.payload.references.Post[postId];
         const { title, virtuals, firstPublishedAt, uniqueSlug, displayAuthor } = post;
+        console.log('Inserting medium post ' + title);
         MediumPosts.insert({
           lang: Meteor.settings.public.siteVersion,
           title, firstPublishedAt, uniqueSlug, displayAuthor,
           imageId: virtuals.previewImage.imageId
         });
       });
+    } else {
+      console.error('Got payload without posts from medium', json);
     }
   });
 };

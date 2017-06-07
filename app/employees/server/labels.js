@@ -51,7 +51,7 @@ const arbitrary = {
     "leonard", "thijs"
   ],
   "Heeft een baard": "rahul richard arian christiaan kamil jasperh marcel braml jeroen",
-  ">= 42": "stef johan kars",
+  ">= 42": "stef johan kars jasper",
   "Broers": "tom rob",
   "Tatoeage": "chris jeroen jasperh marcel tomas sahan",
   "Voortgeplant": [

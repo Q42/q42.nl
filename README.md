@@ -20,7 +20,7 @@ Create a `config/dev/settings.json` file
 ```
 {
 	"public": {
-		"siteVersion": "nl", // or "en" to develop the .com site
+		"siteVersion": "nl" // or "en" to develop the .com site
 	},
 	"private": {
 		"MONGO_URL": "...",

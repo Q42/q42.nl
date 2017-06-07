@@ -5,8 +5,7 @@ import { MediumPosts } from '../lib/shared'
 
 const langEn = Meteor.settings.public.siteVersion === "en";
 // Since we can't filter by multiple tags, just grab English stories for q42.com
-const tag = langEn ? "en" : "news";
-const latestPostsUrl = `https://medium.com/q42bv/tagged/${tag}?format=json`;
+const latestPostsUrl = `https://medium.com/q42bv?format=json`;
 
 const MEDIUM_SCRIPT_EXECUTION_PREVENTION = '])}while(1);</x>';
 
@@ -20,15 +19,19 @@ const fetchFromMedium = () => {
       MediumPosts.remove({
         lang: Meteor.settings.public.siteVersion
       });
-      Object.keys(json.payload.references.Post).slice(0, 3).forEach(function(postId) {
-        const post = json.payload.references.Post[postId];
-        const { title, virtuals, firstPublishedAt, uniqueSlug, displayAuthor } = post;
-        console.log('Inserting medium post ' + title);
-        MediumPosts.insert({
-          lang: Meteor.settings.public.siteVersion,
-          title, firstPublishedAt, uniqueSlug, displayAuthor,
-          imageId: virtuals.previewImage.imageId
-        });
+      Object.keys(json.payload.references.Post)
+        .filter(k => !langEn || json.payload.references.Post[k].detectedLanguage === "en")
+        .slice(0, 3)
+        .forEach(function(postId) {
+          const post = json.payload.references.Post[postId];
+          const { title, virtuals, firstPublishedAt, uniqueSlug, displayAuthor } = post;
+          console.log(`Inserting medium post ${post.detectedLanguage} ${post.title}`);
+          MediumPosts.insert({
+            lang: Meteor.settings.public.siteVersion,
+            title, firstPublishedAt, uniqueSlug, displayAuthor,
+            imageId: virtuals.previewImage.imageId
+          }
+        );
       });
     } else {
       console.error('Got payload without posts from medium', json);

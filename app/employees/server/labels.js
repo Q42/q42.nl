@@ -20,11 +20,11 @@ const roles = {
     allHandles,
     "stef", "cynthia", "suzanne", "corina", "silvy", "karlijn"
   ),
-  "Interaction Engineer": "rahul johan roelfjan frank guido richard",
+  "Interaction Engineer": "johan roelfjan frank guido richard",
   "Q'er": allHandles,
   "Oprichter": "kars",
   "Student": "herman tomas jimmy tobias sanderp",
-  "Ex-stagiair": "jeroen lukas chris bob timl tims kamil roan",
+  "Ex-stagiair": "jeroen chris bob timl tims kamil roan",
   "Ex-klant": "gerard stef taco",
   "Ex-concullega": [
     "arjen", "sander", "bas", "guido", "jaap", "jasper", "jasperh", "johan",
@@ -34,7 +34,7 @@ const roles = {
   "Ex-ex-q'er": "sjoerd laurens suzanne roan",
   "Ex-Fabriquer": "sander bram",
   "Mr. Sarien.net": "martin",
-  "Google Expert": "kars christiaan rahul",
+  "Google Expert": "kars christiaan",
   "Hack the Planet": "timd floris karlijn",
   "Turtleblaze": "benjamin richard",
   "LessonUp": "kars martin bram",
@@ -43,14 +43,14 @@ const roles = {
 // Arbitrary selections
 const arbitrary = {
   "Codeuur": "lukas thijs kars johan",
-  "Speelt nog World of Warcraft": "rahul richard benjamin tims ricardo",
+  "Speelt nog World of Warcraft": "richard benjamin tims ricardo",
   "Weet wat Spiffy is": "bob timl martin remco lukas sjoerd kars laurens" /* LOL! */,
   "Team Wintersport": [
     "lukas", "bob", "chris", "mark", "jeroen", "stef", "roelfjan",
     "sjoerd", "jaapm", "kars", "timd", "guido", "arjen", "tomas",
     "leonard", "thijs"
   ],
-  "Heeft een baard": "rahul richard arian christiaan kamil jasperh marcel braml jeroen",
+  "Heeft een baard": "richard arian christiaan kamil jasperh marcel braml jeroen",
   ">= 42": "stef johan kars jasper",
   "Broers": "tom rob",
   "Tatoeage": "chris jeroen jasperh marcel tomas sahan",
@@ -65,26 +65,25 @@ const arbitrary = {
   "Voormalig stewardess": "cynthia",
   "Verdient minder dan Jasper": _.without(allHandles, "jasper"),
   "Google IO alumni": [
-    "kars", "rahul", "martin", "jaap", "mark", "remco", "kamil", "christiaan",
+    "kars", "martin", "jaap", "mark", "remco", "kamil", "christiaan",
     "chris", "arian", "guus", "stef", "lukas", "taco", "wouter"
   ],
   "Politicoloog": "sahan",
   "WWDC kaartje kwijtgeraakt": "tims",
   "Heeft Max Raabe live gezien": "kars martin laurens bob lukas",
-  "Schoenmaat 42": "rahul chris arian guus christiaan mark taco",
+  "Schoenmaat 42": "chris arian guus christiaan mark taco",
   "IQ boven de 200": "sjoerd",
-  "Blessure tijdens werktijd": "rahul guus",
+  "Blessure tijdens werktijd": "guus",
   "Kan stiekem best programmeren": "chris",
   "Namespace collision": [
     "jaap", "jaapm", "jasper", "jasperh", "timl", "tims",
     "timd", "sander", "sanderp",
     "bram", "braml"
   ],
-  "Emigrant": "rahul",
-  "Gewerkt met de Two Guys": "martin rahul richard",
+  "Gewerkt met de Two Guys": "martin richard",
   "Troll": "benjamin",
   "Emojinaam": "taco roos",
-  "Heeft the Wire gezien": "rahul jaapm jasperk chris braml jeroen wouter christiaan johan corina sahan",
+  "Heeft the Wire gezien": "jaapm jasperk chris braml jeroen wouter christiaan johan corina sahan",
   "Tomas en de Raketten": "tomas chris tobias korjan sjoerd jimmy",
 };
 

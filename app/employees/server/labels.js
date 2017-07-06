@@ -18,7 +18,7 @@ const roles = {
   "Projectleider": "jasper korjan timd gerard laurens taco silvy braml janjouke",
   "Software Engineer": _.without(
     allHandles,
-    "stef", "cynthia", "suzanne", "corina", "silvy"
+    "stef", "cynthia", "suzanne", "corina", "silvy", "karlijn"
   ),
   "Interaction Engineer": "rahul johan roelfjan frank guido richard",
   "Q'er": allHandles,
@@ -35,7 +35,7 @@ const roles = {
   "Ex-Fabriquer": "sander bram",
   "Mr. Sarien.net": "martin",
   "Google Expert": "kars christiaan rahul",
-  "Hack the Planet": "timd floris",
+  "Hack the Planet": "timd floris karlijn",
   "Turtleblaze": "benjamin richard",
   "LessonUp": "kars martin bram",
 };

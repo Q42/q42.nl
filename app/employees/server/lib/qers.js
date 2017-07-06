@@ -27,6 +27,7 @@ const currentQers = [
   { name: "Jimmy Aupperlee", handle:"jimmy" },
   { name: "Johan Huijkman", handle:"johan", tumblr: "huijkman" },
   { name: "Kamil Afsar", handle:"kamil" },
+  { name: "Karlijn Arts", handle:"karlijn", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
   { name: "Kars Veling", handle:"kars" },
   { name: "Korjan van Wieringen", handle:"korjan" },
   { name: "Kristin Rieping", handle:"kristin" },

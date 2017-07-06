@@ -48,7 +48,7 @@ const currentQers = [
   { name: "Roelf-Jan de Vries", handle:"roelfjan", web: "http://www.roelf-jandevries.nl", tumblr: "roelfjandevries" },
   { name: "Roos Luteijn", handle:"roos", imageStatic: "anonymous.jpg", imageAnimated: "anonymous.jpg" },
   { name: "Sahan Aydin" , handle:"sahan" },
-  { name: "Sebastian Lebato Genco", handle: "sebastian", imageStatic: "anonymous.jpg" },
+  { name: "Sebastián Lobato Genco", handle: "sebastian" },
   { name: "Sander de Vos", handle:"sander" },
   { name: "Sander Ploegsma", handle:"sanderp", web:"https://sanderp.nl" },
   { name: "Silvy van Houdt", handle:"silvy" },

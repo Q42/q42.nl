@@ -59,7 +59,7 @@ You need the following prerequisites:
  	 then authenticate using `gcloud auth login`.
  - Access to the static.q42.nl GCS bucket via
    https://console.developers.google.com/project/504623166341/storage/browser.
-   Ask Rahul or Lukas.
+   Ask Lukas.
 
 Since you need to deploy to two separate sites (q42.nl and q42.com), there's a
 script which will take care of both commands. Just run:

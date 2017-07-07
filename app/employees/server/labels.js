@@ -71,7 +71,7 @@ const arbitrary = {
   "Politicoloog": "sahan",
   "WWDC kaartje kwijtgeraakt": "tims",
   "Heeft Max Raabe live gezien": "kars martin laurens bob lukas",
-  "Schoenmaat 42": "chris arian guus christiaan mark taco",
+  "Schoenmaat 42": "chris arian guus christiaan mark taco sebastian",
   "IQ boven de 200": "sjoerd",
   "Blessure tijdens werktijd": "guus",
   "Kan stiekem best programmeren": "chris",

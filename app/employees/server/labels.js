@@ -60,6 +60,10 @@ const arbitrary = {
     "suzanne", "timd", "laurens", "taco", "bart", "kamil", "braml",
     "lukas", "kristin"
   ],
+  "Red hair don't care": "karlijn",
+  "Harry Potter lover": "karlijn",
+  "LP fanaat": "karlijn",
+  "Kan slecht tegen der verlies": "karlijn",
   "Rijdt soms op een motor": "stef jeroen arian tom lukas bob jasperh chris",
   "Gaat binnenkort naar Microsoft": "michiel",
   "Voormalig stewardess": "cynthia",

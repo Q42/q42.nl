@@ -64,9 +64,30 @@
       margin: 0;
       min-height: 100vh;
     }
+    noscript > div {
+     background-color: #222;
+     color: rgba(255, 255, 255, .9);
+     margin: auto;
+     padding: 1.5rem;
+     text-align: center;
+    }
+    noscript h1 {
+     font-style: italic;
+     font-weight: 700;
+     text-transform: uppercase;
+    }
+    noscript h2 {
+     font-style: italic;
+     margin-bottom: 2em;
+    }
+    noscript p {
+     font-size: 1.3rem;
+    }
     @media (min-width: 480px) { body { border: solid 1rem #84bc2d; } }
   </style>
 </head>
+
+<noscript><div><h1>Q42 bouwt aan websites en veel meer&hellip;</h1><h2>maar <em>wél</em> met JavaScript!</h2><p>Om gebruik te kunnen maken van onze website is het noodzakelijk om een webbrowser<br/>te gebruiker die JavaScript ondersteund en om JavaScript in te hebben geschakeld.</p></div></noscript>
 
 <template name="main">
   <div id="fb-root"></div>

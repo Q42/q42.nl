@@ -175,6 +175,7 @@ a
         z-index 99
         bottom 0
         left 1rem
+        transform translateZ(0)
 
       & + .visual
         height 100%
@@ -281,6 +282,8 @@ a
     &.full-bleed
       width auto
       margin -220px 0 16px 0
+    &.parallax
+      max-height 550px
 
   &.block-no-padding-after
     padding-bottom 0
@@ -303,8 +306,11 @@ a
   .visual
     flex 3
 
-  & > .visual img
-    background-color white
+  & > .visual
+    &.parallax__layer.parallax__layer--back
+      transform translateZ(-1px) scale(4)
+    img
+      background-color white
 
   .intro
     flex 5

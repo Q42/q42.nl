@@ -49,6 +49,9 @@ Template.workItem.helpers({
     if (item)
       return item.properties.pinnedPosition;
     return align;
+  },
+  sizeLarge() {
+    return Template.currentData().size === "large";
   }
 });
 

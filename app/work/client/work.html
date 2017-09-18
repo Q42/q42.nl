@@ -31,8 +31,8 @@
 
 <template name="workItem">
   {{#if item}}
-  <div class="block-{{size}} {{positionClass}}">
-    <div class="visual caption">
+  <div class="block-{{size}} {{positionClass}} {{#if sizeLarge}}parallax{{/if}}">
+    <div class="visual caption {{#if sizeLarge}}parallax__layer parallax__layer--back{{/if}}">
       {{#with imageThumbnail item.image}}
         <img src="{{file}}" alt="">
         {{#if title}}

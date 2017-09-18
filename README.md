@@ -1,3 +1,9 @@
+# This is not the code behind q42.nl and q42.com anymore!
+
+As of september 15th 2017 Q42 has a "new & improved" website. 
+
+The code is at https://github.com/Q42/qsite-2017, which is only accessible to employees of Q42.
+
 # Q42.nl & Q42.com [![Link](https://img.shields.io/website-up-down-green-red/https/www.q42.com.svg?maxAge=2592000)](https://www.q42.com) ![](https://img.shields.io/badge/nerds-happy-brightgreen.svg)
 
 We've published the source code to [q42.nl](https://q42.nl) and
